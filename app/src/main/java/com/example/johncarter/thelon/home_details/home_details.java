@@ -15,7 +15,6 @@ public class home_details extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
         setContentView(R.layout.activity_home_details);
         rb = (RatingBar) findViewById(R.id.ratingBar);
         rb.setNumStars(5);

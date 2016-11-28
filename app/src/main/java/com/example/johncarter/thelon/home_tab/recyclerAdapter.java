@@ -53,15 +53,15 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.ViewHo
 
         public ImageView itemImage, joinBtn, referBtn;
         public TextView activityName, activityDetails;
+        int joinClick = 0, referClick = 0;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            itemImage = (ImageView) itemView.findViewById(R.id.itemImage);
-            activityName = (TextView) itemView.findViewById(R.id.activityName);
-            activityDetails = (TextView) itemView.findViewById(R.id.activityDetails);
-            joinBtn = (ImageView) itemView.findViewById(R.id.joinBtn);
-            referBtn = (ImageView) itemView.findViewById(R.id.referBtn);
-
+            itemImage = (ImageView) itemView.findViewById(R.id.antonshit);
+//            activityName = (TextView) itemView.findViewById(R.id.activityName);
+//            activityDetails = (TextView) itemView.findViewById(R.id.activityDetails);
+            joinBtn = (ImageView) itemView.findViewById(R.id.hearty);
+            referBtn = (ImageView) itemView.findViewById(R.id.share);
             itemImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -74,17 +74,28 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.ViewHo
             joinBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Snackbar.make(v, "Click detected on joinBtn", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                    if(joinClick == 0){
+                        joinBtn.setImageResource(R.drawable.ic_heart_red);
+                        joinClick = 1;
+                    }else {
+                        joinBtn.setImageResource(R.drawable.ic_heart);
+                        joinClick = 0;
+                    }
                 }
             });
 
             referBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Snackbar.make(v, "Click detected on referBtn", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                    if(referClick == 0){
+                        referBtn.setImageResource(R.drawable.ic_arrow_red);
+                        referClick = 1;
+                    }else {
+                        referBtn.setImageResource(R.drawable.ic_arrow);
+                        referClick =0 ;
+                    }
                 }
             });
-
 
 
         }
@@ -100,8 +111,8 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.ViewHo
     @Override
     public void onBindViewHolder(recyclerAdapter.ViewHolder holder, int position) {
         holder.itemImage.setImageResource(images[position]);
-        holder.activityName.setText(actName[position]);
-        holder.activityDetails.setText(actDetails[position]);
+//        holder.activityName.setText(actName[position]);
+//        holder.activityDetails.setText(actDetails[position]);
     }
 
     @Override

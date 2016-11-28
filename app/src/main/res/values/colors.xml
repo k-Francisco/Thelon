@@ -4,7 +4,11 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="home">#E0162B</color>FA6900
+    <color name="home">#E0162B</color>
     <color name="notification">#FA6900</color>
     <color name="leaderboard">#483078</color>
+
+    <color name="status_bar_home">#FF2424</color>
+    <color name="status_bar_notification">#E27C4F</color>
+    <color name="status_bar_leaderboard">#462f9c</color>
 </resources>
