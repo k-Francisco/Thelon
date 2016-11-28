@@ -1,7 +1,9 @@
 package com.example.johncarter.thelon.home_tab;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -67,7 +69,12 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.ViewHo
                 public void onClick(View v) {
                     Intent intent = new Intent();
                     intent.setClass(v.getContext(),home_details.class);
-                    v.getContext().startActivity(intent);
+
+                    ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat
+                            .makeCustomAnimation(v.getContext(), R.anim.fade_in, R.anim.fade_out)
+                            .makeSceneTransitionAnimation((Activity) v.getContext(), itemImage, "home_details_trans");
+                    v.getContext().startActivity(intent, activityOptionsCompat.toBundle());
+
                 }
             });
 

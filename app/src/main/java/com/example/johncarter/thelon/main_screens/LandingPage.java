@@ -23,6 +23,7 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 
+import butterknife.ButterKnife;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 
 public class LandingPage extends AppCompatActivity implements BottomNavigation.OnMenuItemSelectionListener {
@@ -35,7 +36,7 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_page);
-
+        ButterKnife.bind(this);
 
         bottomNavigation = (BottomNavigation) findViewById(R.id.BottomNavigation);
         bottomNavigation.setOnMenuItemClickListener(this);
@@ -68,10 +69,13 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                 .addDrawerItems(
                         item1,
                         item2,
-                        item3
+                        item3,
+                        new DividerDrawerItem(),
+                        new PrimaryDrawerItem().withName("Help & Feedback"),
+                        new PrimaryDrawerItem().withName("Rebort Bug"),
+                        new PrimaryDrawerItem().withName("About Ethelon")
 
                 )
-                .addStickyDrawerItems(new PrimaryDrawerItem().withName("I dont know"))
                 .buildForFragment();
 
 
