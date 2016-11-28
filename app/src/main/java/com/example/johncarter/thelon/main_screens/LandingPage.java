@@ -1,5 +1,6 @@
 package com.example.johncarter.thelon.main_screens;
 
+import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
@@ -31,6 +32,7 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_landing_page);
 
         bottomNavigation = (BottomNavigation) findViewById(R.id.BottomNavigation);

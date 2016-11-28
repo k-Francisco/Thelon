@@ -25,7 +25,8 @@
         <activity android:name=".login_signup.Login" />
         <activity android:name=".login_signup.Signup" />
         <activity android:name=".leaderboard_tab.LeaderBoard" />
-        <activity android:name=".home_tab.Home"></activity>
+        <activity android:name=".home_tab.Home" />
+        <activity android:name=".home_details.home_details"></activity>
     </application>
 
 </manifest>

@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.johncarter.thelon.R;
+import com.example.johncarter.thelon.home_details.home_details;
 
 /**
  * Created by john carter on 11/28/2016.
@@ -64,9 +65,9 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.ViewHo
             itemImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    Intent intent = new Intent();
-//                    intent.setClass(v.getContext(),ActivityDetails.class);
-//                    v.getContext().startActivity(intent);
+                    Intent intent = new Intent();
+                    intent.setClass(v.getContext(),home_details.class);
+                    v.getContext().startActivity(intent);
                 }
             });
 

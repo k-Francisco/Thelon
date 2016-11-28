@@ -12,7 +12,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/e"
+        android:src="@drawable/emovie"
         android:id="@+id/login_e"
         android:scaleX="1"
         android:scaleY="1"

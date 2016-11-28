@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
+
     <FrameLayout
         android:id="@+id/menu_frame"
         android:layout_width="match_parent"
@@ -15,6 +16,10 @@
     </FrameLayout>
 
 
+    <include
+        layout="@layout/home_drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <it.sephiroth.android.library.bottomnavigation.BottomNavigation
         android:id="@+id/BottomNavigation"
