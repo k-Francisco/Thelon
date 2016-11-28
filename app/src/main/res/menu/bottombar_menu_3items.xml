@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/black"
+    app:bbn_alwaysShowLabels="false"
+    app:bbn_itemColorActive="#ffffff"
+    app:bbn_badgeColor="#FFFF0000"
+    app:bbn_rippleColor="#8c8c8c">
+    <item
+        android:id="@+id/bbn_item1"
+        android:color="@color/home"
+        android:icon="@drawable/bottombar_home"
+        android:title="Home" />
+    <item
+        android:id="@+id/bbn_item2"
+        android:color="@color/notification"
+        android:icon="@drawable/bottombar_notification"
+        android:title="Notifications" />
+    <item
+        android:id="@+id/bbn_item3"
+        android:color="@color/leaderboard"
+        android:icon="@drawable/bottombar_podium"
+        android:title="Leaderboard" />
+
+</menu>
