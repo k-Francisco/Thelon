@@ -6,6 +6,7 @@ import android.support.annotation.IdRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -14,6 +15,7 @@ import com.example.johncarter.thelon.fragments.HomeFragment;
 import com.example.johncarter.thelon.fragments.LeaderBoardFragment;
 import com.example.johncarter.thelon.fragments.NotificationFragment;
 import com.example.johncarter.thelon.fragments.UserProfileFragment;
+import com.mikepenz.community_material_typeface_library.CommunityMaterial;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
@@ -22,12 +24,15 @@ import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
 import butterknife.ButterKnife;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 
 public class LandingPage extends AppCompatActivity implements BottomNavigation.OnMenuItemSelectionListener {
 
+    PrimaryDrawerItem home, portfolio, badges, editProfile, settings, logOut, helpAndFeedback, reportBug, aboutEthelon;
+    AccountHeader accountHeader;
     BottomNavigation bottomNavigation;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
@@ -38,54 +43,56 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
         setContentView(R.layout.activity_landing_page);
         ButterKnife.bind(this);
 
+        //Initializes bottom bar and onclick listener
         bottomNavigation = (BottomNavigation) findViewById(R.id.BottomNavigation);
         bottomNavigation.setOnMenuItemClickListener(this);
-        fragmentManager = getFragmentManager();
+
+        //Initializes window
         window = this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        //window.setStatusBarColor(ContextCompat.getColor(this, R.color.home));
 
 
-        PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName("Settings").withIcon(R.drawable.ic_heart)
-                .withSubItems(new SecondaryDrawerItem().withName("sub item"));
-        PrimaryDrawerItem item2 = new PrimaryDrawerItem().withIdentifier(2).withName("Edit Profile");
-        PrimaryDrawerItem item3 = new PrimaryDrawerItem().withIdentifier(3).withName("Log out");
-
-        AccountHeader accountHeader = new AccountHeaderBuilder()
-                .withActivity(this)
-                .withHeaderBackground(R.drawable.home_backpic)
-                .addProfiles(
-                        new ProfileDrawerItem().withName("Kristian Francisco")
-                                .withEmail("piattosnovalays@gmail.com")
-                                .withIcon(getResources().getDrawable(R.drawable.profile_pic))
-                )
-                .build();
+        //sets the first screen on the home fragment and sets the status bar color the same as the bottom bar color
+        fragmentManager = getFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.menu_frame, new HomeFragment());
+        fragmentTransaction.commit();
+        window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_home));
 
 
+
+        //Initializes drawer items
+        initNavDrawerItems();
+
+        //Initializes drawer profile
+        initNavDrawerProfile();
+
+        //creates the navigation drawer with the profile and items
         Drawer drawer = new DrawerBuilder()
                 .withAccountHeader(accountHeader)
                 .withActivity(this)
                 .addDrawerItems(
-                        item1,
-                        item2,
-                        item3,
+                        home,
+                        portfolio,
+                        badges,
+                        editProfile,
+                        settings,
+                        logOut,
                         new DividerDrawerItem(),
-                        new PrimaryDrawerItem().withName("Help & Feedback"),
-                        new PrimaryDrawerItem().withName("Rebort Bug"),
-                        new PrimaryDrawerItem().withName("About Ethelon")
+                        helpAndFeedback,
+                        reportBug,
+                        aboutEthelon
 
                 )
+                .withSelectedItem(0)
                 .buildForFragment();
 
 
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.menu_frame, new HomeFragment());
-        fragmentTransaction.commit();
-
-        window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_home));
 
     }
+
+
 
     @Override
     public void onMenuItemSelect(@IdRes int i, int i1, boolean b) {
@@ -97,7 +104,6 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                 fragmentTransaction.setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right);
                 fragmentTransaction.replace(R.id.menu_frame, new HomeFragment(), "home");
                 fragmentTransaction.commit();
-
                 window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_home));
 
                 break;
@@ -106,7 +112,6 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                 fragmentTransaction.setCustomAnimations(R.animator.slide_in_right, R.animator.slide_out_left);
                 fragmentTransaction.replace(R.id.menu_frame, new NotificationFragment(), "notification");
                 fragmentTransaction.commit();
-
                 window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_notification));
                 break;
 
@@ -115,7 +120,6 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                 fragmentTransaction.setCustomAnimations(R.animator.slide_in_right, R.animator.slide_out_left);
                 fragmentTransaction.replace(R.id.menu_frame, new LeaderBoardFragment(), "leaderboard");
                 fragmentTransaction.commit();
-
                 window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_leaderboard));
                 break;
         }
@@ -127,6 +131,87 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
     public void onMenuItemReselect(@IdRes int i, int i1, boolean b) {
 
     }
+
+    private void initNavDrawerProfile() {
+
+        accountHeader = new AccountHeaderBuilder()
+                .withActivity(this)
+                .withHeaderBackground(R.drawable.home_backpic)
+                .addProfiles(
+                        new ProfileDrawerItem().withName("Kristian Francisco")
+                                .withEmail("piattosnovalays@gmail.com")
+                                .withIcon(getResources().getDrawable(R.drawable.profile_pic))
+                )
+                .withOnAccountHeaderProfileImageListener(new AccountHeader.OnAccountHeaderProfileImageListener() {
+                    @Override
+                    public boolean onProfileImageClick(View view, IProfile profile, boolean current) {
+                        fragmentTransaction = fragmentManager.beginTransaction();
+                        fragmentTransaction.setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right);
+                        fragmentTransaction.replace(R.id.menu_frame, new UserProfileFragment(), "home");
+                        fragmentTransaction.commit();
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onProfileImageLongClick(View view, IProfile profile, boolean current) {
+                        return false;
+                    }
+                })
+                .build();
+
+    }
+
+
+
+    private void initNavDrawerItems() {
+
+
+        home = new PrimaryDrawerItem()
+                .withIdentifier(0)
+                .withName("Home")
+                .withIcon(CommunityMaterial.Icon.cmd_home);
+
+        portfolio = new PrimaryDrawerItem()
+                .withIdentifier(1)
+                .withName("Portfolio")
+                .withIcon(CommunityMaterial.Icon.cmd_folder_image);
+
+        badges = new PrimaryDrawerItem()
+                .withIdentifier(2)
+                .withName("Badges")
+                .withIcon(CommunityMaterial.Icon.cmd_ribbon);
+
+        editProfile = new PrimaryDrawerItem()
+                .withIdentifier(3)
+                .withName("Edit Profile")
+                .withIcon(CommunityMaterial.Icon.cmd_account_settings_variant);
+
+        settings = new PrimaryDrawerItem()
+                .withIdentifier(4)
+                .withName("Settings")
+                .withIcon(CommunityMaterial.Icon.cmd_settings);
+
+        logOut = new PrimaryDrawerItem()
+                .withIdentifier(5)
+                .withName("Log Out")
+                .withIcon(CommunityMaterial.Icon.cmd_logout);
+
+        helpAndFeedback = new PrimaryDrawerItem()
+                .withIdentifier(6)
+                .withName("Help & Feedback")
+                .withIcon(CommunityMaterial.Icon.cmd_help);
+
+        reportBug = new PrimaryDrawerItem()
+                .withIdentifier(7)
+                .withName("Report Bug")
+                .withIcon(CommunityMaterial.Icon.cmd_bug);
+
+        aboutEthelon = new PrimaryDrawerItem()
+                .withIdentifier(8)
+                .withName("About Ethelon")
+                .withIcon(CommunityMaterial.Icon.cmd_account_box_outline);
+    }
+
 
 
 
