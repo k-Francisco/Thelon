@@ -31,8 +31,11 @@
             android:name=".main_screens.Settings"
             android:label="@string/title_activity_settings"
             android:theme="@style/NavDrawerItems" />
-        <activity android:name=".Portfolio"
+        <activity android:name=".portfolio.Portfolio"
             android:theme="@style/NavDrawerItems" ></activity>
+
     </application>
 
 </manifest>
+
+

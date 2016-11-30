@@ -2,6 +2,7 @@
     <string name="app_name">Thelon</string>
     <string name="signup"><u>Sign up</u></string>
     <string name="login"><u>Log in</u></string>
+    <string name="view_more"><u>View More</u></string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -26,6 +26,8 @@ public class home_details extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_home_details);
 
+
+
 //        Slide slide = new Slide();
 //        slide.setInterpolator(new DecelerateInterpolator());
 //        slide.addTarget(R.id.actTitle);

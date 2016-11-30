@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.example.johncarter.thelon.Portfolio;
+import com.example.johncarter.thelon.portfolio.Portfolio;
 import com.example.johncarter.thelon.R;
 import com.example.johncarter.thelon.fragments.HomeFragment;
 import com.example.johncarter.thelon.fragments.LeaderBoardFragment;
@@ -26,7 +26,6 @@ import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
-import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 

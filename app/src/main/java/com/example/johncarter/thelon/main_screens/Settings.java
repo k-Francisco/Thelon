@@ -16,7 +16,7 @@ import butterknife.ButterKnife;
 
 public class Settings extends ActionBarActivity {
 
-    @Bind(R.id.toolbar)
+    @Bind(R.id.nav_toolbar)
     Toolbar toolbar;
     Window window;
 
@@ -32,7 +32,7 @@ public class Settings extends ActionBarActivity {
         window.setEnterTransition(transition);
         window.setExitTransition(transition);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.nav_toolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
