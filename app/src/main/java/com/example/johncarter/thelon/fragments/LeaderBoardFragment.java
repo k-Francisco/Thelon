@@ -3,8 +3,11 @@ package com.example.johncarter.thelon.fragments;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
 import android.view.LayoutInflater;
@@ -23,28 +26,26 @@ import com.example.johncarter.thelon.leaderboard_tab.LeaderBoardController;
 public class LeaderBoardFragment extends Fragment {
 
 
-    FrameLayout fm;
+    FrameLayout fl;
+    RecyclerView.LayoutManager layoutManager;
+    RecyclerView.Adapter adapter;
 
-    public LeaderBoardFragment() {
-        // Required empty public constructor
-    }
-
-
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.activity_leader_board, container, false);
-        fm = (FrameLayout) rootView.findViewById(R.id.menu_frame);
-        ListView listView = (ListView) rootView.findViewById(R.id.leaderboard_listView);
-        LeaderBoardController leaderBoardController = new LeaderBoardController();
-        LeaderBoardAdapter leaderBoardAdapter = new LeaderBoardAdapter(rootView.getContext(), R.layout.leaderboard_list, leaderBoardController.getLeaderBoard());
-        listView.setAdapter(leaderBoardAdapter);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.leaderboard_layout, container, false);
+        fl = (FrameLayout) rootView.findViewById(R.id.frame1);
 
+        RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.recView);
+        layoutManager = new LinearLayoutManager(rootView.getContext());
+        recyclerView.setLayoutManager(layoutManager);
 
+        adapter = new LeaderBoardAdapter();
+        recyclerView.setAdapter(adapter);
         return rootView;
-
-
     }
+
+
+
 
 }

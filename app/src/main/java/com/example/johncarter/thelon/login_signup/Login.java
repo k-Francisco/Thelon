@@ -9,15 +9,18 @@ import android.transition.Transition;
 import android.transition.TransitionInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.johncarter.thelon.main_screens.LandingPage;
 import com.example.johncarter.thelon.R;
+import com.example.johncarter.thelon.main_screens.LandingPageFoundation;
 
 public class Login extends AppCompatActivity implements View.OnClickListener{
 
-    private TextView mSignup;
+    private TextView mSignup, mLogin;
     private Button mLoginButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +34,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         }
 
         mSignup = (TextView) findViewById(R.id.signup);
+        mLogin = (EditText) findViewById(R.id.emailTxt);
         mLoginButton = (Button) findViewById(R.id.button);
+
 
 
     }
@@ -39,6 +44,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         Intent intent;
+        String name = String.valueOf(mLogin.getText());
         switch (v.getId()){
 
             case  R.id.signup:
@@ -47,10 +53,19 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                 finish();
                 break;
             case R.id.button:
-                intent = new Intent(Login.this, LandingPage.class);
-                startActivity(intent);
-                finish();
-                break;
+                if(name.equals("volunteer") ) {
+                    intent = new Intent(Login.this, LandingPage.class);
+//                intent.putExtra("username", mLogin.getText());
+                    startActivity(intent);
+                    finish();
+                    break;
+                }
+                else if(name.equals("foundation")) {
+                    intent = new Intent(Login.this, LandingPageFoundation.class);
+                    startActivity(intent);
+                    finish();
+                    break;
+                }
         }
     }
 }

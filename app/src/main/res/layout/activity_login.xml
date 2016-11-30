@@ -83,7 +83,8 @@
             android:hint="Email"
             android:gravity="center"
             android:background="@null"
-            android:maxLines="1"/>
+            android:maxLines="1"
+            android:id="@+id/emailTxt" />
 
         <View
             android:layout_width="match_parent"

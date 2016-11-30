@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="140dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/badgeImage"
+        android:contentDescription="@null"
+        android:src="@drawable/a"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:elevation="10dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:text="Name of Badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14dp"
+        android:id="@+id/badgeName"
+        android:textStyle="bold"
+        android:layout_below="@+id/badgeImage"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="5dp"
+        android:layout_marginTop="10dp" />
+
+</RelativeLayout>

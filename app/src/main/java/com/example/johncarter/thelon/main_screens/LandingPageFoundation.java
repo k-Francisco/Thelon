@@ -3,23 +3,25 @@ package com.example.johncarter.thelon.main_screens;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.example.johncarter.thelon.portfolio.Portfolio;
+
 import com.example.johncarter.thelon.R;
+import com.example.johncarter.thelon.admin_side.ActivityList_admin;
+import com.example.johncarter.thelon.admin_side.AdminHomeFragment;
 import com.example.johncarter.thelon.fragments.BadgeFragment;
 import com.example.johncarter.thelon.fragments.GifWebviewFragment;
 import com.example.johncarter.thelon.fragments.HomeFragment;
 import com.example.johncarter.thelon.fragments.LeaderBoardFragment;
 import com.example.johncarter.thelon.fragments.NotificationFragment;
-import com.example.johncarter.thelon.fragments.UserProfileFragment;
 import com.example.johncarter.thelon.login_signup.Login;
+import com.example.johncarter.thelon.portfolio.Portfolio;
 import com.example.johncarter.thelon.profile_tab.ProfileActivity;
 import com.mikepenz.community_material_typeface_library.CommunityMaterial;
 import com.mikepenz.materialdrawer.AccountHeader;
@@ -35,7 +37,11 @@ import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import butterknife.ButterKnife;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 
-public class LandingPage extends AppCompatActivity implements BottomNavigation.OnMenuItemSelectionListener {
+/**
+ * Created by dell on 12/1/2016.
+ */
+
+public class LandingPageFoundation extends AppCompatActivity implements BottomNavigation.OnMenuItemSelectionListener {
 
     PrimaryDrawerItem home, portfolio, badges, editProfile, settings, logOut, helpAndFeedback, reportBug, aboutEthelon;
     AccountHeader accountHeader;
@@ -44,10 +50,11 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
     FragmentTransaction fragmentTransaction;
     Window window;
     Drawer drawer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_landing_page);
+        setContentView(R.layout.activity_landing_pagee);
         ButterKnife.bind(this);
 
         //Initializes bottom bar and onclick listener
@@ -63,10 +70,9 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
         //sets the first screen on the home fragment and sets the status bar color the same as the bottom bar color
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.menu_frame, new HomeFragment());
+        fragmentTransaction.replace(R.id.menu_frame, new AdminHomeFragment());
         fragmentTransaction.commit();
         window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_home));
-
 
 
         //Initializes drawer items
@@ -98,12 +104,11 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
     }
 
 
-
     @Override
     public void onMenuItemSelect(@IdRes int i, int i1, boolean b) {
 
 
-        switch (i1){
+        switch (i1) {
             case 0:
                 fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right);
@@ -130,7 +135,6 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                 break;
         }
     }
-
 
 
     @Override
@@ -171,7 +175,6 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
     }
 
 
-
     private void initNavDrawerItems() {
 
 
@@ -188,7 +191,7 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
 
-                        Intent intent = new Intent(LandingPage.this, Portfolio.class);
+                        Intent intent = new Intent(LandingPageFoundation.this, Portfolio.class);
                         startActivity(intent);
                         return false;
                     }
@@ -198,18 +201,18 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                 .withIdentifier(2)
                 .withName("Badges")
                 .withIcon(CommunityMaterial.Icon.cmd_ribbon)
-                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener(){
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
 
-            @Override
-            public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-                fragmentTransaction = fragmentManager.beginTransaction();
+                    @Override
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                        fragmentTransaction = fragmentManager.beginTransaction();
                         fragmentTransaction.setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right);
                         fragmentTransaction.replace(R.id.menu_frame, new BadgeFragment());
                         fragmentTransaction.commit();
 
-                return false;
-            }
-        });
+                        return false;
+                    }
+                });
 
         editProfile = new PrimaryDrawerItem()
                 .withIdentifier(3)
@@ -224,7 +227,7 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
 
-                        Intent intent = new Intent(LandingPage.this, Settings.class);
+                        Intent intent = new Intent(LandingPageFoundation.this, Settings.class);
                         startActivity(intent);
                         return false;
                     }
@@ -239,7 +242,7 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
 
-                        Intent intent = new Intent(LandingPage.this, Login.class);
+                        Intent intent = new Intent(LandingPageFoundation.this, Login.class);
                         startActivity(intent);
                         finish();
                         return false;
@@ -261,8 +264,5 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                 .withName("About Ethelon")
                 .withIcon(CommunityMaterial.Icon.cmd_account_box_outline);
     }
-
-
-
 
 }

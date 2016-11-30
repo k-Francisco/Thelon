@@ -39,7 +39,6 @@ public class Portfolio extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_portfolio);
-        ButterKnife.bind(this);
 
         textView = (TextView) findViewById(R.id.view_more);
         textView.setOnClickListener(new View.OnClickListener() {
