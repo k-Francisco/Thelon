@@ -26,7 +26,11 @@
         <activity android:name=".login_signup.Signup" />
         <activity android:name=".leaderboard_tab.LeaderBoard" />
         <activity android:name=".home_tab.Home" />
-        <activity android:name=".home_details.home_details"></activity>
+        <activity android:name=".home_details.home_details" />
+        <activity
+            android:name=".main_screens.Settings"
+            android:label="@string/title_activity_settings"
+            android:theme="@style/NavDrawerItems"></activity>
     </application>
 
 </manifest>

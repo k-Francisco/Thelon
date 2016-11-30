@@ -20,6 +20,24 @@
             @transition/shared_explode</item>
     </style>
 
+    <!-- Nav Drawer Theme. -->
+    <style name="NavDrawerItems" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+
+        <!-- enable window content transitions -->
+        <item name="android:windowActivityTransitions">true</item>
+
+        <!-- specify shared element transitions -->
+        <item name="android:windowEnterTransition">
+            @transition/slide_right</item>
+        <item name="android:windowExitTransition">
+            @transition/slide_right</item>
+    </style>
+
 
 
 </resources>

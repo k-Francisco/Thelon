@@ -2,6 +2,7 @@ package com.example.johncarter.thelon.main_screens;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.support.annotation.IdRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import com.example.johncarter.thelon.fragments.HomeFragment;
 import com.example.johncarter.thelon.fragments.LeaderBoardFragment;
 import com.example.johncarter.thelon.fragments.NotificationFragment;
 import com.example.johncarter.thelon.fragments.UserProfileFragment;
+import com.example.johncarter.thelon.login_signup.Login;
 import com.mikepenz.community_material_typeface_library.CommunityMaterial;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
@@ -24,6 +26,7 @@ import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
 import butterknife.ButterKnife;
@@ -37,6 +40,7 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     Window window;
+    Drawer drawer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +73,7 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
         initNavDrawerProfile();
 
         //creates the navigation drawer with the profile and items
-        Drawer drawer = new DrawerBuilder()
+        drawer = new DrawerBuilder()
                 .withAccountHeader(accountHeader)
                 .withActivity(this)
                 .addDrawerItems(
@@ -87,8 +91,6 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                 )
                 .withSelectedItem(0)
                 .buildForFragment();
-
-
 
     }
 
@@ -189,12 +191,32 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
         settings = new PrimaryDrawerItem()
                 .withIdentifier(4)
                 .withName("Settings")
-                .withIcon(CommunityMaterial.Icon.cmd_settings);
+                .withIcon(CommunityMaterial.Icon.cmd_settings)
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+
+                        Intent intent = new Intent(LandingPage.this, Settings.class);
+                        startActivity(intent);
+                        return false;
+                    }
+                });
+
 
         logOut = new PrimaryDrawerItem()
                 .withIdentifier(5)
                 .withName("Log Out")
-                .withIcon(CommunityMaterial.Icon.cmd_logout);
+                .withIcon(CommunityMaterial.Icon.cmd_logout)
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+
+                        Intent intent = new Intent(LandingPage.this, Login.class);
+                        startActivity(intent);
+                        finish();
+                        return false;
+                    }
+                });
 
         helpAndFeedback = new PrimaryDrawerItem()
                 .withIdentifier(6)
