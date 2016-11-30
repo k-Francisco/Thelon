@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.example.johncarter.thelon.Portfolio;
 import com.example.johncarter.thelon.R;
 import com.example.johncarter.thelon.fragments.HomeFragment;
 import com.example.johncarter.thelon.fragments.LeaderBoardFragment;
@@ -176,7 +177,16 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
         portfolio = new PrimaryDrawerItem()
                 .withIdentifier(1)
                 .withName("Portfolio")
-                .withIcon(CommunityMaterial.Icon.cmd_folder_image);
+                .withIcon(CommunityMaterial.Icon.cmd_folder_image)
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+
+                        Intent intent = new Intent(LandingPage.this, Portfolio.class);
+                        startActivity(intent);
+                        return false;
+                    }
+                });
 
         badges = new PrimaryDrawerItem()
                 .withIdentifier(2)

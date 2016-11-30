@@ -145,7 +145,8 @@
        <Switch
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:id="@+id/vibrate_switch"/>
+           android:id="@+id/vibrate_switch"
+           android:checked="true"/>
 
     </LinearLayout>
 
@@ -180,7 +181,8 @@
         <Switch
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/phone_led_switch"/>
+            android:id="@+id/phone_led_switch"
+            android:checked="true"/>
     </LinearLayout>
 
     <LinearLayout
@@ -214,7 +216,8 @@
         <Switch
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/sounds_switch"/>
+            android:id="@+id/sounds_switch"
+            android:checked="true"/>
     </LinearLayout>
 
     <LinearLayout
@@ -248,7 +251,8 @@
         <Switch
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/switch_receive_invites"/>
+            android:id="@+id/switch_receive_invites"
+            android:checked="true"/>
     </LinearLayout>
 
     <LinearLayout

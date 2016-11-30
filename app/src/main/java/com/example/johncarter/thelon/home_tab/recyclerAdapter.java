@@ -54,14 +54,11 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.ViewHo
     class ViewHolder extends RecyclerView.ViewHolder {
 
         public ImageView itemImage, joinBtn, referBtn;
-        public TextView activityName, activityDetails;
         int joinClick = 0, referClick = 0;
 
         public ViewHolder(View itemView) {
             super(itemView);
             itemImage = (ImageView) itemView.findViewById(R.id.antonshit);
-//            activityName = (TextView) itemView.findViewById(R.id.activityName);
-//            activityDetails = (TextView) itemView.findViewById(R.id.activityDetails);
             joinBtn = (ImageView) itemView.findViewById(R.id.hearty);
             referBtn = (ImageView) itemView.findViewById(R.id.share);
             itemImage.setOnClickListener(new View.OnClickListener() {
@@ -118,8 +115,6 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.ViewHo
     @Override
     public void onBindViewHolder(recyclerAdapter.ViewHolder holder, int position) {
         holder.itemImage.setImageResource(images[position]);
-//        holder.activityName.setText(actName[position]);
-//        holder.activityDetails.setText(actDetails[position]);
     }
 
     @Override

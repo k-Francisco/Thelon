@@ -1,30 +1,26 @@
-package com.example.johncarter.thelon.main_screens;
+package com.example.johncarter.thelon;
 
-import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
 import android.view.View;
 import android.view.Window;
 
-import com.example.johncarter.thelon.R;
-import com.mikepenz.community_material_typeface_library.CommunityMaterial;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class Settings extends ActionBarActivity {
+public class Portfolio extends ActionBarActivity {
 
     @Bind(R.id.toolbar)
     Toolbar toolbar;
     Window window;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        setContentView(R.layout.activity_portfolio);
         ButterKnife.bind(this);
 
         window = getWindow();
@@ -32,18 +28,16 @@ public class Settings extends ActionBarActivity {
         window.setEnterTransition(transition);
         window.setExitTransition(transition);
 
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Portfolio");
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-
     }
-
-
 }

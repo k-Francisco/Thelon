@@ -30,7 +30,9 @@
         <activity
             android:name=".main_screens.Settings"
             android:label="@string/title_activity_settings"
-            android:theme="@style/NavDrawerItems"></activity>
+            android:theme="@style/NavDrawerItems" />
+        <activity android:name=".Portfolio"
+            android:theme="@style/NavDrawerItems" ></activity>
     </application>
 
 </manifest>

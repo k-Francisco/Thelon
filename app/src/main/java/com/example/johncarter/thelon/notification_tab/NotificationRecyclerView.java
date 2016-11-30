@@ -49,14 +49,6 @@ public class NotificationRecyclerView extends RecyclerView.Adapter<NotificationR
             R.drawable.movie09,
             R.drawable.movie10};
 
-//    private List<Notification> mNotifications ;
-//
-//    public notificationAdapter()
-//    {
-//        NotificationController controller = new NotificationController();
-//        mNotifications = controller.getNotifications();
-//    }
-
     @Override
     public NotificationRecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.notification_layout,parent,false);
@@ -90,50 +82,4 @@ public class NotificationRecyclerView extends RecyclerView.Adapter<NotificationR
             notifTime = (TextView) itemView.findViewById(R.id.notifTime);
         }
     }
-//    private Context mContext;
-//    private int         mResource;
-//    private List<Notification> nNotifications;
-//
-//    public notificationAdapter(Context context, int resource, List<Notification> notifications) {
-//        super(context, resource, notifications);
-//
-//        mContext = context;
-//        mResource = resource;
-//        nNotifications = notifications;
-//    }
-//
-//    @Override
-//    public View getView(int position, View convertView, ViewGroup parent) {
-//        ViewHolder holder;
-//
-//        if (convertView == null) {
-//            convertView = LayoutInflater.from(mContext).inflate(mResource, parent, false);
-//            holder = new ViewHolder(convertView);
-//            convertView.setTag(holder);
-//        } else {
-//            holder = (ViewHolder) convertView.getTag();
-//        }
-//
-//        Notification notification = nNotifications.get(position);
-//        if (notification != null) {
-//            if (holder.heading != null) {
-//                holder.heading.setText(notification.getName() + " " + notification.getMessage());
-//            }
-//            if (holder.notifImg != null) {
-//                holder.notifImg.setImageResource(notification.getImageId());
-//            }
-//        }
-//
-//        return convertView;
-//    }
-//
-//    private static class ViewHolder {
-//        TextView heading;
-//        ImageView notifImg;
-//
-//        public ViewHolder(View view) {
-//            heading = (TextView) view.findViewById(R.id.heading);
-//            notifImg = (ImageView) view.findViewById(R.id.notifImg);
-//        }
-//    }
 }
