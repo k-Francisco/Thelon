@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="225dp"
+        android:background="#000000"
+        android:id="@+id/frame1">
+    </FrameLayout>
+
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/firstLeader"
+        android:contentDescription="@null"
+        android:src="@drawable/charles"
+        android:layout_marginTop="16dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:civ_border_color="#fff"
+        app:civ_border_width="5dp"
+        android:elevation="10dp"
+        android:layout_centerHorizontal="true"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/secondLeader"
+        android:contentDescription="@null"
+        android:src="@drawable/tyler"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="45dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:civ_border_color="#fff"
+        app:civ_border_width="5dp"
+        android:elevation="10dp"
+        />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/thirdLeader"
+        android:contentDescription="@null"
+        android:src="@drawable/kobe"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:civ_border_color="#fff"
+        app:civ_border_width="5dp"
+        android:elevation="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="70dp"/>
+
+    <TextView
+        android:text="Charles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_below="@+id/firstLeader"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="10dp"
+
+        android:id="@+id/firstName" />
+
+    <TextView
+        android:text="Tyler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        android:layout_gravity="left"
+        android:layout_below="@+id/secondLeader"
+        android:paddingTop="5dp"
+        android:layout_marginLeft="62dp"
+        android:id="@+id/secondName" />
+
+    <TextView
+        android:text="Kobe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        android:paddingTop="5dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/thirdLeader"
+        android:layout_marginRight="58dp"
+        android:id="@+id/thirdName" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/gold"
+        android:layout_alignRight="@+id/firstLeader"
+        android:layout_marginTop="10dp"
+        android:elevation="15dp"
+        android:id="@+id/imageView3" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/third"
+        android:elevation="15dp"
+        android:layout_below="@+id/imageView3"
+        android:layout_alignRight="@+id/thirdLeader"
+        android:layout_marginTop="10dp"
+        android:id="@+id/imageView4" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/second"
+        android:layout_alignRight="@+id/secondLeader"
+        android:elevation="15dp"
+        android:layout_marginTop="63dp"
+        android:id="@+id/imageView5" />
+
+
+    <android.support.design.widget.CoordinatorLayout
+
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:fitsSystemWindows="false"
+        tools:context="com.cruz.ethelon.NotificationActivity"
+        android:layout_below="@+id/frame1"
+        android:layout_above="@+id/bottomBar"
+        android:id="@+id/coordinatorLayout">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</RelativeLayout>

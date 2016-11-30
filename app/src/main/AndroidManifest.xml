@@ -15,6 +15,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".main_screens.LandingPageFoundation"/>
         <activity android:name=".splash_screen.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,12 +28,14 @@
         <activity android:name=".leaderboard_tab.LeaderBoard" />
         <activity android:name=".home_tab.Home" />
         <activity android:name=".home_details.home_details" />
-        <activity
+
             android:name=".main_screens.Settings"
             android:label="@string/title_activity_settings"
             android:theme="@style/NavDrawerItems" />
-        <activity android:name=".Portfolio"
-            android:theme="@style/NavDrawerItems" ></activity>
+        <activity
+            android:name=".Portfolio"
+            android:theme="@style/NavDrawerItems" />
+        <activity android:name=".profile_tab.ProfileActivity"></activity>
     </application>
 
 </manifest>

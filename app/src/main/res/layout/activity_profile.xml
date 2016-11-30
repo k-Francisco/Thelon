@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:id="@+id/relativo"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.github.florent37.diagonallayout.DiagonalLayout
+        android:layout_width="match_parent"
+        app:diagonal_angle="11"
+        app:diagonal_gravity="left|bottom"
+        tools:layout_editor_absoluteY="0dp"
+        android:layout_height="230dp"
+        android:id="@+id/diag">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:background="#000000" />
+
+    </com.github.florent37.diagonallayout.DiagonalLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Charles Cruz"
+        android:textColor="#ffffff"
+        android:textSize="37sp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="30dp"
+        android:id="@+id/profName"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MOBILE DEVELOPER"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:layout_below="@+id/profName"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:id="@+id/profDesc"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_height="100dp"
+        android:src="@drawable/a"
+        android:id="@+id/vPic"
+        android:layout_width="100dp"
+        android:layout_below="@+id/profDesc"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="40dp"
+        android:elevation="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:layout_marginTop="200dp"
+        android:layout_marginRight="30dp"
+        android:textSize="18sp"
+        android:layout_alignParentRight="true"
+        android:layout_alignBaseline="@+id/pointsLbl"
+        android:text="Activities"
+        android:id="@+id/actLabel"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Points"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_toLeftOf="@+id/actLabel"
+        android:layout_marginTop="200dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/pointsLbl"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20"
+        android:textSize="13sp"
+        android:textColor="#000000"
+        android:layout_below="@+id/pointsLbl"
+        android:layout_marginTop="5dp"
+        android:layout_alignBaseline="@+id/poin"
+
+        android:layout_alignRight="@+id/actLabel" />
+
+    <android.support.design.widget.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/vPic"
+        android:layout_marginTop="20dp"
+        android:id="@+id/tab_menu"
+        app:tabTextColor="#000000"
+        app:tabIndicatorColor="#000000"
+        app:tabIndicatorHeight="2dp">
+    </android.support.design.widget.TabLayout>
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tab_menu"
+        android:id="@+id/frameyy">
+
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1000"
+        android:textSize="13sp"
+        android:textColor="#000000"
+        android:id="@+id/poin"
+        android:layout_below="@+id/diag"
+        android:layout_alignRight="@+id/pointsLbl"
+        android:layout_alignEnd="@+id/pointsLbl" />
+
+</RelativeLayout>
