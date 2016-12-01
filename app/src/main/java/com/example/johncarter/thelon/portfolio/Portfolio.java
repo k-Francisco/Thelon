@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
 
 public class Portfolio extends ActionBarActivity {
 
-    @Bind(R.id.toolbar)
+    @Bind(R.id.nav_toolbar)
     Toolbar toolbar;
     Window window;
 

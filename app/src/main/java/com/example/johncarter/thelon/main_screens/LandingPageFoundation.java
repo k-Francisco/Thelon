@@ -112,7 +112,7 @@ public class LandingPageFoundation extends AppCompatActivity implements BottomNa
             case 0:
                 fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right);
-                fragmentTransaction.replace(R.id.menu_frame, new HomeFragment(), "home");
+                fragmentTransaction.replace(R.id.menu_frame, new AdminHomeFragment(), "home");
                 fragmentTransaction.commit();
                 window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_home));
 

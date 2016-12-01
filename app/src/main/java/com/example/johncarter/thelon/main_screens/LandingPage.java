@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.example.johncarter.thelon.edit_profile.GeneralFragment;
 import com.example.johncarter.thelon.portfolio.Portfolio;
 import com.example.johncarter.thelon.R;
 import com.example.johncarter.thelon.fragments.BadgeFragment;
@@ -124,9 +125,12 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                 fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.setCustomAnimations(R.animator.slide_in_right, R.animator.slide_out_left);
                 fragmentTransaction.replace(R.id.menu_frame, new LeaderBoardFragment(), "leaderboard");
-                fragmentTransaction.replace(R.id.frame1, new GifWebviewFragment());
                 fragmentTransaction.commit();
                 window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_leaderboard));
+                break;
+
+            case 3:
+
                 break;
         }
     }
@@ -214,7 +218,15 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
         editProfile = new PrimaryDrawerItem()
                 .withIdentifier(3)
                 .withName("Edit Profile")
-                .withIcon(CommunityMaterial.Icon.cmd_account_settings_variant);
+                .withIcon(CommunityMaterial.Icon.cmd_account_settings_variant)
+        .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+            @Override
+            public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                Intent intent = new Intent(LandingPage.this, GeneralFragment.class);
+                startActivity(intent);
+                return false;
+            }
+        });
 
         settings = new PrimaryDrawerItem()
                 .withIdentifier(4)

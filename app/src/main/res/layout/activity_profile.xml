@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/framskie"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 <RelativeLayout
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:id="@+id/relativo"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    >
 
     <com.github.florent37.diagonallayout.DiagonalLayout
         android:layout_width="match_parent"
@@ -120,3 +125,4 @@
         android:layout_alignEnd="@+id/pointsLbl" />
 
 </RelativeLayout>
+</FrameLayout>
