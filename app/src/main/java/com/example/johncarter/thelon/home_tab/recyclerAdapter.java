@@ -54,6 +54,7 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.ViewHo
     class ViewHolder extends RecyclerView.ViewHolder {
 
         public ImageView itemImage, joinBtn, referBtn;
+        TextView moreBtn;
         int joinClick = 0, referClick = 0;
 
         public ViewHolder(View itemView) {
@@ -61,6 +62,7 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.ViewHo
             itemImage = (ImageView) itemView.findViewById(R.id.antonshit);
             joinBtn = (ImageView) itemView.findViewById(R.id.hearty);
             referBtn = (ImageView) itemView.findViewById(R.id.share);
+            moreBtn = (TextView) itemView.findViewById(R.id.moreBtn) ;
             itemImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -98,6 +100,19 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.ViewHo
                         referBtn.setImageResource(R.drawable.ic_arrow);
                         referClick =0 ;
                     }
+                }
+            });
+
+            moreBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent();
+                    intent.setClass(v.getContext(),home_details.class);
+
+                    ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat
+                            .makeCustomAnimation(v.getContext(), R.anim.fade_in, R.anim.fade_out)
+                            .makeSceneTransitionAnimation((Activity) v.getContext(), itemImage, "home_details_trans");
+                    v.getContext().startActivity(intent, activityOptionsCompat.toBundle());
                 }
             });
 
