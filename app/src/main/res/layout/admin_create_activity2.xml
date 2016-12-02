@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content">
+<RelativeLayout
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="Specification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/act_spec_label"
+        android:background="@drawable/square_blue"
+        android:padding="10dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textColor="#3232FF"
+        android:layout_below="@+id/lin2"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text= "Location"
+        android:textSize="15sp"
+        android:id="@+id/label7"
+        android:layout_below="@+id/act_spec_label"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/label7"
+        android:background="@drawable/square_black"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:id="@+id/ac_location_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Age"
+        android:id="@id/label1"
+        android:textSize="15sp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/ac_location_text"
+        />
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/square_black"
+        android:layout_below="@+id/label1"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="30dp"
+        android:id="@+id/ed_age" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:background="@drawable/square_black"
+        android:id="@+id/ed_gender"
+        android:layout_below="@+id/label1"
+        android:layout_toRightOf="@id/ed_age"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/label2"
+        android:textSize="15sp"
+        android:text="Gender"
+        android:layout_below="@id/ac_location_text"
+        android:layout_alignStart="@+id/ed_gender"
+        android:layout_alignLeft="@+id/ed_gender"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text= "Occupation"
+        android:textSize="15sp"
+        android:id="@+id/label3"
+        android:layout_below="@+id/ed_age"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/label3"
+        android:background="@drawable/square_black"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:id="@+id/ed_occupation"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text= "Volunteer List"
+        android:textSize="15sp"
+        android:id="@+id/label4"
+        android:layout_below="@+id/ed_occupation"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"/>
+
+    <android.support.design.widget.CoordinatorLayout
+
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:fitsSystemWindows="false"
+        tools:context="com.cruz.ethelon.NotificationActivity"
+        android:id="@+id/col"
+        android:layout_below="@+id/label4">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </android.support.design.widget.CoordinatorLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text= "Recommended Volunteers"
+        android:textSize="15sp"
+        android:id="@+id/label5"
+        android:layout_below="@+id/col"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"/>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:id="@+id/rec_vol_frame"
+        android:layout_below="@+id/label5"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text= "Search Volunteer"
+        android:textSize="15sp"
+        android:id="@+id/label6"
+        android:layout_below="@+id/rec_vol_frame"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/label6"
+        android:background="@drawable/square_black"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:id="@+id/ed_search"/>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:background="#3232FF"
+        android:layout_below="@+id/ed_search"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/step3">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Proceed to step 3"
+            android:textColor="#ffffff"/>
+    </FrameLayout>
+
+</RelativeLayout>
+</ScrollView>

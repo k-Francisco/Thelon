@@ -32,4 +32,13 @@
 
     </android.support.design.widget.TabLayout>
 
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fram2"
+        android:layout_below="@id/tab_menu"
+        android:layout_marginTop="10dp">
+
+    </FrameLayout>
+
 </RelativeLayout>

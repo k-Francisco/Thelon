@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:paddingTop="14dp"
+    android:paddingBottom="15dp"
+    android:layout_height="80dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="40dp"
+        android:layout_height="35dp"
+        android:src="@drawable/a"
+        android:scaleY="1.5"
+        android:scaleX="1.5"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/faceImg"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/leader_name"
+        android:text="Lorem Epsum"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="8dp"
+        android:textSize="20sp"
+        android:layout_toRightOf="@+id/faceImg"
+        android:layout_alignBottom="@id/faceImg"/>
+
+</RelativeLayout>

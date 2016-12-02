@@ -12,25 +12,27 @@ import android.view.ViewGroup;
 import com.example.johncarter.thelon.R;
 
 /**
- * Created by dell on 12/1/2016.
+ * Created by asus on 03/12/2016.
  */
 
-public class ActivitiesFragment extends Fragment{
-
+public class VolunteersFragment extends Fragment {
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter adapter;
-
+    View charles;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.notification_list,container,false);
-
         RecyclerView listView = (RecyclerView) rootView.findViewById(R.id.listView);
         layoutManager = new LinearLayoutManager(rootView.getContext());
         listView.setLayoutManager(layoutManager);
 
-        adapter = new ActivityListAdapter(rootView.getContext());
+        adapter = new VolunteersAdapter(charles);
         listView.setAdapter(adapter);
         return rootView;
+    }
+
+    public void setViewzz(View rootView){
+        this.charles = rootView;
     }
 }

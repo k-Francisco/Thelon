@@ -1,5 +1,6 @@
 package com.example.johncarter.thelon.admin_side;
 
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -42,7 +43,7 @@ public class Foundation_Main extends AppCompatActivity {
     Toolbar toolbar;
     TabLayout tab;
 
-
+    FragmentManager fm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,10 +55,18 @@ public class Foundation_Main extends AppCompatActivity {
         tab.addTab(tab.newTab().setText("Activities"));
         tab.addTab(tab.newTab().setText("Volunteers"));
 
+        fm = getFragmentManager();
+        fm.beginTransaction().add(new ActivitiesFragment(),"act_main").commit();
+        fm.beginTransaction().replace(R.id.fram2,new ActivitiesFragment()).commit();
+        fm.beginTransaction().add(new CreateActivityFragment(),"create_act").commit();
         tab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-
+                if(tab.getPosition() == 0){
+                    fm.beginTransaction().replace(R.id.fram2,new ActivitiesFragment()).addToBackStack("volunteers").commit();
+                }
+                else if(tab.getPosition() == 1){}
+                //fm.beginTransaction().replace(R.id.fram2,new VolunteersFragment()).addToBackStack("act_main").commit();
             }
 
             @Override

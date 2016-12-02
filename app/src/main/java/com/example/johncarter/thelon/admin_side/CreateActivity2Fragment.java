@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import com.example.johncarter.thelon.R;
 
@@ -16,22 +15,26 @@ import com.example.johncarter.thelon.R;
  * Created by asus on 03/12/2016.
  */
 
-public class CreateActivityFragment extends Fragment {
+public class CreateActivity2Fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.admin_create_activity,container,false);
-        FrameLayout step2 = (FrameLayout) rootView.findViewById(R.id.step2);
+        View rootView = inflater.inflate(R.layout.admin_create_activity2,container,false);
         FragmentManager fm = getFragmentManager();
-        fm.beginTransaction().add(new CreateActivityFragment(),"step1");
+        FrameLayout step3 = (FrameLayout) rootView.findViewById(R.id.step3);
 
-        step2.setOnClickListener(new View.OnClickListener() {
+        VolunteersFragment vm = new VolunteersFragment();
+        vm.setViewzz(rootView);
+        fm.beginTransaction().replace(R.id.rec_vol_frame,vm).commit();
+
+        step3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentManager fm = getFragmentManager();
-                fm.beginTransaction().replace(R.id.fram2,new CreateActivity2Fragment()).addToBackStack("step1").commit();
+                fm.beginTransaction().replace(R.id.fram2,new CreateActivity3Fragment()).addToBackStack("step2").commit();
             }
         });
+
         return rootView;
     }
 }

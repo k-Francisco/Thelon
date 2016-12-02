@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<RelativeLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D5CECE">
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:id="@+id/frame1">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/gray_background"
+            android:scaleType="fitXY"/>
+    </FrameLayout>
+
+            <ImageView
+                android:id="@+id/deleteBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_delete_act"
+                android:layout_marginRight="20dp"
+                android:layout_alignBottom="@+id/frame1"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="15dp"/>
+
+    <ImageView
+        android:id="@+id/editBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_edit"
+        android:layout_toLeftOf="@id/deleteBtn"
+        android:layout_alignBottom="@+id/frame1"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="10dp"
+        />
+
+    <android.support.design.widget.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/frame1"
+        android:layout_marginTop="10dp"
+        android:id="@+id/tab_menu"
+        app:tabTextColor="#000000"
+        app:tabIndicatorColor="#000000"
+        app:tabSelectedTextColor="#000000">
+    </android.support.design.widget.TabLayout>
+
+    <FrameLayout
+        android:id="@+id/detailsFrame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tab_menu"
+        android:layout_marginTop="10dp">
+
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/detailsFrame"
+        android:layout_marginTop="20dp"
+        android:alpha=".5"
+        android:background="#000000"
+        android:id="@+id/line2"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="#000000"
+        android:id="@+id/label2"
+        android:layout_below="@+id/line2"
+        android:textSize="17dp"
+        android:text="Volunteers"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/label2"
+        android:layout_marginTop="5dp"
+        android:id="@+id/volunteersFrame"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/volunteersFrame"
+        android:layout_marginTop="20dp"
+        android:alpha=".5"
+        android:background="#000000"
+        android:id="@+id/line"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="#000000"
+        android:id="@+id/label"
+        android:layout_below="@+id/line"
+        android:textSize="17dp"
+        android:text="Associated Pictures"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/label"
+        android:layout_marginTop="10dp"
+        android:id="@+id/ascPicsFrame">
+
+    </FrameLayout>
+
+</RelativeLayout>
+</ScrollView>

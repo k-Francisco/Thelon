@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="Contact Person"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/act_det_label"
+        android:background="@drawable/square_red"
+        android:padding="10dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textColor="#C21A01"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Person in Charge"
+        android:textSize="15sp"
+        android:id="@+id/label1"
+        android:layout_below="@+id/act_det_label"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/label1"
+        android:background="@drawable/square_black"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:id="@+id/poc_txt"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact Number"
+        android:textSize="15sp"
+        android:id="@+id/label2"
+        android:layout_below="@+id/poc_txt"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/label2"
+        android:background="@drawable/square_black"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:id="@+id/contact_txt"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email Address"
+        android:textSize="15sp"
+        android:id="@+id/label3"
+        android:layout_below="@+id/contact_txt"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/label3"
+        android:background="@drawable/square_black"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:id="@+id/email_txt"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Associated Pictures"
+        android:textSize="15sp"
+        android:id="@+id/label4"
+        android:layout_below="@+id/email_txt"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/label4"
+        android:background="@drawable/square_black"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:id="@+id/ascPics_txt"/>
+
+    <TextView
+        android:id="@+id/completeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:text="Create Activity"
+        android:textColor="#ffffff"
+        android:padding="10dp"
+        android:background="#C21A01"/>
+
+</RelativeLayout>

@@ -4,16 +4,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.design.widget.CoordinatorLayout
+<android.support.design.widget.CoordinatorLayout
 
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:fitsSystemWindows="false"
-        tools:context="com.cruz.ethelon.NotificationActivity"
-        android:layout_above="@+id/bottomBar">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:fitsSystemWindows="false"
+    tools:context="com.cruz.ethelon.NotificationActivity"
+    android:layout_above="@+id/bottomBar">
 
 
         <android.support.v7.widget.RecyclerView
@@ -22,5 +22,5 @@
             android:layout_height="match_parent" />
 
 
-    </android.support.design.widget.CoordinatorLayout>
+</android.support.design.widget.CoordinatorLayout>
 </FrameLayout>
