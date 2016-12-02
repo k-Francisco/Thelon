@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:foregroundGravity="center"
+        android:id="@+id/editText3"
+        android:textSize="20sp"
+        android:hint="Last Name"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/firstName"
+        android:layout_alignLeft="@+id/firstName"
+        android:layout_alignStart="@+id/firstName"
+        android:text="Relativo" />
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText5"
+        android:hint="Address"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/editText3"
+        android:layout_alignLeft="@+id/editText3"
+        android:layout_alignStart="@+id/editText3"
+        android:text="Guadalupe Cebu City" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:gravity="center"
+        android:id="@+id/editText6"
+        android:hint="Birthdate"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/editText5"
+        android:layout_alignRight="@+id/editText5"
+        android:layout_alignEnd="@+id/editText5"
+        android:layout_alignLeft="@+id/editText5"
+        android:layout_alignStart="@+id/editText5"
+        android:text="July 29, 1997" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:gravity="center"
+        android:layout_marginTop="8dp"
+        android:id="@+id/editText36"
+        android:layout_below="@+id/editText4"
+        android:layout_alignLeft="@+id/editText4"
+        android:layout_alignStart="@+id/editText4"
+        android:hint="Contact No."
+        android:layout_alignRight="@+id/editText4"
+        android:layout_alignEnd="@+id/editText4"
+        android:text="0933123423" />
+
+    <RadioGroup
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/radioGroup2"
+        android:layout_marginRight="46dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginTop="22dp"
+        android:layout_below="@+id/editText36"
+        android:layout_alignRight="@+id/editText36"
+        android:layout_alignEnd="@+id/editText36">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:text="Male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioButton"
+                android:layout_marginTop="21dp"
+                android:layout_marginRight="14dp"
+                android:layout_marginEnd="14dp"
+                android:layout_below="@+id/textView11"
+                android:layout_alignRight="@+id/radioGroup2"
+                android:layout_alignEnd="@+id/radioGroup2"
+                android:checked="true" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"/>
+        </LinearLayout>
+    </RadioGroup>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_gravity="center"
+        android:id="@+id/firstName"
+        android:hint="First Name"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="Kobe" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:gravity="center"
+        android:id="@+id/editText4"
+        android:hint="Age"
+        android:layout_below="@+id/editText6"
+        android:layout_alignLeft="@+id/editText6"
+        android:layout_alignStart="@+id/editText6"
+        android:layout_marginTop="7dp"
+        android:layout_alignRight="@+id/editText6"
+        android:layout_alignEnd="@+id/editText6"
+        android:text="19" />
+
+    <Button
+        android:text="Save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="22dp"
+        android:layout_marginEnd="22dp"
+        android:id="@+id/button2"
+        android:layout_below="@+id/radioGroup2"
+        android:layout_alignRight="@+id/radioGroup2"
+        android:layout_alignEnd="@+id/radioGroup2"
+        android:layout_marginTop="8dp" />
+
+
+</RelativeLayout>

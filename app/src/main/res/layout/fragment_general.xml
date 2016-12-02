@@ -1,0 +1,628 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    tools:context="com.example.asus.editprofilepract3.GeneralFragment"
+    android:background="@android:color/white"
+    android:layout_height="wrap_content">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <include
+        android:id="@+id/nav_toolbar"
+        layout="@layout/toolbar_layout"></include>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:background="@android:color/white"
+        android:fillViewport="true"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="800dp"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteY="8dp"
+            tools:layout_editor_absoluteX="8dp"
+            android:fillViewport="true">
+
+
+
+            <ImageView
+                android:layout_below="@+id/nav_toolbar"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/im"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/man"
+                tools:layout_editor_absoluteY="31dp"
+                tools:layout_editor_absoluteX="130dp"
+                android:layout_marginTop="13dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:text="Change Picture"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:id="@+id/text"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:textStyle="normal|bold"
+                tools:layout_editor_absoluteX="136dp"
+                tools:layout_editor_absoluteY="197dp"
+                android:layout_marginTop="19dp"
+                android:layout_below="@+id/im"
+                android:layout_alignRight="@+id/im"
+                android:layout_alignEnd="@+id/im" />
+
+            <RelativeLayout
+                android:layout_height="100dp"
+                android:layout_marginTop="14dp"
+
+                android:id="@+id/usjr"
+                android:background="@drawable/shape"
+                android:layout_below="@+id/relativeLayout"
+                android:layout_alignLeft="@+id/relativeLayout"
+                android:layout_alignStart="@+id/relativeLayout"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="10dp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    app:srcCompat="@drawable/usjr"
+                    android:id="@+id/imageView"
+                    android:layout_height="45dp"
+                    android:layout_below="@+id/editText29"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:inputType="textPersonName"
+                    android:text="EDUCATION"
+                    android:background="#fafafa"
+                    android:ems="10"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:id="@+id/editText29"
+
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <ImageView
+                    android:layout_width="40dp"
+                    app:srcCompat="@drawable/editpage"
+                    android:id="@+id/pen2"
+                    android:layout_height="20dp"
+                    android:layout_alignBottom="@+id/editText29"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginBottom="17dp" />
+
+                <EditText
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text="University of San Jose - Recoletos"
+                    android:ems="10"
+                    android:backgroundTint="#D3D3D3"
+                    android:id="@+id/editText30"
+                    android:layout_width="280dp"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:textSize="15sp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:background="@drawable/shape"
+
+                tools:layout_editor_absoluteX="16dp"
+
+
+                android:id="@+id/relativeLayout"
+                android:layout_marginTop="22dp"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/text"
+                android:layout_centerHorizontal="true"
+                android:layout_height="365dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text="19"
+                    android:backgroundTint="#D3D3D3"
+                    android:textColor="#D3D3D3"
+                    android:ems="10"
+                    android:textStyle="bold"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:id="@+id/editText22"
+                    android:layout_below="@+id/editText20"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="right"/>
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:inputType="textPersonName"
+                    android:text="Guadalupe Cebu"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:ems="10"
+                    android:textColor="#D3D3D3"
+                    android:backgroundTint="#D3D3D3"
+                    android:gravity="right"
+                    android:id="@+id/editText24"
+                    android:layout_alignBaseline="@+id/editText23"
+                    android:layout_alignBottom="@+id/editText23"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:inputType="textPersonName"
+                    android:text="BASIC INFO"
+                    android:ems="10"
+
+                    android:background="#fafafa"
+                    android:id="@+id/editText7"
+                    android:textStyle="bold"
+
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:textSize="20sp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_height="52dp" />
+
+                <EditText
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text="Kobe "
+                    android:textStyle="bold"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:ems="10"
+                    android:textColor="#D3D3D3"
+                    android:gravity="right"
+                    android:id="@+id/editText10"
+                    android:backgroundTint="#D3D3D3"
+                    android:layout_width="wrap_content"
+                    android:layout_below="@+id/editText7"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:inputType="textPersonName"
+                    android:text="Address"
+                    android:ems="10"
+                    android:backgroundTint="#D3D3D3"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:id="@+id/editText23"
+                    android:layout_below="@+id/editText21"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <EditText
+
+                    android:inputType="textPersonName"
+                    android:text="First Name"
+                    android:ems="10"
+                    android:id="@+id/editText8"
+                    android:layout_height="wrap_content"
+
+                    android:backgroundTint="#D3D3D3"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+
+                    android:layout_width="wrap_content"
+                    android:layout_alignBaseline="@+id/editText10"
+                    android:layout_alignBottom="@+id/editText10"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <EditText
+                    android:layout_height="wrap_content"
+
+                    android:layout_width="wrap_content"
+
+                    android:inputType="textPersonName"
+                    android:text="Last Name"
+                    android:ems="10"
+                    android:id="@+id/editText19"
+                    android:backgroundTint="#D3D3D3"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:layout_alignBaseline="@+id/editText20"
+                    android:layout_alignBottom="@+id/editText20"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+
+                    android:inputType="textPersonName"
+                    android:text="Age"
+                    android:layout_height="wrap_content"
+
+                    android:ems="10"
+                    android:id="@+id/editText21"
+                    android:backgroundTint="#D3D3D3"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:layout_alignBaseline="@+id/editText22"
+                    android:layout_alignBottom="@+id/editText22"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text="Birth Date"
+                    android:ems="10"
+                    android:id="@+id/editText25"
+                    android:backgroundTint="#D3D3D3"
+
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:layout_below="@+id/editText24"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+
+                    android:inputType="textPersonName"
+                    android:text="Contact No."
+                    android:ems="10"
+                    android:backgroundTint="#D3D3D3"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:id="@+id/editText27"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/editText28"
+                    android:layout_alignBottom="@+id/editText28"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text="Relativo"
+                    android:ems="10"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:textStyle="bold"
+                    android:textColor="#D3D3D3"
+                    android:gravity="right"
+                    android:id="@+id/editText20"
+                    android:backgroundTint="#D3D3D3"
+                    android:layout_below="@+id/editText10"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text="0922355123"
+                    android:textColor="#D3D3D3"
+                    android:ems="10"
+                    android:backgroundTint="#D3D3D3"
+                    android:id="@+id/editText28"
+                    android:gravity="right"
+                    android:textStyle="bold"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text="July 29, 1997"
+                    android:ems="10"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:gravity="right"
+                    android:backgroundTint="#D3D3D3"
+                    android:textColor="#D3D3D3"
+                    android:textStyle="bold"
+                    android:id="@+id/editText26"
+                    android:layout_alignBaseline="@+id/editText25"
+                    android:layout_alignBottom="@+id/editText25"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text="Gender"
+                    android:ems="10"
+                    android:backgroundTint="#D3D3D3"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:id="@+id/editText34"
+                    android:layout_below="@+id/editText25"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+
+
+
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginBottom="97dp"
+                    android:id="@+id/radioGroup"><![CDATA[
+
+
+
+               />
+
+           ]]></RadioGroup>
+
+
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:src="@drawable/editpage"
+                    android:id="@+id/pen1"
+                    android:layout_height="20dp"
+                    android:layout_above="@+id/editText10"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginBottom="17dp" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text="Male"
+                    android:ems="10"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+
+                    android:textColor="#D3D3D3"
+                    android:backgroundTint="#D3D3D3"
+                    android:gravity="right"
+                    android:id="@+id/editText"
+                    android:layout_alignBaseline="@+id/editText34"
+                    android:layout_alignBottom="@+id/editText34"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="16dp"
+                android:layout_below="@+id/lastrel"
+                android:layout_width="340dp"
+
+                android:background="@drawable/shape"
+                android:layout_alignLeft="@+id/lastrel"
+                android:layout_alignStart="@+id/lastrel"
+                android:layout_alignRight="@+id/lastrel"
+                android:layout_alignEnd="@+id/lastrel"
+                android:layout_height="330dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginLeft="1dp">
+
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:inputType="textPersonName"
+                    android:text="SKILLS AND HOBBIES"
+                    android:ems="10"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:background="#fafafa"
+
+                    android:id="@+id/editText33"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <ImageView
+                    android:layout_width="40dp"
+                    app:srcCompat="@drawable/editpage"
+                    android:id="@+id/pen4"
+                    android:layout_height="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="7dp"/>
+
+                <TextView
+                    android:text="Sports"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginBottom="248dp"
+                    android:id="@+id/textView2"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:text="Arts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView3"
+                    android:textSize="20sp"
+                    android:layout_alignTop="@+id/textView2"
+                    android:layout_alignLeft="@+id/textView2"
+                    android:layout_alignStart="@+id/textView2"
+                    android:layout_marginTop="40dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Culinary"
+                    android:layout_marginTop="18dp"
+                    android:textSize="20sp"
+                    android:id="@+id/textView4"
+                    android:layout_below="@+id/textView3"
+                    android:layout_alignLeft="@+id/textView3"
+                    android:layout_alignStart="@+id/textView3" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/lastrel"
+                android:background="@drawable/shape"
+                android:layout_height="100dp"
+
+                android:layout_width="match_parent"
+                android:layout_marginTop="16dp"
+                android:layout_below="@+id/usjr"
+                android:layout_alignLeft="@+id/usjr"
+                android:layout_alignStart="@+id/usjr"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="10dp">
+
+
+                <EditText
+                    android:layout_width="145dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text="Physical Therapist"
+                    android:ems="10"
+                    android:hint="Occupation"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:textSize="15sp"
+                    android:id="@+id/editText32"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:inputType="textPersonName"
+                    android:text="WORK"
+                    android:textSize="20sp"
+                    android:background="#fafafa"
+
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:ems="10"
+                    android:id="@+id/editText31"
+                    android:textStyle="normal|bold"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <EditText
+                    android:layout_width="145dp"
+                    android:layout_height="wrap_content"
+                    android:text="Ethelon Clinic"
+                    android:hint="where do you work"
+                    android:textSize="15sp"
+                    android:id="@+id/editText9"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <TextView
+                    android:layout_width="10dp"
+                    android:layout_height="50dp"
+                    android:text="-"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:layout_alignTop="@+id/editText9"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/textView" />
+
+                <ImageView
+                    android:layout_width="40dp"
+                    app:srcCompat="@drawable/editpage"
+                    android:id="@+id/pen3"
+                    android:layout_height="20dp"
+                    android:layout_marginBottom="17dp"
+                    android:layout_alignBottom="@+id/editText31"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

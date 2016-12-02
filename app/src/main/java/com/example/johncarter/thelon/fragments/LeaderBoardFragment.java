@@ -1,6 +1,7 @@
 package com.example.johncarter.thelon.fragments;
 
 
+import android.app.FragmentManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -42,10 +43,8 @@ public class LeaderBoardFragment extends Fragment {
 
         adapter = new LeaderBoardAdapter();
         recyclerView.setAdapter(adapter);
+        FragmentManager fm = getFragmentManager();
+        fm.beginTransaction().replace(R.id.frame1,new GifWebviewFragment()).commit();
         return rootView;
     }
-
-
-
-
 }

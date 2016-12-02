@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="YOU VS. YOUR PEERS"
+        android:textSize="25dp"
+        android:textColor="#ffffff"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:id="@+id/txt1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Here's where you are in comparison"
+        android:textSize="20dp"
+        android:textColor="#ffffff"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/txt1"
+        android:id="@+id/txt2"/>
+
+    <ImageView
+        android:layout_width="360dp"
+        android:layout_height="35dp"
+        android:src="@drawable/one"
+        android:id="@+id/one"
+        android:layout_below="@+id/txt2"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitXY"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/one"
+        android:layout_marginBottom="5dp"
+        android:text="Environmental Activities"
+        android:background="#ffffff"
+        android:textSize="20sp"
+        android:layout_marginLeft="17dp"/>
+
+    <ImageView
+        android:layout_width="360dp"
+        android:layout_height="35dp"
+        android:src="@drawable/two"
+        android:id="@+id/two"
+        android:layout_below="@+id/one"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitXY"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/two"
+        android:layout_marginBottom="5dp"
+        android:text="Medical Activities"
+        android:background="#ffffff"
+        android:textSize="20sp"
+        android:layout_marginLeft="17dp"/>
+
+    <ImageView
+        android:layout_width="360dp"
+        android:layout_height="35dp"
+        android:src="@drawable/three"
+        android:id="@+id/three"
+        android:layout_below="@+id/two"
+        android:scaleType="fitXY"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/three"
+        android:layout_marginBottom="5dp"
+        android:text="Social Activities"
+        android:background="#ffffff"
+        android:textSize="20sp"
+        android:layout_marginLeft="17dp"/>
+
+    <ImageView
+        android:layout_width="360dp"
+        android:layout_height="35dp"
+        android:src="@drawable/one"
+        android:id="@+id/four"
+        android:layout_below="@+id/three"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitXY"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/four"
+        android:layout_marginBottom="5dp"
+        android:text="Educational Activities"
+        android:background="#ffffff"
+        android:textSize="20sp"
+        android:layout_marginLeft="17dp"/>
+
+    <ImageView
+        android:layout_width="360dp"
+        android:layout_height="35dp"
+        android:src="@drawable/two"
+        android:id="@+id/five"
+        android:layout_below="@+id/four"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitXY"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/five"
+        android:layout_marginBottom="5dp"
+        android:text="Building Activities"
+        android:background="#ffffff"
+        android:textSize="20sp"
+        android:layout_marginLeft="17dp"/>
+
+    <ImageView
+        android:layout_width="360dp"
+        android:layout_height="35dp"
+        android:src="@drawable/three"
+        android:id="@+id/six"
+        android:layout_below="@+id/five"
+        android:scaleType="fitXY"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/six"
+        android:layout_marginBottom="5dp"
+        android:text="General Activities"
+        android:background="#ffffff"
+        android:textSize="20sp"
+        android:layout_marginLeft="17dp"/>
+
+</RelativeLayout>

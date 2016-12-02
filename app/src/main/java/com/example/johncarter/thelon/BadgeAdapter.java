@@ -62,6 +62,15 @@ public class BadgeAdapter extends RecyclerView.Adapter<BadgeAdapter.ViewHolder>{
             badgeName = (TextView) itemView.findViewById(R.id.badgeName);
             badgeImage = (ImageView) itemView.findViewById(R.id.badgeImage);
 
+            FragmentManager fm;
+            fm = ((Activity)mContext).getFragmentManager();
+            Bundle bundle = new Bundle();
+            bundle.putInt("position", 0);
+
+            BadgeDetailsFragment fragobj = new BadgeDetailsFragment();
+            fragobj.setArguments(bundle);
+            fm.beginTransaction().replace(R.id.frame1, fragobj).commit();
+
             badgeImage.setOnClickListener(new View.OnClickListener() {
                 FragmentManager fm;
                 @Override
