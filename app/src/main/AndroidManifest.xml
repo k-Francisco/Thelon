@@ -37,7 +37,17 @@
             android:theme="@style/NavDrawerItems" />
         <activity android:name=".profile_tab.ProfileActivity" />
         <activity android:name=".admin_side.admin_welcome" />
-        <activity android:name=".admin_side.foundation_profile"></activity>
+        <activity android:name=".admin_side.foundation_profile" />
+        <activity
+            android:name=".admin_side.Foundation_Main"
+            android:label="@string/title_activity_foundation__main"
+            android:theme="@style/AdminNavDrawer"></activity>
+        <provider
+            android:name="br.com.mauker.materialsearchview.db.HistoryProvider"
+            android:authorities="br.com.mauker.materialsearchview.searchhistorydatabase"
+            android:exported="false"
+            android:protectionLevel="signature"
+            android:syncable="true"/>
     </application>
 
 </manifest>

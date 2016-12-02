@@ -37,6 +37,7 @@
         <item name="android:windowExitTransition">
             @transition/slide_right</item>
     </style>
+
     <style name="MaterialSearchViewStyle">
         <item name="searchBackground">@color/white_ish</item>
         <item name="searchVoiceIcon">@drawable/ic_action_voice_search</item>
@@ -51,6 +52,24 @@
         <item name="android:inputType">textCapWords</item>
     </style>
 
+
+    <style name="AdminNavDrawer" parent="Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+  >
+
+
+        <!-- enable window content transitions -->
+        <item name="android:windowActivityTransitions">true</item>
+
+        <!-- specify shared element transitions -->
+        <item name="android:windowEnterTransition">
+            @transition/slide_right</item>
+        <item name="android:windowExitTransition">
+            @transition/slide_right</item>
+    </style>
 
 
 </resources>

@@ -40,5 +40,6 @@ dependencies {
     compile 'br.com.mauker.materialsearchview:materialsearchview:1.2.0'
     compile 'com.github.VyacheslavShmakin:gp-collapsing-toolbar:1.0.1'
     testCompile 'junit:junit:4.12'
+
     compile 'com.github.florent37:diagonallayout:1.0.2'
 }
