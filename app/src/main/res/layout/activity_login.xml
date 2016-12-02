@@ -169,6 +169,8 @@
             android:layout_width="250dp"
             android:layout_height="48dp"
             android:text="Login with Facebook"
+            android:id="@+id/foundation"
+            android:onClick="onClick"
             android:textColor="#ffffff"
             android:background="@drawable/login_facebook"/>
 

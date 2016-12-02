@@ -13,6 +13,7 @@ import com.mikepenz.community_material_typeface_library.CommunityMaterial;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import ru.shmakinv.android.material.widget.GpCollapsingToolbar;
 
 public class Settings extends ActionBarActivity {
 
@@ -20,12 +21,12 @@ public class Settings extends ActionBarActivity {
     Toolbar toolbar;
     Window window;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         ButterKnife.bind(this);
+
 
         window = getWindow();
         Transition transition = TransitionInflater.from(this).inflateTransition(R.transition.slide_right);
