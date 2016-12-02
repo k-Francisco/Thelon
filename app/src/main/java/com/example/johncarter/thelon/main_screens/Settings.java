@@ -10,6 +10,8 @@ import android.view.Window;
 
 import com.example.johncarter.thelon.R;
 import com.mikepenz.community_material_typeface_library.CommunityMaterial;
+import com.mikepenz.materialdrawer.Drawer;
+import com.mikepenz.materialdrawer.DrawerBuilder;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -21,12 +23,12 @@ public class Settings extends ActionBarActivity {
     Toolbar toolbar;
     Window window;
 
+    Drawer drawer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         ButterKnife.bind(this);
-
 
         window = getWindow();
         Transition transition = TransitionInflater.from(this).inflateTransition(R.transition.slide_right);
@@ -35,6 +37,7 @@ public class Settings extends ActionBarActivity {
 
         toolbar = (Toolbar) findViewById(R.id.nav_toolbar);
         setSupportActionBar(toolbar);
+
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {

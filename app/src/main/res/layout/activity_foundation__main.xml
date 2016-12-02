@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_foundation__main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.johncarter.thelon.admin_side.Foundation_Main">
+
+
+    <include
+        android:id="@+id/nav_toolbar"
+        layout="@layout/toolbar_layout"></include>
 
     <br.com.mauker.materialsearchview.MaterialSearchView
         android:id="@+id/search_view"
@@ -15,5 +21,15 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
       />
+
+    <android.support.design.widget.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/nav_toolbar"
+        android:id="@+id/tab_menu"
+        app:tabTextColor="#000000"
+        app:tabSelectedTextColor="#000000">
+
+    </android.support.design.widget.TabLayout>
 
 </RelativeLayout>

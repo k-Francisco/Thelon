@@ -4,8 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,22 +33,55 @@ import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
 import br.com.mauker.materialsearchview.MaterialSearchView;
 
+
 public class Foundation_Main extends AppCompatActivity {
     MaterialSearchView searchView;
     PrimaryDrawerItem home,foundation_profile,settings,logout;
     AccountHeader accountHeader;
     Drawer drawer;
+    Toolbar toolbar;
+    TabLayout tab;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_foundation__main);
         searchView = (MaterialSearchView)findViewById(R.id.search_view);
-        getSupportActionBar().setHomeButtonEnabled(false);
 
-        getSupportActionBar().setDisplayShowHomeEnabled(false);
-        getSupportActionBar().setDisplayUseLogoEnabled(false);
-        getSupportActionBar().setLogo(R.drawable.adminhamburger);
-       // getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        tab = (TabLayout) findViewById(R.id.tab_menu);
+        tab.addTab(tab.newTab().setText("Activities"));
+        tab.addTab(tab.newTab().setText("Volunteers"));
+
+        tab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+
+        toolbar = (Toolbar) findViewById(R.id.nav_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawer.openDrawer();
+            }
+        });
 
         initSearchBar();
         initDrawerItems();
@@ -60,9 +98,11 @@ public class Foundation_Main extends AppCompatActivity {
                         settings,
                         logout
                 )
+                .withTranslucentStatusBar(false)
+                .withTranslucentNavigationBar(false)
+                .withDisplayBelowStatusBar(true)
+                .withFullscreen(false)
                 .withSelectedItem(0)
-                .withActionBarDrawerToggle(false)
-                .withTranslucentStatusBar(true)
                 .build();
     }
 
@@ -132,11 +172,16 @@ public class Foundation_Main extends AppCompatActivity {
             @Override
             public void onSearchViewOpened() {
                 // Do something once the view is open.
+                tab.setVisibility(View.INVISIBLE);
+                toolbar.setVisibility(View.INVISIBLE);
+
             }
 
             @Override
             public void onSearchViewClosed() {
                 // Do something once the view is closed.
+                tab.setVisibility(View.VISIBLE);
+                toolbar.setVisibility(View.VISIBLE);
             }
         });
 
