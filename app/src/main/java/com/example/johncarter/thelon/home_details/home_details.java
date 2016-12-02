@@ -16,6 +16,7 @@ import com.example.johncarter.thelon.R;
 import com.example.johncarter.thelon.fragments.Home_Details_Text;
 
 import butterknife.ButterKnife;
+import ru.shmakinv.android.material.widget.GpCollapsingToolbar;
 
 public class home_details extends AppCompatActivity {
 
@@ -25,7 +26,6 @@ public class home_details extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_home_details);
-
 
 
 //        Slide slide = new Slide();

@@ -22,27 +22,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main_screens.LandingPageFoundation"/>
+        <activity android:name=".main_screens.LandingPageFoundation" />
         <activity android:name=".login_signup.Login" />
         <activity android:name=".login_signup.Signup" />
         <activity android:name=".home_tab.Home" />
-        <activity android:name=".edit_profile.GeneralFragment"/>
+        <activity android:name=".edit_profile.GeneralFragment" />
         <activity android:name=".home_details.home_details" />
         <activity
             android:name=".main_screens.Settings"
             android:label="@string/title_activity_settings"
             android:theme="@style/NavDrawerItems" />
-        <activity android:name=".portfolio.Portfolio"
-            android:theme="@style/NavDrawerItems" ></activity>
-        <activity android:name=".profile_tab.ProfileActivity"/>
-        <provider
-            android:name="br.com.mauker.materialsearchview.db.HistoryProvider"
-            android:authorities="br.com.mauker.materialsearchview.searchhistorydatabase"
-            android:exported="false"
-            android:protectionLevel="signature"
-            android:syncable="true"/>
+        <activity
+            android:name=".portfolio.Portfolio"
+            android:theme="@style/NavDrawerItems" />
+        <activity android:name=".profile_tab.ProfileActivity" />
+        <activity android:name=".admin_side.admin_welcome" />
+        <activity android:name=".admin_side.foundation_profile"></activity>
     </application>
 
 </manifest>
-
-
