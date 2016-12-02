@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -44,12 +45,13 @@ public class Foundation_Main extends AppCompatActivity {
     TabLayout tab;
 
     FragmentManager fm;
+    FloatingActionButton fab;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_foundation__main);
         searchView = (MaterialSearchView)findViewById(R.id.search_view);
-
+        fab = (FloatingActionButton) findViewById(R.id.add_act);
 
         tab = (TabLayout) findViewById(R.id.tab_menu);
         tab.addTab(tab.newTab().setText("Activities"));
@@ -64,6 +66,7 @@ public class Foundation_Main extends AppCompatActivity {
             public void onTabSelected(TabLayout.Tab tab) {
                 if(tab.getPosition() == 0){
                     fm.beginTransaction().replace(R.id.fram2,new ActivitiesFragment()).addToBackStack("volunteers").commit();
+                    fab.show();
                 }
                 else if(tab.getPosition() == 1) {
                     fm.beginTransaction().replace(R.id.fram2, new AdminVolunteer()).addToBackStack("volunteers").commit();
@@ -78,6 +81,14 @@ public class Foundation_Main extends AppCompatActivity {
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
 
+            }
+        });
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fm.beginTransaction().replace(R.id.fram2,new CreateActivityFragment()).addToBackStack("act_main").commit();
+                fab.hide();
             }
         });
 
@@ -184,6 +195,7 @@ public class Foundation_Main extends AppCompatActivity {
                 // Do something once the view is open.
                 tab.setVisibility(View.INVISIBLE);
                 toolbar.setVisibility(View.INVISIBLE);
+                fm.beginTransaction().replace(R.id.fram2,new BlankFragment()).commit();
 
             }
 
@@ -192,6 +204,8 @@ public class Foundation_Main extends AppCompatActivity {
                 // Do something once the view is closed.
                 tab.setVisibility(View.VISIBLE);
                 toolbar.setVisibility(View.VISIBLE);
+                fm.beginTransaction().replace(R.id.fram2,new ActivitiesFragment()).commit();
+
             }
         });
 
@@ -245,7 +259,9 @@ public class Foundation_Main extends AppCompatActivity {
     public void onBackPressed() {
         if (searchView.isOpen()) {
             // Close the search on the back button press.
+            fm.beginTransaction().replace(R.id.fram2,new ActivitiesFragment()).commit();
             searchView.closeSearch();
+
 
         } else {
             super.onBackPressed();
@@ -259,6 +275,4 @@ public class Foundation_Main extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.search_menu, menu);
         return true;
     }
-
-
 }
