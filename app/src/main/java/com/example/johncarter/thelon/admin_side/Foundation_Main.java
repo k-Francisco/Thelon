@@ -65,8 +65,9 @@ public class Foundation_Main extends AppCompatActivity {
                 if(tab.getPosition() == 0){
                     fm.beginTransaction().replace(R.id.fram2,new ActivitiesFragment()).addToBackStack("volunteers").commit();
                 }
-                else if(tab.getPosition() == 1){}
-                //fm.beginTransaction().replace(R.id.fram2,new VolunteersFragment()).addToBackStack("act_main").commit();
+                else if(tab.getPosition() == 1) {
+                    fm.beginTransaction().replace(R.id.fram2, new AdminVolunteer()).addToBackStack("volunteers").commit();
+                }
             }
 
             @Override

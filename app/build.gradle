@@ -27,6 +27,8 @@ dependencies {
     compile('com.mikepenz:materialdrawer:5.8.0@aar') {
         transitive = true
     }
+    compile 'br.com.mauker.materialsearchview:materialsearchview:1.2.0'
+
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta3'
     compile 'it.sephiroth.android.library.bottomnavigation:bottom-navigation:2.0.0'
@@ -37,9 +39,8 @@ dependencies {
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'br.com.mauker.materialsearchview:materialsearchview:1.2.0'
     compile 'com.mikepenz:community-material-typeface:1.7.22.1@aar'
-    compile 'br.com.mauker.materialsearchview:materialsearchview:1.2.0'
     compile 'com.github.VyacheslavShmakin:gp-collapsing-toolbar:1.0.1'
-    testCompile 'junit:junit:4.12'
-
     compile 'com.github.florent37:diagonallayout:1.0.2'
+    compile 'com.gjiazhe:wavesidebar:1.0.2'
+    testCompile 'junit:junit:4.12'
 }

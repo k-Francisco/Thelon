@@ -28,15 +28,6 @@ public class home_details extends AppCompatActivity {
         setContentView(R.layout.activity_home_details);
 
 
-//        Slide slide = new Slide();
-//        slide.setInterpolator(new DecelerateInterpolator());
-//        slide.addTarget(R.id.actTitle);
-//        slide.addTarget(R.id.hostpic);
-//        slide.addTarget(R.id.ratingBar);
-//        slide.addTarget(R.id.tab_menu);
-//        getWindow().setEnterTransition(slide);
-//        getWindow().setExitTransition(slide);
-
         TabLayout tab = (TabLayout) findViewById(R.id.tab_menu);
         tab.addTab(tab.newTab().setText("Details"));
         tab.addTab(tab.newTab().setText("Pictures"));
