@@ -56,25 +56,25 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!isMoved){
-                    main.show(isMoved);
-                    cardView.animate()
-                            .setInterpolator(new FastOutLinearInInterpolator())
-                            .setDuration(200)
-                            .setStartDelay(100)
-                            .translationY(-25)
-                            .start();
-                    isMoved = true;
-                }else {
-                    main.show(isMoved);
-                    cardView.animate()
-                            .setInterpolator(new FastOutLinearInInterpolator())
-                            .setDuration(200)
-                            .setStartDelay(100)
-                            .translationY(0)
-                            .start();
-                    isMoved = false;
-                }
+//                if(!isMoved){
+//                    main.show(isMoved);
+//                    cardView.animate()
+//                            .setInterpolator(new FastOutLinearInInterpolator())
+//                            .setDuration(200)
+//                            .setStartDelay(100)
+//                            .translationY(-25)
+//                            .start();
+//                    isMoved = true;
+//                }else {
+//                    main.show(isMoved);
+//                    cardView.animate()
+//                            .setInterpolator(new FastOutLinearInInterpolator())
+//                            .setDuration(200)
+//                            .setStartDelay(100)
+//                            .translationY(0)
+//                            .start();
+//                    isMoved = false;
+//                }
             }
         });
         mViews.set(position, cardView);
