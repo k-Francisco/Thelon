@@ -37,8 +37,8 @@ public class foundation_profile extends AppCompatActivity {
 
 
         recyclerView = (RecyclerView) this.findViewById(R.id.foundation_activities);
-        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        //StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         layoutManager = linearLayoutManager;
 
         recyclerView.setLayoutManager(layoutManager);
