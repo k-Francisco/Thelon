@@ -6,6 +6,25 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+
+
+        <!-- enable window content transitions -->
+        <item name="android:windowActivityTransitions">true</item>
+
+        <!-- specify shared element transitions -->
+        <item name="android:windowSharedElementEnterTransition">
+            @transition/shared_explode</item>
+        <item name="android:windowSharedElementExitTransition">
+            @transition/shared_explode</item>
+    </style>
+
+    <style name="LoginSignup" parent="MaterialDrawerTheme.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
 
@@ -19,6 +38,7 @@
         <item name="android:windowSharedElementExitTransition">
             @transition/shared_explode</item>
     </style>
+
 
     <!-- Nav Drawer Theme. -->
     <style name="NavDrawerItems" parent="Theme.AppCompat.Light.NoActionBar">

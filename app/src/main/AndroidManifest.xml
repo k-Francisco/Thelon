@@ -23,8 +23,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".main_screens.LandingPageFoundation" />
-        <activity android:name=".login_signup.Login" />
-        <activity android:name=".login_signup.Signup" />
+        <activity android:name=".login_signup.Login"
+            android:theme="@style/LoginSignup"/>
+        <activity android:name=".login_signup.Signup"
+            android:theme="@style/LoginSignup"/>
         <activity android:name=".home_tab.Home" />
         <activity android:name=".edit_profile.GeneralFragment" />
         <activity android:name=".home_details.home_details" />

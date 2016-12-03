@@ -2,15 +2,23 @@ package com.example.johncarter.thelon.main_screens;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.IdRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.Toast;
 
+import com.example.johncarter.thelon.admin_side.ActivitiesFragment;
+import com.example.johncarter.thelon.admin_side.BlankFragment;
 import com.example.johncarter.thelon.edit_profile.GeneralFragment;
 import com.example.johncarter.thelon.portfolio.Portfolio;
 import com.example.johncarter.thelon.R;
@@ -33,6 +41,7 @@ import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
+import br.com.mauker.materialsearchview.MaterialSearchView;
 import butterknife.ButterKnife;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 
@@ -45,6 +54,10 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
     FragmentTransaction fragmentTransaction;
     Window window;
     Drawer drawer;
+    Toolbar toolbar;
+    MaterialSearchView searchView;
+    private int fragmentIdentifier =0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +79,22 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.menu_frame, new HomeFragment());
         fragmentTransaction.commit();
-        window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_home));
+        fragmentIdentifier = 1;
+        //window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_home));
+
+        //Initializes toolbar and searchbar
+        searchView = (MaterialSearchView)findViewById(R.id.search_view);
+        toolbar = (Toolbar) findViewById(R.id.nav_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        initSearchBar();
+
+//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                drawer.openDrawer();
+//            }
+//        });
 
 
 
@@ -97,8 +125,111 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                 .buildForFragment();
 
     }
+//////Searchbar Start
+    private void initSearchBar() {
+
+        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
+        searchView.setSearchViewListener(new MaterialSearchView.SearchViewListener() {
+            @Override
+            public void onSearchViewOpened() {
+                // Do something once the view is open.
+                toolbar.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void onSearchViewClosed() {
+                // Do something once the view is closed.
+                toolbar.setVisibility(View.VISIBLE);
+            }
+        });
+
+        searchView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Do something when the suggestion list is clicked.
+                String suggestion = searchView.getSuggestionAtPosition(position);
+
+                searchView.setQuery(suggestion, false);
+            }
+        });
+
+        searchView.adjustTintAlpha(0.8f);
+        final Context context = this;
+        searchView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(context, "Long clicked position: " + i, Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
+        searchView.setOnVoiceClickedListener(new MaterialSearchView.OnVoiceClickedListener() {
+            @Override
+            public void onVoiceClicked() {
+                Toast.makeText(context, "Voice clicked!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+//    private void removeFrag(int identifier) {
+//        if(identifier == 1)
+//            fragmentTransaction.remove(getFragmentManager().findFragmentById(R.id.menu_frame)).commit();
+//        else if (identifier == 2)
+//            fragmentTransaction.remove(getSupportFragmentManager().findFragmentById(R.id.)).commit();
+//        else if(identifier == 3)
+//            fragmentTransaction.remove(getSupportFragmentManager().findFragmentById(R.id.)).commit();
+//    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle toolbar item clicks here. It'll
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.action_search:
+                // Open the search view on the menu item click.
 
 
+                searchView.openSearch();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (searchView.isOpen()) {
+            // Close the search on the back button press.
+            searchView.closeSearch();
+
+
+        } else {
+            super.onBackPressed();
+
+        }
+
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.search_menu, menu);
+        return true;
+    }
+////Searchbar End
 
     @Override
     public void onMenuItemSelect(@IdRes int i, int i1, boolean b) {
@@ -110,7 +241,8 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                 fragmentTransaction.setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right);
                 fragmentTransaction.replace(R.id.menu_frame, new HomeFragment(), "home");
                 fragmentTransaction.commit();
-                window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_home));
+                fragmentIdentifier = 1;
+                //window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_home));
 
                 break;
             case 1:
@@ -118,7 +250,8 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                 fragmentTransaction.setCustomAnimations(R.animator.slide_in_right, R.animator.slide_out_left);
                 fragmentTransaction.replace(R.id.menu_frame, new NotificationFragment(), "notification");
                 fragmentTransaction.commit();
-                window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_notification));
+                fragmentIdentifier = 2;
+                //window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_notification));
                 break;
 
             case 2:
@@ -126,11 +259,8 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                 fragmentTransaction.setCustomAnimations(R.animator.slide_in_right, R.animator.slide_out_left);
                 fragmentTransaction.replace(R.id.menu_frame, new LeaderBoardFragment(), "leaderboard");
                 fragmentTransaction.commit();
-                window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_leaderboard));
-                break;
-
-            case 3:
-
+                fragmentIdentifier = 3;
+                //window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_leaderboard));
                 break;
         }
     }
