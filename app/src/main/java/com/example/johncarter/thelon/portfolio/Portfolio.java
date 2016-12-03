@@ -40,9 +40,18 @@ public class Portfolio extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_portfolio);
 
+
         toolbar = (Toolbar) findViewById(R.id.nav_toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setTitle("Portfolio");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         recyclerView = (RecyclerView) this.findViewById(R.id.portfolio_list);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);

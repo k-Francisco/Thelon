@@ -17,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
+import com.example.johncarter.thelon.BadgeBadge;
 import com.example.johncarter.thelon.admin_side.ActivitiesFragment;
 import com.example.johncarter.thelon.admin_side.BlankFragment;
 import com.example.johncarter.thelon.edit_profile.GeneralFragment;
@@ -336,10 +337,9 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
 
             @Override
             public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-                fragmentTransaction = fragmentManager.beginTransaction();
-                        fragmentTransaction.setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right);
-                        fragmentTransaction.replace(R.id.menu_frame, new BadgeFragment());
-                        fragmentTransaction.commit();
+
+                    Intent intent = new Intent(LandingPage.this, BadgeBadge.class);
+                startActivity(intent);
 
                 return false;
             }

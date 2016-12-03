@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_badge_badge"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.johncarter.thelon.BadgeBadge">
+
+    <include
+        android:id="@+id/nav_toolbar"
+        layout="@layout/toolbar_layout"/>
+
+<android.support.v7.widget.RecyclerView
+    android:id="@+id/badgebadgeRecycler"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/nav_toolbar"
+    android:layout_marginLeft="15dp"
+    android:foregroundGravity="center">
+
+</android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>

@@ -23,10 +23,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".main_screens.LandingPageFoundation" />
-        <activity android:name=".login_signup.Login"
-            android:theme="@style/LoginSignup"/>
-        <activity android:name=".login_signup.Signup"
-            android:theme="@style/LoginSignup"/>
+        <activity
+            android:name=".login_signup.Login"
+            android:theme="@style/LoginSignup" />
+        <activity
+            android:name=".login_signup.Signup"
+            android:theme="@style/LoginSignup" />
         <activity android:name=".home_tab.Home" />
         <activity android:name=".edit_profile.GeneralFragment" />
         <activity android:name=".home_details.home_details" />
@@ -43,13 +45,16 @@
         <activity
             android:name=".admin_side.Foundation_Main"
             android:label="@string/title_activity_foundation__main"
-            android:theme="@style/AdminNavDrawer"></activity>
+            android:theme="@style/AdminNavDrawer" />
+
         <provider
             android:name="br.com.mauker.materialsearchview.db.HistoryProvider"
             android:authorities="br.com.mauker.materialsearchview.searchhistorydatabase"
             android:exported="false"
             android:protectionLevel="signature"
-            android:syncable="true"/>
+            android:syncable="true" />
+
+        <activity android:name=".BadgeBadge"></activity>
     </application>
 
 </manifest>
