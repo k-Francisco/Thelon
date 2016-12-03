@@ -15,4 +15,9 @@
         app:sidebar_lazy_respond="false"
         app:sidebar_text_color="#8D6E63"/>
 
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="350dp"
+        android:layout_height="match_parent"
+        android:id="@+id/recycler_view_admin" />
+
 </FrameLayout>

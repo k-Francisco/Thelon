@@ -3,6 +3,10 @@ package com.example.johncarter.thelon.admin_side;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 
 import com.example.johncarter.thelon.R;
@@ -21,12 +25,28 @@ public class foundation_profile extends AppCompatActivity {
     PrimaryDrawerItem home,foundation_profile,settings,logout;
     AccountHeader accountHeader;
     Drawer drawer;
+    RecyclerView recyclerView;
+    RecyclerView.LayoutManager layoutManager;
+    RecyclerView.Adapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_foundation_profile);
         initDrawerItems();
         initDrawerHeader();
+
+
+        recyclerView = (RecyclerView) this.findViewById(R.id.foundation_activities);
+        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        layoutManager = linearLayoutManager;
+
+        recyclerView.setLayoutManager(layoutManager);
+        adapter = new FoundationActivitiesAdapter();
+        recyclerView.setAdapter(adapter);
+
+
+
 
         drawer = new DrawerBuilder()
                 .withAccountHeader(accountHeader)
@@ -37,7 +57,7 @@ public class foundation_profile extends AppCompatActivity {
                         settings,
                         logout
                 )
-                .withSelectedItem(0)
+                .withSelectedItem(1)
                 .build();
     }
     private void initDrawerHeader() {

@@ -4,11 +4,15 @@ package com.example.johncarter.thelon.admin_side;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.johncarter.thelon.R;
+import com.example.johncarter.thelon.home_tab.recyclerAdapter;
 import com.gjiazhe.wavesidebar.WaveSideBar;
 
 /**
@@ -16,6 +20,9 @@ import com.gjiazhe.wavesidebar.WaveSideBar;
  */
 public class AdminVolunteer extends Fragment {
 
+    RecyclerView recyclerView;
+    RecyclerView.LayoutManager layoutManager;
+    RecyclerView.Adapter adapter;
     WaveSideBar sideBar;
     public AdminVolunteer() {
         // Required empty public constructor
@@ -26,7 +33,14 @@ public class AdminVolunteer extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootview = inflater.inflate(R.layout.fragment_admin_volunteer,container,false);
+        final View rootview = inflater.inflate(R.layout.fragment_admin_volunteer,container,false);
+        recyclerView = (RecyclerView) rootview.findViewById(R.id.recycler_view_admin);
+        layoutManager = new LinearLayoutManager(rootview.getContext());
+        recyclerView.setLayoutManager(layoutManager);
+
+        adapter = new VolunteerContactAdapter();
+        recyclerView.setAdapter(adapter);
+
 
 
         sideBar = (WaveSideBar) rootview.findViewById(R.id.side_bar);
@@ -40,9 +54,17 @@ public class AdminVolunteer extends Fragment {
         sideBar.setOnSelectIndexItemListener(new WaveSideBar.OnSelectIndexItemListener() {
             @Override
             public void onSelectIndexItem(String index) {
+                Character c = index.charAt(0);
+                int position = new VolunteerContactAdapter().returnWhatIsSearched(c);
+                Toast.makeText(rootview.getContext(), position+"", Toast.LENGTH_SHORT).show();
+
+                recyclerView.getLayoutManager().scrollToPosition(position+5);
 
             }
         });
+
+
+
 
         return rootview;
     }
