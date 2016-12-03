@@ -10,11 +10,15 @@
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+
 <RelativeLayout
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:id="@+id/relativo"
-    >
+    android:id="@+id/relativo">
+
+    <include
+        android:id="@id/nav_toolbar"
+        layout="@layout/toolbar_layout"/>
 
     <com.github.florent37.diagonallayout.DiagonalLayout
         android:layout_width="match_parent"
@@ -110,6 +114,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_photo_album"
+        android:onClick="onClick"
         android:scaleY="1.7"
         android:scaleX="1.7"
         android:layout_below="@id/panelStart"

@@ -39,8 +39,10 @@
         <activity
             android:name=".portfolio.Portfolio"
             android:theme="@style/NavDrawerItems" />
-        <activity android:name=".profile_tab.ProfileActivity" />
-        <activity android:name=".admin_side.admin_welcome" />
+        <activity android:name=".profile_tab.ProfileActivity"
+            android:theme="@style/LoginSignup"/>
+        <activity android:name=".admin_side.admin_welcome"
+            android:theme="@style/LoginSignup"/>
         <activity android:name=".admin_side.foundation_profile" />
         <activity
             android:name=".admin_side.Foundation_Main"

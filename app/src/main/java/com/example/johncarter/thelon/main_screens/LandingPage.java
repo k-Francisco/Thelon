@@ -45,10 +45,11 @@ import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import br.com.mauker.materialsearchview.MaterialSearchView;
 import butterknife.ButterKnife;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
+import android.support.v7.app.ActionBarDrawerToggle;
 
 public class LandingPage extends AppCompatActivity implements BottomNavigation.OnMenuItemSelectionListener {
 
-    PrimaryDrawerItem home, portfolio, badges, editProfile, settings, logOut, helpAndFeedback, reportBug, aboutEthelon;
+    PrimaryDrawerItem home,  badges, editProfile, settings, logOut, partners, helpAndFeedback, reportBug, aboutEthelon;
     AccountHeader accountHeader;
     BottomNavigation bottomNavigation;
     FragmentManager fragmentManager;
@@ -88,6 +89,15 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
         toolbar = (Toolbar) findViewById(R.id.nav_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.adminhamburger);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawer.openDrawer();
+            }
+        });
         initSearchBar();
 
 //        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -111,12 +121,12 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                 .withActivity(this)
                 .addDrawerItems(
                         home,
-                        portfolio,
                         badges,
                         editProfile,
                         settings,
                         logOut,
                         new DividerDrawerItem(),
+                        partners,
                         helpAndFeedback,
                         reportBug,
                         aboutEthelon
@@ -124,6 +134,8 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                 )
                 .withSelectedItem(0)
                 .buildForFragment();
+
+
 
     }
 //////Searchbar Start
@@ -315,19 +327,6 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                 .withName("Home")
                 .withIcon(CommunityMaterial.Icon.cmd_home);
 
-        portfolio = new PrimaryDrawerItem()
-                .withIdentifier(1)
-                .withName("Portfolio")
-                .withIcon(CommunityMaterial.Icon.cmd_folder_image)
-                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-                    @Override
-                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-
-                        Intent intent = new Intent(LandingPage.this, Portfolio.class);
-                        startActivity(intent);
-                        return false;
-                    }
-                });
 
         badges = new PrimaryDrawerItem()
                 .withIdentifier(2)
@@ -387,6 +386,11 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                         return false;
                     }
                 });
+
+        partners = new PrimaryDrawerItem()
+                .withIdentifier(6)
+                .withName("Partnered Foundation")
+                .withIcon(CommunityMaterial.Icon.cmd_account_network);
 
         helpAndFeedback = new PrimaryDrawerItem()
                 .withIdentifier(6)

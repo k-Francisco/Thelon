@@ -1,49 +1,71 @@
 package com.example.johncarter.thelon.profile_tab;
 
 import android.app.FragmentManager;
+import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.ImageView;
 
 import com.example.johncarter.thelon.Performance.PerformanceFragment;
 import com.example.johncarter.thelon.R;
 import com.example.johncarter.thelon.fragments.NotificationFragment;
+import com.example.johncarter.thelon.portfolio.Portfolio;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends    AppCompatActivity implements View.OnClickListener {
+
+    private ImageView portfolio;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
         setContentView(R.layout.activity_profile);
 
-//        TabLayout tab = (TabLayout) findViewById(R.id.tab_menu);
-//        tab.addTab(tab.newTab().setText("Portfolio"));
-//        tab.addTab(tab.newTab().setText("Badges"));
-//        tab.addTab(tab.newTab().setText("Performance"));
-//
-//        tab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-//            FragmentManager fm = getFragmentManager();
-//            @Override
-//            public void onTabSelected(TabLayout.Tab tab) {
-//                if(tab.getPosition() == 0)
-//                    fm.beginTransaction().replace(R.id.frameyy,new NotificationFragment()).commit();
-//                else if(tab.getPosition() == 1)
-//                    fm.beginTransaction().replace(R.id.frameyy,new BadgeListFragment()).commit();
-//                else if(tab.getPosition() == 2){
-//                    fm.beginTransaction().replace(R.id.framskie, new PerformanceFragment()).commit();
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onTabUnselected(TabLayout.Tab tab) {
-//
-//            }
-//
-//            @Override
-//            public void onTabReselected(TabLayout.Tab tab) {
-//
-//            }
-//        });
+        portfolio = (ImageView) findViewById(R.id.portfolio_icon);
+        portfolio.setOnClickListener(this);
+
+        toolbar = (Toolbar) findViewById(R.id.nav_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        toolbar.setBackground(null);
+        toolbar.setPadding(0, getStatusBarHeight(), 0, 0);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+
+            case R.id.portfolio_icon:
+                Intent intent = new Intent(ProfileActivity.this, Portfolio.class);
+                startActivity(intent);
+                break;
+        }
+
+    }
+
+    public int getStatusBarHeight() {
+        int result = 0;
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            result = getResources().getDimensionPixelSize(resourceId);
+        }
+        return result;
     }
 }

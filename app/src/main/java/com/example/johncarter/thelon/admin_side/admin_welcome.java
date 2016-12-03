@@ -22,6 +22,7 @@ public class admin_welcome extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(admin_welcome.this, foundation_profile.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
