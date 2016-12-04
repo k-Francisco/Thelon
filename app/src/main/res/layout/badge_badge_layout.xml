@@ -11,7 +11,8 @@
         android:elevation="10dp"
         android:layout_gravity="center"
         android:foregroundGravity="center"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="5dp"
+        android:transitionName="badgebadge"/>
 
     <TextView
         android:id="@+id/badgebadgeName"

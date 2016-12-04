@@ -97,14 +97,14 @@
         android:layout_alignRight="@+id/firstLeader"
         android:layout_marginTop="10dp"
         android:elevation="15dp"
-        android:id="@+id/imageView3" />
+        android:id="@+id/badge" />
 
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:src="@drawable/third"
         android:elevation="15dp"
-        android:layout_below="@+id/imageView3"
+        android:layout_below="@+id/badge"
         android:layout_alignRight="@+id/thirdLeader"
         android:layout_marginTop="10dp"
         android:id="@+id/imageView4" />

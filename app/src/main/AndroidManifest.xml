@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.johncarter.thelon">
 
+    <uses-permission android:name="android.permission.CAMERA" />
 
-    <uses-permission android:name="android.permission.CAMERA"/>
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_logo"
@@ -41,18 +41,20 @@
         <activity
             android:name=".portfolio.Portfolio"
             android:theme="@style/NavDrawerItems" />
-        <activity android:name=".profile_tab.ProfileActivity"
-            android:theme="@style/LoginSignup"/>
-        <activity android:name=".admin_side.admin_welcome"
-            android:theme="@style/LoginSignup"/>
+        <activity
+            android:name=".profile_tab.ProfileActivity"
+            android:theme="@style/LoginSignup" />
+        <activity
+            android:name=".admin_side.admin_welcome"
+            android:theme="@style/LoginSignup" />
         <activity android:name=".admin_side.foundation_profile" />
         <activity
             android:name=".admin_side.Foundation_Main"
             android:label="@string/title_activity_foundation__main"
             android:theme="@style/AdminNavDrawer" />
-        <activity android:name=".home_details.home_details_joined"/>
-        <activity android:name=".home_details.AttendaceCheckinig"/>
-        <activity android:name=".home_details.AttendanceSuccess"/>
+        <activity android:name=".home_details.home_details_joined" />
+        <activity android:name=".home_details.AttendaceCheckinig" />
+        <activity android:name=".home_details.AttendanceSuccess" />
         <activity android:name=".home_details.EvaluationActivity" />
 
         <provider
@@ -62,7 +64,8 @@
             android:protectionLevel="signature"
             android:syncable="true" />
 
-        <activity android:name=".BadgeBadge"></activity>
+        <activity android:name=".BadgeBadge" />
+        <activity android:name=".Performance.Performance2"></activity>
     </application>
 
 </manifest>
