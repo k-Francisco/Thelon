@@ -13,6 +13,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import com.example.johncarter.thelon.Performance.Performance2;
 import com.example.johncarter.thelon.Performance.PerformanceFragment;
 import com.example.johncarter.thelon.R;
 import com.example.johncarter.thelon.fragments.NotificationFragment;
@@ -20,7 +21,7 @@ import com.example.johncarter.thelon.portfolio.Portfolio;
 
 public class ProfileActivity extends    AppCompatActivity implements View.OnClickListener {
 
-    private ImageView portfolio;
+    private ImageView portfolio, performance;
     Toolbar toolbar;
 
     @Override
@@ -31,6 +32,9 @@ public class ProfileActivity extends    AppCompatActivity implements View.OnClic
 
         portfolio = (ImageView) findViewById(R.id.portfolio_icon);
         portfolio.setOnClickListener(this);
+
+        performance = (ImageView) findViewById(R.id.performance_icon);
+        performance.setOnClickListener(this);
 
         toolbar = (Toolbar) findViewById(R.id.nav_toolbar);
         setSupportActionBar(toolbar);
@@ -50,10 +54,16 @@ public class ProfileActivity extends    AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View v) {
+        Intent intent;
         switch (v.getId()){
 
             case R.id.portfolio_icon:
-                Intent intent = new Intent(ProfileActivity.this, Portfolio.class);
+                intent = new Intent(ProfileActivity.this, Portfolio.class);
+                startActivity(intent);
+                break;
+
+            case R.id.performance_icon:
+                intent = new Intent(ProfileActivity.this, Performance2.class);
                 startActivity(intent);
                 break;
         }
