@@ -18,6 +18,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.example.johncarter.thelon.R;
+import com.example.johncarter.thelon.admin_side.ReferVolunteerFragment;
 import com.example.johncarter.thelon.admin_side.StaggeredAscPicsFragment;
 import com.example.johncarter.thelon.admin_side.VolunteersInDetailsFragment;
 import com.example.johncarter.thelon.fragments.Home_Details_Text;
@@ -28,6 +29,7 @@ import ru.shmakinv.android.material.widget.GpCollapsingToolbar;
 public class home_details extends AppCompatActivity {
 
     ImageView joinBtn;
+    ImageView refer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +38,7 @@ public class home_details extends AppCompatActivity {
 
         joinBtn = (ImageView) findViewById(R.id.joinBtn);
 
-
+        refer = (ImageView)findViewById(R.id.referBtn);
 
         FragmentManager fm = getFragmentManager();
         fm.beginTransaction().replace(R.id.volunteersFrame, new VolunteersInDetailsFragment()).commit();
@@ -60,6 +62,18 @@ public class home_details extends AppCompatActivity {
 
             }
         });
+        refer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getFragmentManager();
+                ReferVolunteerFragment ref = new ReferVolunteerFragment();
+                ref.show(fm,"dialog");
+            }
+        });
+
+
+
+
 //        Slide slide = new Slide();
 //        slide.setInterpolator(new DecelerateInterpolator());
 //        slide.addTarget(R.id.actTitle);

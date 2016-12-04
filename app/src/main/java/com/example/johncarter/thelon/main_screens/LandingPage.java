@@ -1,10 +1,14 @@
 package com.example.johncarter.thelon.main_screens;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+//import android.app.FragmentManager;
+//import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.IdRes;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,6 +26,8 @@ import com.example.johncarter.thelon.admin_side.ActivitiesFragment;
 import com.example.johncarter.thelon.admin_side.BlankFragment;
 import com.example.johncarter.thelon.edit_profile.GeneralFragment;
 import com.example.johncarter.thelon.home_details.HomeDetailsFragment;
+import com.example.johncarter.thelon.home_details.home_details;
+import com.example.johncarter.thelon.home_tab.ActivitiesMainFragment;
 import com.example.johncarter.thelon.portfolio.Portfolio;
 import com.example.johncarter.thelon.R;
 import com.example.johncarter.thelon.fragments.BadgeFragment;
@@ -42,13 +48,15 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
+import com.qslll.library.ExpandingPagerFactory;
+import com.qslll.library.fragments.ExpandingFragment;
 
 import br.com.mauker.materialsearchview.MaterialSearchView;
 import butterknife.ButterKnife;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import android.support.v7.app.ActionBarDrawerToggle;
 
-public class LandingPage extends AppCompatActivity implements BottomNavigation.OnMenuItemSelectionListener {
+public class LandingPage extends AppCompatActivity implements BottomNavigation.OnMenuItemSelectionListener, ExpandingFragment.OnExpandingClickListener {
 
     PrimaryDrawerItem home,  badges, editProfile, settings, logOut, partners, helpAndFeedback, reportBug, aboutEthelon;
     AccountHeader accountHeader;
@@ -78,9 +86,9 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
 
 
         //sets the first screen on the home fragment and sets the status bar color the same as the bottom bar color
-        fragmentManager = getFragmentManager();
+        fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.menu_frame, new HomeFragment());
+        fragmentTransaction.replace(R.id.menu_frame, new ActivitiesMainFragment());
         fragmentTransaction.commit();
         fragmentIdentifier = 1;
         //window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_home));
@@ -252,8 +260,8 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
         switch (i1){
             case 0:
                 fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right);
-                fragmentTransaction.replace(R.id.menu_frame, new HomeFragment(), "home");
+                fragmentTransaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
+                fragmentTransaction.replace(R.id.menu_frame, new ActivitiesMainFragment(), "home");
                 fragmentTransaction.commit();
                 fragmentIdentifier = 1;
                 //window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_home));
@@ -261,7 +269,7 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                 break;
             case 1:
                 fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.setCustomAnimations(R.animator.slide_in_right, R.animator.slide_out_left);
+                //fragmentTransaction.setCustomAnimations(R.animator.slide_in_right, R.animator.slide_out_left);
                 fragmentTransaction.replace(R.id.menu_frame, new NotificationFragment(), "notification");
                 fragmentTransaction.commit();
                 fragmentIdentifier = 2;
@@ -270,7 +278,7 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
 
             case 2:
                 fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.setCustomAnimations(R.animator.slide_in_right, R.animator.slide_out_left);
+                //fragmentTransaction.setCustomAnimations(R.animator.slide_in_right, R.animator.slide_out_left);
                 fragmentTransaction.replace(R.id.menu_frame, new LeaderBoardFragment(), "leaderboard");
                 fragmentTransaction.commit();
                 fragmentIdentifier = 3;
@@ -410,6 +418,8 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
     }
 
 
-
-
+    @Override
+    public void onExpandingClick(View view) {
+        startActivity(new Intent(view.getContext(),home_details.class));
+    }
 }

@@ -1,8 +1,8 @@
 package com.example.johncarter.thelon.fragments;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +15,7 @@ import com.example.johncarter.thelon.R;
  * Created by dell on 12/1/2016.
  */
 
-public class GifWebviewFragment extends Fragment{
+public class GifWebviewFragment extends Fragment {
 
     @Nullable
     @Override

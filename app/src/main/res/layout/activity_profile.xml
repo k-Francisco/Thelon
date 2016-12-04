@@ -40,7 +40,7 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_height="100dp"
-        android:src="@drawable/a"
+        android:src="@drawable/kix"
         android:id="@+id/vPic"
         android:layout_width="100dp"
         android:layout_below="@+id/profDesc"
@@ -54,7 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/AlertDialog.AppCompat.Light"
-        android:text="Ferdinand Marcos"
+        android:text="Christopher Colum"
         android:layout_toRightOf="@id/vPic"
         android:layout_marginTop="200dp"
         android:layout_marginLeft="20dp"
@@ -70,7 +70,7 @@
         android:layout_marginLeft="90dp"
         android:textStyle="italic"
         android:layout_marginTop="180dp"
-        android:text="Dirt Defiant"/>
+        android:text="Explorer/Navigator"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -185,21 +185,23 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginLeft="5dp">
-        <ImageView
-            android:layout_width="160dp"
-            android:layout_height="180dp"
-            android:src="@drawable/movie02"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="10dp"
-            android:scaleType="fitXY"/>
 
             <ImageView
                 android:layout_width="160dp"
                 android:layout_height="180dp"
-                android:src="@drawable/movie02"
+                android:src="@drawable/bill2"
                 android:layout_marginTop="30dp"
                 android:layout_marginLeft="10dp"
-                android:scaleType="fitXY"/>
+                android:scaleType="centerCrop"
+                android:id="@+id/imageView8" />
+
+            <ImageView
+                android:layout_width="160dp"
+                android:layout_height="180dp"
+                android:src="@drawable/bill3"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="10dp"
+                android:scaleType="centerCrop"/>
 
         </LinearLayout>
 
@@ -215,23 +217,23 @@
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="110dp"
-                android:src="@drawable/movie02"
+                android:src="@drawable/bill4"
                 android:layout_marginLeft="10dp"
-                android:scaleType="fitXY"/>
+                android:scaleType="centerCrop"/>
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="110dp"
-                android:src="@drawable/movie02"
+                android:src="@drawable/bill5"
                 android:layout_marginLeft="10dp"
-                android:scaleType="fitXY"/>
+                android:scaleType="centerCrop"/>
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="110dp"
-                android:src="@drawable/movie02"
+                android:src="@drawable/bill6"
                 android:layout_marginLeft="10dp"
-                android:scaleType="fitXY"/>
+                android:scaleType="centerCrop"/>
 
         </LinearLayout>
 

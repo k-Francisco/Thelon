@@ -1,5 +1,8 @@
 package com.example.johncarter.thelon.portfolio;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.johncarter.thelon.R;
 import com.example.johncarter.thelon.admin_side.VolunteerContactAdapter;
+import com.example.johncarter.thelon.home_details.home_details_joined;
 
 /**
  * Created by john carter on 12/4/2016.
@@ -18,29 +22,21 @@ public class portfolioAdapter2 extends RecyclerView.Adapter<portfolioAdapter2.Vi
 
 
 
-    private String[] title = {"Charles Cruz",
-            "Tyler Lim",
-            "Kobe Relativo",
-            "Kristian Francisco",
-            "Mark Antonino",
-            "Kirster Quinio",
-            "Anton Wycoco",
-            "Franz Paran",
-            "Gil Canedo",
-            "Ice Chavez",
-            "Gil Canedo",
-            "Gil Canedo",
-            "Gil Canedo",
-            "Gil Canedo",
-            "Gil Canedo"};
+    private String[] title = {
+            "Feeding Program",
+            "Dental Mission",
+            "Tree Planting",
+            "Community Outreach",
+            "Disaster Relief",
+            "Fun Run for a Cause",
+            "Blood Donation Campaign",
+            "Blood Letting Campaign",
+            "Libre Tuli Operation",
+            "Sport Campaign"};
 
-    private int status[] = {R.drawable.ic_bookmark_upcoming,
+    private int status[] = {
             R.drawable.ic_bookmark_upcoming,
-            R.drawable.ic_bookmark_24dp,
-            R.drawable.ic_bookmark_24dp,
-            R.drawable.ic_bookmark_24dp,
-            R.drawable.ic_bookmark_24dp,
-            R.drawable.ic_bookmark_24dp,
+            R.drawable.ic_bookmark_upcoming,
             R.drawable.ic_bookmark_24dp,
             R.drawable.ic_bookmark_24dp,
             R.drawable.ic_bookmark_24dp,
@@ -50,37 +46,28 @@ public class portfolioAdapter2 extends RecyclerView.Adapter<portfolioAdapter2.Vi
             R.drawable.ic_bookmark_24dp,
             R.drawable.ic_bookmark_24dp,};
 
-    private int[] images = {R.drawable.charles,
-            R.drawable.tyler,
-            R.drawable.kobe,
-            R.drawable.kf,
-            R.drawable.mark,
-            R.drawable.kix,
-            R.drawable.anton,
-            R.drawable.fanz,
-            R.drawable.gil,
-            R.drawable.ice,
-            R.drawable.gil,
-            R.drawable.gil,
-            R.drawable.gil,
-            R.drawable.gil,
-            R.drawable.gil};
+    private int[] images = {R.drawable.feed1,
+            R.drawable.dental_mission,
+            R.drawable.tree_planting,
+            R.drawable.community_outreach,
+            R.drawable.disaster_relief,
+            R.drawable.fun_run,
+            R.drawable.blood_donation,
+            R.drawable.blood_letting,
+            R.drawable.libre_tuli,
+            R.drawable.sports_campaign};
 
     private String[] desc = {"This feeding program reminds me of that kid that inspired me a lot to do good things",
-            "This feeding program reminds me of that kid that inspired me a lot to do good things",
-            "This feeding program reminds me of that kid that inspired me a lot to do good things",
-            "This feeding program reminds me of that kid that inspired me a lot to do good things",
-            "This feeding program reminds me of that kid that inspired me a lot to do good things",
-            "This feeding program reminds me of that kid that inspired me a lot to do good things",
-            "This feeding program reminds me of that kid that inspired me a lot to do good things",
-            "This feeding program reminds me of that kid that inspired me a lot to do good things",
-            "This feeding program reminds me of that kid that inspired me a lot to do good things",
-            "This feeding program reminds me of that kid that inspired me a lot to do good things",
-            "This feeding program reminds me of that kid that inspired me a lot to do good things",
-            "This feeding program reminds me of that kid that inspired me a lot to do good things",
-            "This feeding program reminds me of that kid that inspired me a lot to do good things",
-            "This feeding program reminds me of that kid that inspired me a lot to do good things",
-            "This feeding program reminds me of that kid that inspired me a lot to do good things"};
+            "This program reminds me of that kid that inspired me a lot to do good things",
+            "This program reminds me of that kid that inspired me a lot to do good things",
+            "This program reminds me of that kid that inspired me a lot to do good things",
+            "This program reminds me of that kid that inspired me a lot to do good things",
+            "This program reminds me of that kid that inspired me a lot to do good things",
+            "This program reminds me of that kid that inspired me a lot to do good things",
+            "This program reminds me of that kid that inspired me a lot to do good things",
+            "This program reminds me of that kid that inspired me a lot to do good things",
+            "This program reminds me of that kid that inspired me a lot to do good things",
+            };
 
 
 
@@ -112,7 +99,7 @@ public class portfolioAdapter2 extends RecyclerView.Adapter<portfolioAdapter2.Vi
         private TextView title, desc;
         private ImageView pic, status;
 
-        public ViewHolder(View itemView) {
+        public ViewHolder(final View itemView) {
             super(itemView);
 
             title = (TextView) itemView.findViewById(R.id.portfolio_card_title);
@@ -120,6 +107,12 @@ public class portfolioAdapter2 extends RecyclerView.Adapter<portfolioAdapter2.Vi
             pic = (ImageView) itemView.findViewById(R.id.portfolio_card_image);
             status = (ImageView) itemView.findViewById(R.id.portfolio_card_status);
 
+            status.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    itemView.getContext().startActivity(new Intent(itemView.getContext(),home_details_joined.class));
+                }
+            });
         }
     }
 }

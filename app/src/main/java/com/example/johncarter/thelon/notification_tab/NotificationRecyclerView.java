@@ -27,27 +27,53 @@ public class NotificationRecyclerView extends RecyclerView.Adapter<NotificationR
             "Ice Chavez"};
 
     private String[] message = {"has invited you to an event",
+            "has given you an evaluation",
+            "has referred you to an event",
             "has invited you to an event",
+            "has given you an evaluation",
+            "has referred you to an event",
             "has invited you to an event",
-            "has invited you to an event",
-            "has invited you to an event",
-            "has invited you to an event",
-            "has invited you to an event",
-            "has invited you to an event",
-            "has invited you to an event",
-            "has invited you to an event",};
+            "has given you an evaluation",
+            "has referred you to an event",
+            "has invited you to an event"};
 
 
-    private int[] images = { R.drawable.movie01,
-            R.drawable.movie02,
-            R.drawable.movie03,
-            R.drawable.movie04,
-            R.drawable.movie05,
-            R.drawable.movie06,
-            R.drawable.movie07,
-            R.drawable.movie08,
-            R.drawable.movie09,
-            R.drawable.movie10};
+    private int[] images = { R.drawable.charles,
+            R.drawable.tyler,
+            R.drawable.kobe,
+            R.drawable.kf,
+            R.drawable.mark,
+            R.drawable.kix,
+            R.drawable.anton,
+            R.drawable.fanz,
+            R.drawable.gil,
+            R.drawable.ice};
+
+    private int [] notification_image = {
+            R.drawable.ic_flag,
+            R.drawable.ic_star,
+            R.drawable.ic_decree,
+            R.drawable.ic_flag,
+            R.drawable.ic_star,
+            R.drawable.ic_decree,
+            R.drawable.ic_flag,
+            R.drawable.ic_star,
+            R.drawable.ic_decree,
+            R.drawable.ic_flag
+    };
+
+    private String time[] = {
+            "15 minutes ago",
+            "45 minutes ago",
+            "1 hour ago",
+            "2 hours ago",
+            "3 hours ago",
+            "7 hours ago",
+            "12 hours ago",
+            "15 hours ago",
+            "Yesterday",
+            "Yesterday"
+    };
 
     @Override
     public NotificationRecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -61,7 +87,8 @@ public class NotificationRecyclerView extends RecyclerView.Adapter<NotificationR
 
         holder.notifImg.setImageResource(images[position]);
         holder.heading.setText(name[position] + " " + message[position]);
-        holder.notifTypeImg.setImageResource(R.drawable.notification_chat);
+        holder.notifTypeImg.setImageResource(notification_image[position]);
+        holder.notifTime.setText(time[position]);
     }
 
     @Override

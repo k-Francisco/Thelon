@@ -108,32 +108,32 @@ public class LandingPageFoundation extends AppCompatActivity implements BottomNa
     public void onMenuItemSelect(@IdRes int i, int i1, boolean b) {
 
 
-        switch (i1) {
-            case 0:
-                fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right);
-                fragmentTransaction.replace(R.id.menu_frame, new AdminHomeFragment(), "home");
-                fragmentTransaction.commit();
-                window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_home));
-
-                break;
-            case 1:
-                fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.setCustomAnimations(R.animator.slide_in_right, R.animator.slide_out_left);
-                fragmentTransaction.replace(R.id.menu_frame, new NotificationFragment(), "notification");
-                fragmentTransaction.commit();
-                window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_notification));
-                break;
-
-            case 2:
-                fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.setCustomAnimations(R.animator.slide_in_right, R.animator.slide_out_left);
-                fragmentTransaction.replace(R.id.menu_frame, new LeaderBoardFragment(), "leaderboard");
-                fragmentTransaction.replace(R.id.frame1, new GifWebviewFragment());
-                fragmentTransaction.commit();
-                window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_leaderboard));
-                break;
-        }
+//        switch (i1) {
+//            case 0:
+//                fragmentTransaction = fragmentManager.beginTransaction();
+//                fragmentTransaction.setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right);
+//                fragmentTransaction.replace(R.id.menu_frame, new AdminHomeFragment(), "home");
+//                fragmentTransaction.commit();
+//                window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_home));
+//
+//                break;
+//            case 1:
+//                fragmentTransaction = fragmentManager.beginTransaction();
+//                fragmentTransaction.setCustomAnimations(R.animator.slide_in_right, R.animator.slide_out_left);
+//                fragmentTransaction.replace(R.id.menu_frame, new NotificationFragment(), "notification");
+//                fragmentTransaction.commit();
+//                window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_notification));
+//                break;
+//
+//            case 2:
+//                fragmentTransaction = fragmentManager.beginTransaction();
+//                fragmentTransaction.setCustomAnimations(R.animator.slide_in_right, R.animator.slide_out_left);
+//                fragmentTransaction.replace(R.id.menu_frame, new LeaderBoardFragment(), "leaderboard");
+//                fragmentTransaction.replace(R.id.frame1, new GifWebviewFragment());
+//                fragmentTransaction.commit();
+//                window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_leaderboard));
+//                break;
+//        }
     }
 
 

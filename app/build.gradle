@@ -44,5 +44,7 @@ dependencies {
     compile 'me.dm7.barcodescanner:zxing:1.8.4'
     compile 'com.github.florent37:diagonallayout:1.0.2'
     compile 'com.gjiazhe:wavesidebar:1.0.2'
+    compile 'com.github.johnkil.android-robototextview:robototextview:2.5.0'
+    compile 'com.github.qs-lll:ExpandingPager:767ff93966'
     testCompile 'junit:junit:4.12'
 }
