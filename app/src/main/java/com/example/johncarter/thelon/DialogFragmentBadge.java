@@ -50,6 +50,7 @@ public class DialogFragmentBadge extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.badge_dialog,container,false);
 
+
         imageView = (ImageView) view.findViewById(R.id.dialogBadgeImg);
         textView = (TextView) view.findViewById(R.id.dialogBadgeTitle);
         int position = getArguments().getInt("position");

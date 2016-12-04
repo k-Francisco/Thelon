@@ -19,9 +19,9 @@
 
         <RelativeLayout
             android:layout_width="330dp"
-            android:layout_height="380dp"
+            android:layout_height="440dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="50dp"
             android:background="@drawable/login_inputs">
 
             <TextView
@@ -98,6 +98,7 @@
                         android:textSize="19sp"/>
 
                     <ProgressBar
+                        android:id="@+id/progress1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
@@ -124,6 +125,7 @@
                         android:textSize="19sp"/>
 
                     <ProgressBar
+                        android:id="@+id/progress2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
@@ -150,6 +152,7 @@
                         android:textSize="19sp"/>
 
                     <ProgressBar
+                        android:id="@+id/progress3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
@@ -175,6 +178,7 @@
                         android:textSize="19sp"/>
 
                     <ProgressBar
+                        android:id="@+id/progress4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
@@ -200,6 +204,7 @@
                         android:textSize="19sp"/>
 
                     <ProgressBar
+                        android:id="@+id/progress5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
@@ -225,6 +230,7 @@
                         android:textSize="19sp"/>
 
                     <ProgressBar
+                        android:id="@+id/progress6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
@@ -250,6 +256,7 @@
                         android:textSize="19sp"/>
 
                     <ProgressBar
+                        android:id="@+id/progress7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
@@ -276,6 +283,7 @@
                         android:textSize="19sp"/>
 
                     <ProgressBar
+                        android:id="@+id/progress8"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
@@ -289,6 +297,56 @@
 
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:alpha=".5"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="70dp"
+                android:background="@color/leaderboard"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="Activities Per Week:"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="44dp"
+                android:layout_marginLeft="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:text="Commends:"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="44dp"
+                android:layout_marginRight="40dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:layout_alignParentBottom="true"
+                android:text="5.7"
+                android:textColor="@color/leaderboard"
+                android:layout_marginLeft="70dp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:textSize="24sp"
+                android:textColor="@color/leaderboard"
+                android:layout_marginRight="70dp"
+                android:layout_marginBottom="10dp"
+                android:text="30"/>
+
         </RelativeLayout>
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -297,7 +355,7 @@
             android:src="@drawable/a"
             android:layout_width="100dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="40dp"/>
+            android:layout_marginTop="10dp"/>
 
     </FrameLayout>
 
