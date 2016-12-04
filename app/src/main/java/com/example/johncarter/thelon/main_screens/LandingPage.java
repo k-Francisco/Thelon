@@ -100,12 +100,6 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
         });
         initSearchBar();
 
-//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                drawer.openDrawer();
-//            }
-//        });
 
 
 
@@ -194,15 +188,6 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
         });
 
     }
-
-//    private void removeFrag(int identifier) {
-//        if(identifier == 1)
-//            fragmentTransaction.remove(getFragmentManager().findFragmentById(R.id.menu_frame)).commit();
-//        else if (identifier == 2)
-//            fragmentTransaction.remove(getSupportFragmentManager().findFragmentById(R.id.)).commit();
-//        else if(identifier == 3)
-//            fragmentTransaction.remove(getSupportFragmentManager().findFragmentById(R.id.)).commit();
-//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -298,11 +283,6 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                 .withOnAccountHeaderProfileImageListener(new AccountHeader.OnAccountHeaderProfileImageListener() {
                     @Override
                     public boolean onProfileImageClick(View view, IProfile profile, boolean current) {
-//                        fragmentTransaction = fragmentManager.beginTransaction();
-//                        fragmentTransaction.setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right);
-//                        fragmentTransaction.replace(R.id.menu_frame, new UserProfileFragment(), "home");
-//                        fragmentTransaction.commit();
-//                        return false;
                         Intent in = new Intent(getApplicationContext(), ProfileActivity.class);
                         startActivity(in);
                         return false;
@@ -407,8 +387,5 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                 .withName("About Ethelon")
                 .withIcon(CommunityMaterial.Icon.cmd_account_box_outline);
     }
-
-
-
 
 }
