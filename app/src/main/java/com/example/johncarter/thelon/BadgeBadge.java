@@ -36,8 +36,9 @@ public class BadgeBadge extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.badgebadgeRecycler);
         layoutManager = new GridLayoutManager(this, 3);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new BadgeBadgeRecycler();
+        adapter = new BadgeBadgeRecycler(this);
         recyclerView.setAdapter(adapter);
+
 
     }
 }

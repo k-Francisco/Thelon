@@ -4,6 +4,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.IdRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -60,6 +61,7 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
     Toolbar toolbar;
     MaterialSearchView searchView;
     private int fragmentIdentifier =0;
+    int color = Color.parseColor("#EA0000");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,8 +75,8 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
 
         //Initializes window
         window = this.getWindow();
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        //window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        //window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
 
         //sets the first screen on the home fragment and sets the status bar color the same as the bottom bar color
@@ -89,6 +91,7 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
         searchView = (MaterialSearchView)findViewById(R.id.search_view);
         toolbar = (Toolbar) findViewById(R.id.nav_toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setBackgroundColor(color);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -101,12 +104,6 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
         });
         initSearchBar();
 
-//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                drawer.openDrawer();
-//            }
-//        });
 
 
 
@@ -195,15 +192,6 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
         });
 
     }
-
-//    private void removeFrag(int identifier) {
-//        if(identifier == 1)
-//            fragmentTransaction.remove(getFragmentManager().findFragmentById(R.id.menu_frame)).commit();
-//        else if (identifier == 2)
-//            fragmentTransaction.remove(getSupportFragmentManager().findFragmentById(R.id.)).commit();
-//        else if(identifier == 3)
-//            fragmentTransaction.remove(getSupportFragmentManager().findFragmentById(R.id.)).commit();
-//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -299,11 +287,6 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                 .withOnAccountHeaderProfileImageListener(new AccountHeader.OnAccountHeaderProfileImageListener() {
                     @Override
                     public boolean onProfileImageClick(View view, IProfile profile, boolean current) {
-//                        fragmentTransaction = fragmentManager.beginTransaction();
-//                        fragmentTransaction.setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right);
-//                        fragmentTransaction.replace(R.id.menu_frame, new UserProfileFragment(), "home");
-//                        fragmentTransaction.commit();
-//                        return false;
                         Intent in = new Intent(getApplicationContext(), ProfileActivity.class);
                         startActivity(in);
                         return false;
@@ -408,8 +391,5 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                 .withName("About Ethelon")
                 .withIcon(CommunityMaterial.Icon.cmd_account_box_outline);
     }
-
-
-
 
 }

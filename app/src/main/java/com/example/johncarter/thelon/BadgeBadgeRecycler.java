@@ -1,6 +1,12 @@
 package com.example.johncarter.thelon;
 
+import android.app.Activity;
+import android.app.FragmentManager;
+import android.content.Context;
+import android.graphics.Color;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.transition.TransitionInflater;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +20,15 @@ import com.example.johncarter.thelon.R;
  */
 
 public class BadgeBadgeRecycler extends RecyclerView.Adapter<BadgeBadgeRecycler.ViewHolder> {
+Context Mcontext;
+
+    public BadgeBadgeRecycler(Context context) {
+        Mcontext = context;
+    }
 
 
     private int badgeImage[] = {R.drawable.movie01,
-            R.drawable.movie01,
+            R.drawable.movie02,
             R.drawable.movie01,
             R.drawable.movie01,
             R.drawable.movie01,
@@ -67,11 +78,24 @@ public class BadgeBadgeRecycler extends RecyclerView.Adapter<BadgeBadgeRecycler.
         ImageView mBadgeImage;
         TextView mBadgeTitle;
 
-        public ViewHolder(View itemView) {
+        public ViewHolder(final View itemView) {
             super(itemView);
 
             mBadgeImage = (ImageView) itemView.findViewById(R.id.badgebadgePic);
             mBadgeTitle = (TextView) itemView.findViewById(R.id.badgebadgeName);
+            mBadgeImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    FragmentManager fm = ((Activity)Mcontext).getFragmentManager();
+                    DialogFragmentBadge dialog = new DialogFragmentBadge();
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("position", getAdapterPosition());
+                    dialog.setArguments(bundle);
+                    dialog.show(fm.beginTransaction().addSharedElement(mBadgeImage, "badgebadge"),"blah2");
+
+
+                }
+            });
         }
     }
 }
