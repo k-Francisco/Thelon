@@ -1,13 +1,24 @@
 package com.example.johncarter.thelon.portfolio;
 
+import android.app.Activity;
+import android.app.FragmentManager;
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.media.Image;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.animation.FastOutLinearInInterpolator;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.johncarter.thelon.R;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,13 +34,15 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
     private float mBaseElevation;
     private boolean isMoved;
     private Portfolio main;
+    private Context context;
 
-    public CardPagerAdapter(Portfolio mainActivity) {
+    public CardPagerAdapter(Portfolio mainActivity, Context context) {
 
         mData = new ArrayList<>();
         mViews = new ArrayList<>();
         isMoved = false;
         main = mainActivity;
+        this.context = context;
 
 
         for (int i = 0; i < 5; i++) {
@@ -41,8 +54,8 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
 
 
     @Override
-    public Object instantiateItem(ViewGroup container, int position) {
-        View view = LayoutInflater.from(container.getContext()).inflate(R.layout.portfolio_card_layout, container, false);
+    public Object instantiateItem(final ViewGroup container, final int position) {
+        final View view = LayoutInflater.from(container.getContext()).inflate(R.layout.portfolio_card_layout2, container, false);
         container.addView(view);
         final CardView cardView = (CardView) view.findViewById(R.id.cardView);
 
@@ -51,7 +64,7 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
             mBaseElevation = cardView.getCardElevation();
         }
 
-
+        mViews.set(position, cardView);
         cardView.setMaxCardElevation(mBaseElevation * MAX_ELEVATION_FACTOR);
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +90,8 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
 //                }
             }
         });
-        mViews.set(position, cardView);
+
+
 
         return view;
     }

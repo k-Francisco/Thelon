@@ -1,42 +1,39 @@
 package com.example.johncarter.thelon.home_details;
 
 import android.app.FragmentManager;
-import android.media.Image;
-import android.os.Handler;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TabLayout;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.transition.Explode;
-import android.transition.Fade;
-import android.transition.Slide;
+import android.os.Handler;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
-import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
-import android.widget.RatingBar;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.example.johncarter.thelon.R;
 import com.example.johncarter.thelon.admin_side.StaggeredAscPicsFragment;
 import com.example.johncarter.thelon.admin_side.VolunteersInDetailsFragment;
-import com.example.johncarter.thelon.fragments.Home_Details_Text;
 
-import butterknife.ButterKnife;
-import ru.shmakinv.android.material.widget.GpCollapsingToolbar;
+/**
+ * Created by Acer on 04/12/2016.
+ */
 
-public class home_details extends AppCompatActivity {
+public class home_details_joined extends AppCompatActivity{
 
-    ImageView joinBtn;
+    ImageView joinBtn,referBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_home_details2);
+        setContentView(R.layout.activity_home_details_joined);
 
         joinBtn = (ImageView) findViewById(R.id.joinBtn);
-
-
+        referBtn = (ImageView) findViewById(R.id.referBtn);
 
         FragmentManager fm = getFragmentManager();
         fm.beginTransaction().replace(R.id.volunteersFrame, new VolunteersInDetailsFragment()).commit();
@@ -46,10 +43,27 @@ public class home_details extends AppCompatActivity {
         joinBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                joinBtn.setImageResource(R.drawable.ic_heart_red);
-                Snackbar.make(v, "Successfully joined event!",
-                            Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
+                joinBtn.setImageResource(R.drawable.ic_attendace_red);
+                Snackbar.make(v, "Loading Attendance Scanner...",
+                        Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        startActivity(new Intent(home_details_joined.this,AttendaceCheckinig.class));
+                    }
+                }, 2000);
+            }
+        });
+
+        referBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                referBtn.setImageResource(R.drawable.ic_cancel_event_red);
+                Snackbar.make(v, "Cancelling Event Participation",
+                        Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
@@ -57,9 +71,9 @@ public class home_details extends AppCompatActivity {
                         finish();
                     }
                 }, 2000);
-
             }
         });
+
 //        Slide slide = new Slide();
 //        slide.setInterpolator(new DecelerateInterpolator());
 //        slide.addTarget(R.id.actTitle);
@@ -70,3 +84,4 @@ public class home_details extends AppCompatActivity {
 //        getWindow().setExitTransition(slide);
     }
 }
+

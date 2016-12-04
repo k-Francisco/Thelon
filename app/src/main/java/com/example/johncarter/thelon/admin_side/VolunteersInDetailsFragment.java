@@ -54,7 +54,7 @@ public class VolunteersInDetailsFragment extends Fragment {
         RecyclerView.Adapter adapter = new VolunteerListahanAdapter(arr);
         recyclerView.setAdapter(adapter);
         StaggeredGridLayoutManager sgm = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL);
-        recyclerView.setLayoutManager(sgm);
+            recyclerView.setLayoutManager(sgm);
         return rootView;
     }
 }

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.johncarter.thelon">
 
+
+    <uses-permission android:name="android.permission.CAMERA"/>
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_logo"
@@ -48,6 +50,10 @@
             android:name=".admin_side.Foundation_Main"
             android:label="@string/title_activity_foundation__main"
             android:theme="@style/AdminNavDrawer" />
+        <activity android:name=".home_details.home_details_joined"/>
+        <activity android:name=".home_details.AttendaceCheckinig"/>
+        <activity android:name=".home_details.AttendanceSuccess"/>
+        <activity android:name=".home_details.EvaluationActivity" />
 
         <provider
             android:name="br.com.mauker.materialsearchview.db.HistoryProvider"

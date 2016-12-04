@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.example.johncarter.thelon.R;
 import com.example.johncarter.thelon.admin_side.FoundationActivitiesAdapter;
 import com.example.johncarter.thelon.home_details.home_details;
+import com.example.johncarter.thelon.home_details.home_details_joined;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -41,11 +42,12 @@ public class Portfolio extends ActionBarActivity {
         setContentView(R.layout.activity_portfolio);
 
 
+
         toolbar = (Toolbar) findViewById(R.id.nav_toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setTitle("Portfolio");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,9 +55,9 @@ public class Portfolio extends ActionBarActivity {
             }
         });
 
-        recyclerView = (RecyclerView) this.findViewById(R.id.portfolio_list);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        layoutManager = linearLayoutManager;
+
+        recyclerView = (RecyclerView) findViewById(R.id.portfolio_list);
+        layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         adapter = new portfolioAdapter2();
         recyclerView.setAdapter(adapter);

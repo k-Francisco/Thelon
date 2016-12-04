@@ -21,6 +21,7 @@ import com.example.johncarter.thelon.BadgeBadge;
 import com.example.johncarter.thelon.admin_side.ActivitiesFragment;
 import com.example.johncarter.thelon.admin_side.BlankFragment;
 import com.example.johncarter.thelon.edit_profile.GeneralFragment;
+import com.example.johncarter.thelon.home_details.HomeDetailsFragment;
 import com.example.johncarter.thelon.portfolio.Portfolio;
 import com.example.johncarter.thelon.R;
 import com.example.johncarter.thelon.fragments.BadgeFragment;
