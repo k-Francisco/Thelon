@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_like_sign"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:id="@+id/like"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/like"
+        android:textSize="17dp"
+        android:layout_marginTop="10dp"
+        android:text="Thank you for joining this event!"
+        android:id="@+id/label1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/label1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Here is your buddy:"
+        android:id="@+id/label2"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="40dp"
+        android:layout_height="35dp"
+        android:src="@drawable/anton"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/label2"
+        android:layout_marginTop="10dp"
+        android:id="@+id/charles"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/charles"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="Anton Wycoco"
+        android:id="@+id/label3"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/label3"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/square_red"
+        android:layout_marginTop="15dp"
+        android:padding="10dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:text="Don't forget to evaluate!"
+        android:id="@+id/label4"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EVALUATE NOW"
+        style="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/label4"
+        android:textSize="16dp"
+        android:layout_marginTop="20dp"
+        android:background="#C21A01"
+        android:textColor="#ffffff"
+        android:padding="7dp"
+        android:id="@+id/evaluateBtn"/>
+
+
+</RelativeLayout>

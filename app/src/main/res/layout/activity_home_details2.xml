@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="240dp"
+        android:id="@+id/frame1">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/feed1"
+            android:scaleType="centerCrop"/>
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:alpha="0.7"
+            android:background="#000000"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_heart_white"
+            android:layout_gravity="bottom|end"
+            android:layout_marginRight="40dp"
+            android:id="@+id/joinBtn"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_white"
+            android:layout_gravity="bottom|end"
+            android:layout_marginRight="5dp"
+            android:id="@+id/referBtn"/>
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        android:text="Feeding Program"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/frame1"
+        android:layout_marginTop="10dp"
+        android:id="@+id/label1"
+        android:textStyle="bold"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/label1"
+        android:layout_marginTop="15dp"
+        android:alpha=".5"
+        android:background="#000000"
+        android:id="@+id/line1"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_redalyc_logo_1"
+        android:layout_below="@+id/line1"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:scaleType="centerCrop"
+        android:id="@+id/foundationLogo"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rise Above Foundation Cebu Inc."
+        android:textStyle=""
+        android:id="@+id/label2"
+        android:layout_toEndOf="@+id/foundationLogo"
+        android:layout_below="@+id/line1"
+        android:layout_marginTop="16dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/label2"
+        android:layout_marginTop="15dp"
+        android:alpha=".5"
+        android:background="#000000"
+        android:id="@+id/line2"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activity Details:"
+        android:id="@+id/label3"
+        android:textStyle="bold"
+        android:textSize="14dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/line2"
+        android:layout_marginTop="16dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_calendar_2"
+        android:layout_below="@+id/label3"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/calendar"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dec. 6, 2016 at 11:00 am"
+        android:layout_toEndOf="@+id/calendar"
+        android:layout_alignBottom="@+id/calendar"
+        android:layout_marginLeft="10dp"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_placeholder"
+        android:layout_below="@+id/calendar"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="12dp"
+        android:id="@+id/placeholder"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Basak, Pardo, Cebu City"
+        android:layout_toEndOf="@+id/placeholder"
+        android:layout_alignBottom="@+id/placeholder"
+        android:layout_marginLeft="10dp"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_businessman"
+        android:layout_below="@+id/placeholder"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="12dp"
+        android:id="@+id/requirements"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Free for all"
+        android:layout_toEndOf="@+id/requirements"
+        android:layout_alignBottom="@+id/requirements"
+        android:layout_marginLeft="10dp"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_telephone"
+        android:layout_below="@+id/requirements"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="12dp"
+        android:id="@+id/contact"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="09257772302 / Anton Wycoco"
+        android:layout_toEndOf="@+id/contact"
+        android:layout_alignBottom="@+id/contact"
+        android:layout_marginLeft="10dp"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/contact"
+        android:layout_marginTop="15dp"
+        android:alpha=".5"
+        android:background="#000000"
+        android:id="@+id/line3"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Going Volunteers"
+        android:id="@+id/label4"
+        android:textStyle="bold"
+        android:textSize="14dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/line3"
+        android:layout_marginTop="16dp"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/label4"
+        android:layout_marginTop="8dp"
+        android:id="@+id/volunteersFrame"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/volunteersFrame"
+        android:layout_marginTop="15dp"
+        android:alpha=".5"
+        android:background="#000000"
+        android:id="@+id/line4"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Associated Pictures"
+        android:id="@+id/label5"
+        android:textStyle="bold"
+        android:textSize="14dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/line4"
+        android:layout_marginTop="16dp"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/label5"
+        android:layout_marginTop="10dp"
+        android:id="@+id/ascPicsFrame">
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/ascPicsFrame"
+        android:layout_marginTop="15dp"
+        android:alpha=".5"
+        android:background="#000000"
+        android:id="@+id/line5"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comments"
+        android:id="@+id/label6"
+        android:textStyle="bold"
+        android:textSize="14dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/line5"
+        android:layout_marginTop="16dp"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/label6"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/commentsFrame">
+    </FrameLayout>
+
+
+    </RelativeLayout>
+</ScrollView>

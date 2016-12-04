@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EVALUATION"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="#C21A01"
+        android:background="@drawable/square_red"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:padding="5dp"
+        android:id="@+id/libel"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How would you assess Anton based on his:"
+        android:layout_below="@+id/libel"
+        android:textStyle="italic"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/libel2"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Energy"
+        android:layout_below="@id/libel2"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/energy"/>
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:numStars="10"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/libel2"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:isIndicator="false"
+        android:id="@+id/rb1"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Passion"
+        android:layout_below="@id/energy"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/passion"/>
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:numStars="10"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/energy"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:isIndicator="false"
+        android:id="@+id/rb2"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Flexibility"
+        android:layout_below="@id/passion"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/flexibility"/>
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:numStars="10"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/passion"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:isIndicator="false"
+        android:id="@+id/rb3"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Creativity"
+        android:layout_below="@id/flexibility"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/creativity"/>
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:numStars="10"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/flexibility"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:isIndicator="false"
+        android:id="@+id/rb4"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Team Player"
+        android:layout_below="@id/creativity"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/teamplayer"/>
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:numStars="10"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/creativity"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:isIndicator="false"
+        android:id="@+id/rb5"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Friendliness"
+        android:layout_below="@id/teamplayer"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/friendliness"/>
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:numStars="10"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/teamplayer"
+        android:layout_marginTop="10dp"
+        android:isIndicator="false"
+        android:layout_marginRight="20dp"
+        android:id="@+id/rb6"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reliability"
+        android:layout_below="@id/friendliness"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/reliability"/>
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:numStars="10"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/friendliness"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:isIndicator="false"
+        android:id="@+id/rb7"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Commitment"
+        android:layout_below="@id/reliability"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/commitment"/>
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:numStars="10"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/reliability"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:isIndicator="false"
+        android:id="@+id/rb8"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FINISH"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="#C21A01"
+        android:textColor="#ffffff"
+        android:padding="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/commitment"
+        android:layout_marginTop="30dp"
+        android:id="@+id/finishBtn"/>
+</RelativeLayout>
