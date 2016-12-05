@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ProgressBar;
 
 import com.example.johncarter.thelon.R;
@@ -31,7 +33,11 @@ public class Performance2 extends AppCompatActivity {
                 finish();
             }
         });
-
+        Window window = this.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(Color.parseColor("#EE2A1B"));
+        toolbar.setBackgroundColor(Color.parseColor("#EE2A1B"));
         progressBar1 = (ProgressBar) findViewById(R.id.progress1);
         progressBar2 = (ProgressBar) findViewById(R.id.progress2);
         progressBar3 = (ProgressBar) findViewById(R.id.progress3);
@@ -41,14 +47,14 @@ public class Performance2 extends AppCompatActivity {
         progressBar7 = (ProgressBar) findViewById(R.id.progress7);
         progressBar8 = (ProgressBar) findViewById(R.id.progress8);
 
-        progressBar1.getProgressDrawable().setColorFilter(Color.parseColor("#483078"), PorterDuff.Mode.SRC_IN);
-        progressBar2.getProgressDrawable().setColorFilter(Color.parseColor("#483078"), PorterDuff.Mode.SRC_IN);
-        progressBar3.getProgressDrawable().setColorFilter(Color.parseColor("#483078"), PorterDuff.Mode.SRC_IN);
-        progressBar4.getProgressDrawable().setColorFilter(Color.parseColor("#483078"), PorterDuff.Mode.SRC_IN);
-        progressBar5.getProgressDrawable().setColorFilter(Color.parseColor("#483078"), PorterDuff.Mode.SRC_IN);
-        progressBar6.getProgressDrawable().setColorFilter(Color.parseColor("#483078"), PorterDuff.Mode.SRC_IN);
-        progressBar7.getProgressDrawable().setColorFilter(Color.parseColor("#483078"), PorterDuff.Mode.SRC_IN);
-        progressBar8.getProgressDrawable().setColorFilter(Color.parseColor("#483078"), PorterDuff.Mode.SRC_IN);
+        progressBar1.getProgressDrawable().setColorFilter(Color.parseColor("#EE2A1B"), PorterDuff.Mode.SRC_IN);
+        progressBar2.getProgressDrawable().setColorFilter(Color.parseColor("#EE2A1B"), PorterDuff.Mode.SRC_IN);
+        progressBar3.getProgressDrawable().setColorFilter(Color.parseColor("#EE2A1B"), PorterDuff.Mode.SRC_IN);
+        progressBar4.getProgressDrawable().setColorFilter(Color.parseColor("#EE2A1B"), PorterDuff.Mode.SRC_IN);
+        progressBar5.getProgressDrawable().setColorFilter(Color.parseColor("#EE2A1B"), PorterDuff.Mode.SRC_IN);
+        progressBar6.getProgressDrawable().setColorFilter(Color.parseColor("#EE2A1B"), PorterDuff.Mode.SRC_IN);
+        progressBar7.getProgressDrawable().setColorFilter(Color.parseColor("#EE2A1B"), PorterDuff.Mode.SRC_IN);
+        progressBar8.getProgressDrawable().setColorFilter(Color.parseColor("#EE2A1B"), PorterDuff.Mode.SRC_IN);
 
     }
 }

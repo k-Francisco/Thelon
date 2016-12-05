@@ -2,6 +2,7 @@ package com.example.johncarter.thelon.portfolio;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
 import android.support.v4.view.ViewPager;
@@ -15,6 +16,7 @@ import android.transition.Transition;
 import android.transition.TransitionInflater;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -41,6 +43,11 @@ public class Portfolio extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_portfolio);
 
+        Window window = this.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(Color.parseColor("#EE2A1B"));
+
 
 
         toolbar = (Toolbar) findViewById(R.id.nav_toolbar);
@@ -48,6 +55,7 @@ public class Portfolio extends ActionBarActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setTitle("Portfolio");
+        toolbar.setBackgroundColor(Color.parseColor("#EE2A1B"));
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
