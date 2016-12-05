@@ -27,22 +27,16 @@ public class FoundationActivitiesAdapter extends RecyclerView.Adapter<Foundation
             "Libre Tuli Operation",
             "Sport Campaign"};
 
-    private int[] images = {R.drawable.charles,
-            R.drawable.tyler,
-            R.drawable.kobe,
-            R.drawable.kf,
-            R.drawable.mark,
-            R.drawable.kix,
-            R.drawable.anton,
-            R.drawable.fanz,
-            R.drawable.gil,
-            R.drawable.ice,
-            R.drawable.gil,
-            R.drawable.gil,
-            R.drawable.gil,
-            R.drawable.gil,
-            R.drawable.gil};
-
+    private int[] images = {R.drawable.feed1,
+            R.drawable.dental_mission,
+            R.drawable.tree_planting,
+            R.drawable.community_outreach,
+            R.drawable.disaster_relief,
+            R.drawable.fun_run,
+            R.drawable.blood_donation,
+            R.drawable.blood_letting,
+            R.drawable.libre_tuli,
+            R.drawable.sports_campaign};
 
     @Override
     public FoundationActivitiesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
