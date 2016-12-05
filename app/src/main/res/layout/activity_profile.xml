@@ -31,8 +31,8 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            android:background="#5f0000" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_sunrise" />
 
     </com.github.florent37.diagonallayout.DiagonalLayout>
 
@@ -40,7 +40,7 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_height="100dp"
-        android:src="@drawable/kix"
+        android:src="@drawable/bill_bill"
         android:id="@+id/vPic"
         android:layout_width="100dp"
         android:layout_below="@+id/profDesc"
