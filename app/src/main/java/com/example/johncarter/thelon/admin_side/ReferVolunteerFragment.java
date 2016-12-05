@@ -21,6 +21,7 @@ public class ReferVolunteerFragment extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.dialog_layout_rever,container,false);
 
+        getDialog().setTitle("Refer volunteers: ");
         FragmentManager fm = getChildFragmentManager();
         fm.beginTransaction().replace(R.id.dialogFrame,new VolunteersFragment()).commit();
         return rootView;

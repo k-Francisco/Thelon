@@ -12,13 +12,13 @@
     android:background="#D5CECE">
     <FrameLayout
         android:layout_width="fill_parent"
-        android:layout_height="200dp"
+        android:layout_height="220dp"
         android:id="@+id/frame1">
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/gray_background"
-            android:scaleType="fitXY"/>
+            android:src="@drawable/feed1"
+            android:scaleType="centerCrop"/>
     </FrameLayout>
 
             <ImageView

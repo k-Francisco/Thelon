@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:id="@+id/frame1">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/login_background"
+            android:scaleType="centerCrop"/>
+    </FrameLayout>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/charles"
+        android:layout_marginTop="90dp"
+        android:layout_marginLeft="30dp"
+        android:id="@+id/foundationPic"
+        android:elevation="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_toRightOf="@+id/foundationPic"
+        android:text="Ethelon Foundation"
+        android:layout_alignBottom="@id/frame1"
+        android:layout_marginLeft="12dp"
+        android:layout_marginBottom="20dp"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:id="@+id/foundationName"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/frame1"
+        android:layout_marginBottom="5dp"
+        android:layout_toRightOf="@+id/foundationPic"
+        android:text="Connecting intention and action"
+        android:layout_marginLeft="12dp"
+        android:textColor="#ffffff"
+        android:textStyle="italic"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="History"
+        android:textSize="24sp"
+        android:layout_below="@+id/foundationPic"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:id="@+id/historyLabel"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="      From 2000-2008, we joined with a foundation in Manila and we are very grateful for the excellent cooperation we had with them over the years, until it became possible for us to realize Rise Above Foundation Cebu, Inc., which became an independent foundation in Cebu on July 4th, 2008."
+        android:layout_below="@+id/historyLabel"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/historyTxt"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/historyTxt"
+        android:layout_marginTop="15dp"
+        android:alpha=".5"
+        android:background="#000000"
+        android:id="@+id/line1"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mission"
+        android:layout_below="@+id/line1"
+        android:textSize="24sp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/missionLabel"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="      To enable Filipinos to advance world understanding, goodwill, and peace through the improvement of health, the support of education, and the alleviation of poverty."
+        android:layout_below="@+id/missionLabel"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/missionText"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/missionText"
+        android:layout_marginTop="15dp"
+        android:alpha=".5"
+        android:background="#000000"
+        android:id="@+id/line2"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textColor="#000000"
+        android:text="Activities"
+        android:textStyle="bold"
+        android:layout_below="@+id/line2"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/activitiesLabel"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/foundation_activities"
+        android:orientation="horizontal"
+        android:layout_below="@+id/activitiesLabel"
+        android:layout_marginTop="10dp" />
+
+    <include android:id="@+id/nav_toolbar"
+        layout="@layout/toolbar_layout"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"/>
+</RelativeLayout>
+</ScrollView>

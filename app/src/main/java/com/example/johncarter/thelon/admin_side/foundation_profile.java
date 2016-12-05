@@ -35,7 +35,7 @@ public class foundation_profile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_foundation_profile);
+        setContentView(R.layout.activity_foundation_profile2);
         initDrawerItems();
         initDrawerHeader();
 

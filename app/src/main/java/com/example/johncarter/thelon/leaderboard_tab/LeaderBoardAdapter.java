@@ -114,15 +114,30 @@ public class LeaderBoardAdapter extends RecyclerView.Adapter<LeaderBoardAdapter.
             R.drawable.ice};
 
 
+    private String[] pointzz = {
+            "1000",
+            "970",
+            "943",
+            "879",
+            "865",
+            "801",
+            "705",
+            "700",
+            "689",
+            "672"
+
+    };
+
     class ViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView txtName;
+        private TextView txtName,points;
         private CircleImageView img;
 
         public ViewHolder(View itemView) {
             super(itemView);
             txtName = (TextView) itemView.findViewById(R.id.leader_name);
             img = (CircleImageView) itemView.findViewById(R.id.faceImg);
+            points = (TextView) itemView.findViewById(R.id.points);
         }
     }
 
@@ -139,6 +154,7 @@ public class LeaderBoardAdapter extends RecyclerView.Adapter<LeaderBoardAdapter.
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.txtName.setText(names[position]);
         holder.img.setImageResource(images[position]);
+        holder.points.setText(pointzz[position]);
     }
 
     @Override
