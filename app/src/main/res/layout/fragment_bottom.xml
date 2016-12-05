@@ -28,36 +28,19 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_weight="1"
-            android:text="NO. 7911847" />
+            android:text="December 8, 2016" />
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
             android:src="@drawable/stars"
-            android:scaleX=".6"
-            android:scaleY=".6"
+            android:scaleType="centerCrop"
             android:adjustViewBounds="true"
             />
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
 
-        <ImageView
-            android:src="@drawable/icons"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
-
-        <ImageView
-            android:layout_centerVertical="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/dots" />
-    </RelativeLayout>
 
 </LinearLayout>

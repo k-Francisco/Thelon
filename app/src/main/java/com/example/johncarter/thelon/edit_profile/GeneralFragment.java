@@ -2,6 +2,7 @@ package com.example.johncarter.thelon.edit_profile;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import android.app.FragmentManager;
@@ -9,6 +10,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -23,8 +26,13 @@ public class GeneralFragment extends ActionBarActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_general);
+        Window window = this.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(Color.parseColor("#EE2A1B"));
         Toolbar tool = (Toolbar)findViewById(R.id.nav_toolbar);
         setSupportActionBar(tool);
+        tool.setBackgroundColor(Color.parseColor("#EE2A1B"));
         getSupportActionBar().setTitle("Edit Profile");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
