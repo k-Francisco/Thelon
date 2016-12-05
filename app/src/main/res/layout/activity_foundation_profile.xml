@@ -19,7 +19,7 @@
 
 
     <ImageView
-        android:layout_width="368dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:src="@drawable/login_background"
         android:scaleType="fitXY"
@@ -30,10 +30,10 @@
 
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_height="100dp"
+        android:layout_height="0dp"
         android:src="@drawable/a"
         android:id="@+id/vPic"
-        android:layout_width="100dp"
+        android:layout_width="0dp"
         android:layout_below="@+id/profDesc"
         android:elevation="10dp"
         android:layout_marginStart="20dp"
@@ -89,7 +89,7 @@
             style="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
             android:textSize="14sp"
             android:textColor="@android:color/black"
-            android:text="                      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsum lorem ipsum lorem ipsumlorem ipsumlorem ipsum"
+            android:text="                      From 2000-2008, we joined with a foundation in Manila and we are very grateful for the excellent cooperation we had with them over the years, until it became possible for us to realize Rise Above Foundation Cebu, Inc., which became an independent foundation in Cebu on July 4th, 2008."
             android:gravity="fill_horizontal"
             app:layout_constraintTop_toBottomOf="@+id/textView12"
             android:layout_marginTop="10dp"
@@ -109,13 +109,30 @@
             android:textSize="22sp"
             android:layout_marginStart="15dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginTop="40dp"
+            android:id="@+id/textView8"
+            tools:layout_editor_absoluteY="458dp" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Mission"
+            android:textSize="22sp"
+            android:textColor="@android:color/black"
+            android:layout_marginStart="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@+id/textView13"
-            android:id="@+id/textView8" />
+            android:id="@+id/textView2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""/>
 
 
         <android.support.v7.widget.RecyclerView
-            android:layout_width="368dp"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:id="@+id/foundation_activities"
             android:orientation="horizontal"
@@ -124,15 +141,24 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginTop="10dp" />
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
 
-            <include android:id="@+id/nav_toolbar"
-                layout="@layout/toolbar_layout"/>
+        <RelativeLayout
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="0dp">
+
         </RelativeLayout>
 
-</android.support.constraint.ConstraintLayout>
+        <include android:id="@+id/nav_toolbar"
+            layout="@layout/toolbar_layout"
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="0dp" />
+
+
+    </android.support.constraint.ConstraintLayout>
 
 
 </ScrollView>

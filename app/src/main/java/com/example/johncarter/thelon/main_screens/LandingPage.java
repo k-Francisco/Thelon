@@ -109,12 +109,6 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
         });
         initSearchBar();
 
-//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                drawer.openDrawer();
-//            }
-//        });
 
 
 
