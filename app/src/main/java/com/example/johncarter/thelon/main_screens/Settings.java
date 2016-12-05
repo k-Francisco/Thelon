@@ -1,5 +1,6 @@
 package com.example.johncarter.thelon.main_screens;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -31,6 +32,7 @@ public class Settings extends ActionBarActivity {
         ButterKnife.bind(this);
 
         window = getWindow();
+        window.setStatusBarColor(Color.parseColor("#EE2A1B"));
         Transition transition = TransitionInflater.from(this).inflateTransition(R.transition.slide_right);
         window.setEnterTransition(transition);
         window.setExitTransition(transition);
@@ -40,6 +42,7 @@ public class Settings extends ActionBarActivity {
 
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setBackgroundColor(Color.parseColor("#EE2A1B"));
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

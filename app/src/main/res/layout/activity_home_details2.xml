@@ -17,7 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/feed1"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            android:transitionName="landing"/>
         <ImageView
             android:layout_width="fill_parent"
             android:layout_height="40dp"

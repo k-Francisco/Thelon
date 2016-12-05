@@ -1,6 +1,10 @@
 package com.example.johncarter.thelon.main_screens;
 
+import android.app.Activity;
+import android.graphics.Color;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 //import android.app.FragmentManager;
 //import android.app.FragmentTransaction;
@@ -10,6 +14,7 @@ import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -83,6 +88,7 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
         window = this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(Color.parseColor("#EE2A1B"));
 
 
         //sets the first screen on the home fragment and sets the status bar color the same as the bottom bar color
@@ -107,6 +113,7 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                 drawer.openDrawer();
             }
         });
+        toolbar.setBackgroundColor(Color.parseColor("#EE2A1B"));
         initSearchBar();
 
 
@@ -198,14 +205,6 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
 
     }
 
-//    private void removeFrag(int identifier) {
-//        if(identifier == 1)
-//            fragmentTransaction.remove(getFragmentManager().findFragmentById(R.id.menu_frame)).commit();
-//        else if (identifier == 2)
-//            fragmentTransaction.remove(getSupportFragmentManager().findFragmentById(R.id.)).commit();
-//        else if(identifier == 3)
-//            fragmentTransaction.remove(getSupportFragmentManager().findFragmentById(R.id.)).commit();
-//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -254,7 +253,7 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
         switch (i1){
             case 0:
                 fragmentTransaction = fragmentManager.beginTransaction();
-                //fragmentTransaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
+//                fragmentTransaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
                 fragmentTransaction.replace(R.id.menu_frame, new ActivitiesMainFragment(), "home");
                 fragmentTransaction.commit();
                 fragmentIdentifier = 1;
@@ -414,6 +413,11 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
 
     @Override
     public void onExpandingClick(View view) {
-        startActivity(new Intent(view.getContext(),home_details.class));
+
+        Activity activity = this;
+        ActivityCompat.startActivity(activity, new Intent(view.getContext(),home_details.class),
+                ActivityOptionsCompat.makeSceneTransitionAnimation(this, new Pair<>(view, "landingpage")).toBundle());
+
+        //startActivity(new Intent(view.getContext(),home_details.class));
     }
 }

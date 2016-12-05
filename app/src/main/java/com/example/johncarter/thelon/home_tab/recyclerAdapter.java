@@ -69,10 +69,10 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.ViewHo
                     Intent intent = new Intent();
                     intent.setClass(v.getContext(),home_details.class);
 
-                    ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat
-                            .makeCustomAnimation(v.getContext(), R.anim.fade_in, R.anim.fade_out)
-                            .makeSceneTransitionAnimation((Activity) v.getContext(), itemImage, "home_details_trans");
-                    v.getContext().startActivity(intent, activityOptionsCompat.toBundle());
+//                    ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat
+//                            .makeCustomAnimation(v.getContext(), R.anim.fade_in, R.anim.fade_out)
+//                            .makeSceneTransitionAnimation((Activity) v.getContext(), itemImage, "home_details_trans");
+//                    v.getContext().startActivity(intent, activityOptionsCompat.toBundle());
 
                 }
             });
@@ -109,10 +109,10 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.ViewHo
                     Intent intent = new Intent();
                     intent.setClass(v.getContext(),home_details.class);
 
-                    ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat
-                            .makeCustomAnimation(v.getContext(), R.anim.fade_in, R.anim.fade_out)
-                            .makeSceneTransitionAnimation((Activity) v.getContext(), itemImage, "home_details_trans");
-                    v.getContext().startActivity(intent, activityOptionsCompat.toBundle());
+//                    ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat
+//                            .makeCustomAnimation(v.getContext(), R.anim.fade_in, R.anim.fade_out)
+//                            .makeSceneTransitionAnimation((Activity) v.getContext(), itemImage, "home_details_trans");
+//                    v.getContext().startActivity(intent, activityOptionsCompat.toBundle());
                 }
             });
 
