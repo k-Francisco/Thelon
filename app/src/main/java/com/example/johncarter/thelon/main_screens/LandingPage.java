@@ -1,5 +1,6 @@
 package com.example.johncarter.thelon.main_screens;
 
+import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 //import android.app.FragmentManager;
@@ -83,6 +84,7 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
         window = this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(Color.parseColor("#EE2A1B"));
 
 
         //sets the first screen on the home fragment and sets the status bar color the same as the bottom bar color
@@ -107,6 +109,7 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                 drawer.openDrawer();
             }
         });
+        toolbar.setBackgroundColor(Color.parseColor("#EE2A1B"));
         initSearchBar();
 
 
