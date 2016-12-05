@@ -67,6 +67,7 @@
 
         <activity android:name=".BadgeBadge" />
         <activity android:name=".Performance.Performance2"></activity>
+        <activity android:name=".admin_side.CreateSuccess" />
     </application>
 
 </manifest>

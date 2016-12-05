@@ -10,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.johncarter.thelon.R;
 import com.example.johncarter.thelon.home_details.home_details;
@@ -31,9 +32,10 @@ public class ActivitiesMainFragment extends Fragment implements ExpandingFragmen
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activity_home2,container,false);
+        final View rootView = inflater.inflate(R.layout.activity_home2,container,false);
 
         viewPager = (ViewPager)rootView.findViewById(R.id.viewPager);
+        final TextView label = (TextView) rootView.findViewById(R.id.label);
         ActivitiesAdapter adapter = new ActivitiesAdapter(getFragmentManager());
         adapter.addAll(generateTravelList());
         viewPager.setAdapter(adapter);

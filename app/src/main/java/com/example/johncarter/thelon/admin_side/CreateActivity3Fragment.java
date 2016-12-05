@@ -1,6 +1,7 @@
 package com.example.johncarter.thelon.admin_side;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -18,9 +19,15 @@ public class CreateActivity3Fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.admin_create_activity3,container,false);
+        final View rootView = inflater.inflate(R.layout.admin_create_activity3,container,false);
         TextView img = (TextView) rootView.findViewById(R.id.completeBtn) ;
 
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(rootView.getContext(),CreateSuccess.class));
+            }
+        });
         return rootView;
     }
 }

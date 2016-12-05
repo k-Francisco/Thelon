@@ -156,7 +156,7 @@
 
         <FrameLayout
             android:layout_width="fill_parent"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:background="#165316"
             android:layout_marginLeft="0dp"
             android:layout_alignParentBottom="true"
