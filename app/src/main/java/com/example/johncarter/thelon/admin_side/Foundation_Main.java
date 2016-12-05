@@ -22,6 +22,8 @@ import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.example.johncarter.thelon.R;
+import com.example.johncarter.thelon.login_signup.Login;
+import com.example.johncarter.thelon.main_screens.Settings;
 import com.example.johncarter.thelon.profile_tab.ProfileActivity;
 import com.mikepenz.community_material_typeface_library.CommunityMaterial;
 import com.mikepenz.materialdrawer.AccountHeader;
@@ -31,6 +33,7 @@ import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
 import br.com.mauker.materialsearchview.MaterialSearchView;
@@ -97,6 +100,8 @@ public class Foundation_Main extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.adminhamburger);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -136,19 +141,7 @@ public class Foundation_Main extends AppCompatActivity {
                                 .withEmail("piattosnovalays@gmail.com")
                                 .withIcon(getResources().getDrawable(R.drawable.profile_pic))
                 )
-                .withOnAccountHeaderProfileImageListener(new AccountHeader.OnAccountHeaderProfileImageListener() {
-                    @Override
-                    public boolean onProfileImageClick(View view, IProfile profile, boolean current) {
-                    Intent s = new Intent(Foundation_Main.this,foundation_profile.class);
-                        startActivity(s);
-                        return false;
-                    }
 
-                    @Override
-                    public boolean onProfileImageLongClick(View view, IProfile profile, boolean current) {
-                        return false;
-                    }
-                })
                 .build();
     }
 
@@ -162,16 +155,43 @@ public class Foundation_Main extends AppCompatActivity {
         foundation_profile = new PrimaryDrawerItem()
                 .withIdentifier(1)
                 .withName("Foundation Profile")
-                .withIcon(CommunityMaterial.Icon.cmd_face_profile);
+                .withIcon(CommunityMaterial.Icon.cmd_face_profile)
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                        Intent s = new Intent(Foundation_Main.this,foundation_profile.class);
+                        startActivity(s);
+                        return false;
+                    }
+                });
 
         settings = new PrimaryDrawerItem()
                 .withIdentifier(2)
                 .withName("Settings")
-                .withIcon(CommunityMaterial.Icon.cmd_settings);
+                .withIcon(CommunityMaterial.Icon.cmd_settings)
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                        Intent intent = new Intent(Foundation_Main.this, Settings.class);
+                        startActivity(intent);
+                        return false;
+                    }
+                });
         logout = new PrimaryDrawerItem()
                 .withIdentifier(3)
                 .withName("Logout")
-                .withIcon(CommunityMaterial.Icon.cmd_logout);
+                .withIcon(CommunityMaterial.Icon.cmd_logout)
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+
+                        Intent intent = new Intent(Foundation_Main.this, Login.class);
+                        startActivity(intent);
+                        finish();
+                        return false;
+
+                    }
+                });
 
 
     }
