@@ -254,7 +254,7 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
         switch (i1){
             case 0:
                 fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
+//                fragmentTransaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
                 fragmentTransaction.replace(R.id.menu_frame, new ActivitiesMainFragment(), "home");
                 fragmentTransaction.commit();
                 fragmentIdentifier = 1;
