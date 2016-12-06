@@ -27,16 +27,16 @@ Context Mcontext;
     }
 
 
-    private int badgeImage[] = {R.drawable.movie01,
-            R.drawable.movie02,
-            R.drawable.movie01,
-            R.drawable.movie01,
-            R.drawable.movie01,
-            R.drawable.movie01,
-            R.drawable.movie01,
-            R.drawable.movie01,
-            R.drawable.movie01,
-            R.drawable.movie01,};
+    private int badgeImage[] = {R.drawable.ic_toothbadge,
+            R.drawable.ic_greenthumb,
+            R.drawable.ic_lock,
+            R.drawable.ic_lock,
+            R.drawable.ic_lock,
+            R.drawable.ic_lock,
+            R.drawable.ic_lock,
+            R.drawable.ic_lock,
+            R.drawable.ic_lock,
+            R.drawable.ic_lock,};
 
 
     private String badgeTitle[] = {"Tooth Fairy",

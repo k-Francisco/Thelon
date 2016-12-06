@@ -4,7 +4,7 @@
     android:id="@+id/activity_performance2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/leaderboard"
+    android:background="#545454"
     tools:context="com.example.johncarter.thelon.Performance.Performance2">
 
     <include android:id="@+id/nav_toolbar"
@@ -73,7 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Base.TextAppearance.AppCompat.Title"
-                android:text="Kristian Francisco"
+                android:text="Christopher Colum"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="80dp"/>
 
@@ -352,7 +352,7 @@
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/performancePic"
             android:layout_height="100dp"
-            android:src="@drawable/a"
+            android:src="@drawable/bill_bill"
             android:layout_width="100dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"/>

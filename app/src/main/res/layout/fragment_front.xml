@@ -12,7 +12,8 @@
         android:layout_height="match_parent"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        tools:src="@drawable/seychelles" />
+        tools:src="@drawable/seychelles"
+        android:transitionName="landing"/>
 
     <com.devspark.robototextview.widget.RobotoTextView
         android:id="@+id/title"
@@ -62,7 +63,7 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="CRUZ FOUNDATION"
+            android:text="RISE ABOVE FOUNDATION"
             app:typeface="roboto_medium"
             android:textColor="@android:color/white" />
     </LinearLayout>

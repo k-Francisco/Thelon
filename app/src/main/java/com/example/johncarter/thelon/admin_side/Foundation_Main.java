@@ -3,6 +3,7 @@ package com.example.johncarter.thelon.admin_side;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Activity;
 import android.support.design.widget.FloatingActionButton;
@@ -13,11 +14,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
@@ -55,6 +59,9 @@ public class Foundation_Main extends AppCompatActivity {
         setContentView(R.layout.activity_foundation__main);
         searchView = (MaterialSearchView)findViewById(R.id.search_view);
         fab = (FloatingActionButton) findViewById(R.id.add_act);
+
+        Window window = getWindow();
+        window.setStatusBarColor(Color.parseColor("#EE2A1B"));
 
         tab = (TabLayout) findViewById(R.id.tab_menu);
         tab.addTab(tab.newTab().setText("Activities"));
@@ -102,6 +109,7 @@ public class Foundation_Main extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.adminhamburger);
+        toolbar.setBackgroundColor(Color.parseColor("#EE2A1B"));
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
