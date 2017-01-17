@@ -1,6 +1,7 @@
 package com.example.johncarter.thelon.home_details;
 
 import android.app.FragmentManager;
+import android.graphics.Color;
 import android.media.Image;
 import android.os.Handler;
 import android.support.design.widget.Snackbar;
@@ -12,6 +13,7 @@ import android.transition.Fade;
 import android.transition.Slide;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -35,6 +37,11 @@ public class home_details extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_home_details2);
+
+        Window window = this.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(Color.parseColor("#EE2A1B"));
 
         joinBtn = (ImageView) findViewById(R.id.joinBtn);
 

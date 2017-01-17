@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "614167088053",
+    "firebase_url": "https://ethelon-33583.firebaseio.com",
+    "project_id": "ethelon-33583",
+    "storage_bucket": "ethelon-33583.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:614167088053:android:633d3d0bf8deedd2",
+        "android_client_info": {
+          "package_name": "com.example.johncarter.thelon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "614167088053-s9sufg87scpqm6rhdjbip9ss4t3b7ouv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4tNCNsTc6h_hJvlANgFRNUDDm0CZwutQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

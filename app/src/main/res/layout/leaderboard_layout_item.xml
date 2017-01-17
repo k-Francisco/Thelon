@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:paddingTop="14dp"
-    android:paddingBottom="15dp"
-    android:layout_height="wrap_content">
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
+    android:layout_height="83dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="40dp"
@@ -42,15 +42,5 @@
         android:layout_marginRight="15dp"
         android:layout_alignBottom="@+id/faceImg"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@+id/faceImg"
-        android:layout_marginTop="20dp"
-        android:alpha=".5"
-        android:background="#DB2929"
-        android:id="@+id/line1"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"/>
 
 </RelativeLayout>

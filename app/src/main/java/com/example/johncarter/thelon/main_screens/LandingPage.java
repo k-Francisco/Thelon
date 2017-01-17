@@ -1,7 +1,15 @@
 package com.example.johncarter.thelon.main_screens;
 
 import android.app.Activity;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.os.AsyncTask;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
@@ -18,12 +26,14 @@ import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.johncarter.thelon.BadgeBadge;
@@ -43,6 +53,9 @@ import com.example.johncarter.thelon.fragments.NotificationFragment;
 import com.example.johncarter.thelon.fragments.UserProfileFragment;
 import com.example.johncarter.thelon.login_signup.Login;
 import com.example.johncarter.thelon.profile_tab.ProfileActivity;
+import com.facebook.login.LoginManager;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.mikepenz.community_material_typeface_library.CommunityMaterial;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
@@ -61,6 +74,12 @@ import butterknife.ButterKnife;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import android.support.v7.app.ActionBarDrawerToggle;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 public class LandingPage extends AppCompatActivity implements BottomNavigation.OnMenuItemSelectionListener, ExpandingFragment.OnExpandingClickListener {
 
     PrimaryDrawerItem home,  badges, editProfile, settings, logOut, partners, helpAndFeedback, reportBug, aboutEthelon;
@@ -73,6 +92,9 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
     Toolbar toolbar;
     MaterialSearchView searchView;
     private int fragmentIdentifier =0;
+    Drawable face;
+    Bitmap bitz;
+    String test = "charlieeeee";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -289,13 +311,22 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
 
     private void initNavDrawerProfile() {
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        try {
+            bitz = MediaStore.Images.Media.getBitmap(this.getContentResolver(),user.getPhotoUrl());
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.d("charles", "ni error");
+        }
+        Log.d("charles",user.getPhotoUrl().toString());
+
         accountHeader = new AccountHeaderBuilder()
                 .withActivity(this)
                 .withHeaderBackground(R.drawable.home_backpic)
                 .addProfiles(
-                        new ProfileDrawerItem().withName("Kristian Francisco")
-                                .withEmail("piattosnovalays@gmail.com")
-                                .withIcon(getResources().getDrawable(R.drawable.profile_pic))
+                        new ProfileDrawerItem().withName(user.getDisplayName())
+                                .withEmail(user.getEmail())
+                                .withIcon(bitz)
                 )
                 .withOnAccountHeaderProfileImageListener(new AccountHeader.OnAccountHeaderProfileImageListener() {
                     @Override
@@ -385,6 +416,7 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                         Intent intent = new Intent(LandingPage.this, Login.class);
                         startActivity(intent);
                         finish();
+                        FirebaseAuth.getInstance().signOut();
                         return false;
                     }
                 });
@@ -419,5 +451,34 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                 ActivityOptionsCompat.makeSceneTransitionAnimation(this, new Pair<>(view, "landingpage")).toBundle());
 
         //startActivity(new Intent(view.getContext(),home_details.class));
+    }
+
+    public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+
+        String bmImage;
+        public DownloadImageTask(String bmImage) {
+            this.bmImage = bmImage;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            Bitmap mIcon11 = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                mIcon11 = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
+            }
+            return mIcon11;
+        }
+
+        protected void onPostExecute(Bitmap result) {
+           // bmImage.setImageBitmap(result);
+//            bitz = result;
+//            test = "charles gwapo";
+            bmImage = "charles gwapo";
+            Log.d("charles","ni execute ang download");
+        }
     }
 }
