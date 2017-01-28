@@ -62,6 +62,7 @@
         <activity android:name=".home_details.AttendaceCheckinig" />
         <activity android:name=".home_details.AttendanceSuccess" />
         <activity android:name=".home_details.EvaluationActivity" />
+        <activity android:name=".portfolio.PorfolioNew"/>
 
         <provider
             android:name="br.com.mauker.materialsearchview.db.HistoryProvider"

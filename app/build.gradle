@@ -48,6 +48,7 @@ dependencies {
     compile 'com.github.qs-lll:ExpandingPager:767ff93966'
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
     compile 'com.google.firebase:firebase-auth:10.0.1'
+    compile 'com.ramotion.foldingcell:folding-cell:1.1.0'
     testCompile 'junit:junit:4.12'
 }
 

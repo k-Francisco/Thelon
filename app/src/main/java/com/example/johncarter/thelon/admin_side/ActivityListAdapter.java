@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.johncarter.thelon.R;
@@ -21,12 +22,20 @@ public class ActivityListAdapter extends RecyclerView.Adapter<ActivityListAdapte
         this.context = context;
     }
 
-    private String[] acts = {"Card making for\nPhilippine soldiers",
-            "Inmate Counseling",
-            "Feeding Program",
+    private int[] images = {R.drawable.feed1,
+            R.drawable.dental_mission,
+            R.drawable.tree_planting,
+            R.drawable.community_outreach,
+            R.drawable.disaster_relief,
+            R.drawable.fun_run,
+            R.drawable.sports_campaign};
+
+    private String[] acts = {"Feeding Program",
             "Dental Mission",
+            "Mangrove Planting",
+            "Community Outreach",
             "Disaster Relief",
-            "House Making for \nTyphoon Victims",
+            "Fun Run for \nDrug Awareness",
             "Sports Programs for \nstreet children"};
 
     private String[] dates = {
@@ -47,6 +56,7 @@ public class ActivityListAdapter extends RecyclerView.Adapter<ActivityListAdapte
 
     @Override
     public void onBindViewHolder(ActivityListAdapter.ViewHolder holder, int position) {
+        holder.activityDp.setImageResource(images[position]);
         holder.actName.setText(acts[position]);
         holder.actDate.setText(dates[position]);
     }
@@ -57,6 +67,7 @@ public class ActivityListAdapter extends RecyclerView.Adapter<ActivityListAdapte
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
+        ImageView activityDp;
         TextView actName,actDate;
         TextView editBtn, deleteBtn;
         public ViewHolder(final View itemView) {
@@ -64,6 +75,7 @@ public class ActivityListAdapter extends RecyclerView.Adapter<ActivityListAdapte
             FragmentManager fm = ((Activity)context).getFragmentManager();
             fm.beginTransaction().add(new ActivitiesFragment(),"act_frag").commit();
             fm.beginTransaction().add(new CreateActivityFragment(),"create_act_frag").commit();
+            activityDp = (ImageView) itemView.findViewById(R.id.activityDp);
             actName = (TextView)itemView.findViewById(R.id.actName);
             actDate = (TextView)itemView.findViewById(R.id.actDate);
             editBtn = (TextView)itemView.findViewById(R.id.editBtn);

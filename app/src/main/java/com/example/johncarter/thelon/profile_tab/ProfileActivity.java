@@ -17,6 +17,7 @@ import com.example.johncarter.thelon.Performance.Performance2;
 import com.example.johncarter.thelon.Performance.PerformanceFragment;
 import com.example.johncarter.thelon.R;
 import com.example.johncarter.thelon.fragments.NotificationFragment;
+import com.example.johncarter.thelon.portfolio.PorfolioNew;
 import com.example.johncarter.thelon.portfolio.Portfolio;
 
 public class ProfileActivity extends    AppCompatActivity implements View.OnClickListener {
@@ -58,7 +59,7 @@ public class ProfileActivity extends    AppCompatActivity implements View.OnClic
         switch (v.getId()){
 
             case R.id.portfolio_icon:
-                intent = new Intent(ProfileActivity.this, Portfolio.class);
+                intent = new Intent(ProfileActivity.this, PorfolioNew.class);
                 startActivity(intent);
                 break;
 

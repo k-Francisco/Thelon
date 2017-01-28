@@ -27,13 +27,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="7dp"
-            android:background="#323232"></FrameLayout>
+            android:background="#323232">
+            <ImageView
+                android:id="@+id/activityDp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_calendar_white"
+                android:scaleType="centerCrop"/>
+        </FrameLayout>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_calendar_white"
-            android:layout_gravity="center"/>
+
     </FrameLayout>
 
     <TextView

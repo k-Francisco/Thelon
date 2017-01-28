@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content">
+<RelativeLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
@@ -154,11 +157,57 @@
             android:layout_marginLeft="12dp"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/ascPicsLayout"
+        android:layout_below="@+id/lin2"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Associated Pictures"
+            android:textSize="15sp"
+            android:id="@+id/ascPicsLabel"
+            android:layout_below="@+id/email_txt"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/browser"
+            android:layout_marginLeft="7dp"
+            android:id="@+id/photoPicker"
+            />
+
+
+    </LinearLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ascPicsLayout"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:id="@+id/ascPics_recycler"/>
+    <FrameLayout
+        android:layout_marginTop="12dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/extra"
+        android:layout_below="@+id/ascPics_recycler"/>
         <FrameLayout
             android:layout_width="fill_parent"
             android:layout_height="40dp"
             android:background="#165316"
-            android:layout_marginLeft="0dp"
+            android:layout_below="@+id/extra"
+            android:layout_marginTop="30dp"
             android:layout_alignParentBottom="true"
             android:id="@+id/step2">
             <TextView
@@ -172,3 +221,4 @@
 
 
 </RelativeLayout>
+</ScrollView>
