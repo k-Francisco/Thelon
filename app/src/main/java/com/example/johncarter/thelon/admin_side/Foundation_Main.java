@@ -61,7 +61,7 @@ public class Foundation_Main extends AppCompatActivity {
         fab = (FloatingActionButton) findViewById(R.id.add_act);
 
         Window window = getWindow();
-        window.setStatusBarColor(Color.parseColor("#EE2A1B"));
+       // window.setStatusBarColor(Color.parseColor("#EE2A1B"));
 
         tab = (TabLayout) findViewById(R.id.tab_menu);
         tab.addTab(tab.newTab().setText("Activities"));

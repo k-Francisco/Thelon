@@ -13,11 +13,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.johncarter.thelon.R;
+import com.firebase.client.Firebase;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,6 +32,14 @@ import static android.app.Activity.RESULT_OK;
 
 public class CreateActivityFragment extends Fragment {
     ArrayList<Bitmap> images = new ArrayList<>();
+    EditText name;
+    EditText date;
+    EditText street;
+    EditText city;
+    EditText time;
+    EditText address;
+    EditText category;
+    Firebase mrefActivities;
     View rootView;
     private int PICK_IMAGE_REQUEST = 7;
     @Nullable
@@ -38,6 +48,15 @@ public class CreateActivityFragment extends Fragment {
         rootView = inflater.inflate(R.layout.admin_create_activity,container,false);
         ImageView photoPicker = (ImageView) rootView.findViewById(R.id.photoPicker);
 
+        name = (EditText)rootView.findViewById(R.id.ac_name_txt);
+        date = (EditText)rootView.findViewById(R.id.ac_date_text);
+        street = (EditText)rootView.findViewById(R.id.ac_street_text);
+        city = (EditText)rootView.findViewById(R.id.ac_city_text);
+        address = (EditText)rootView.findViewById(R.id.ac_location_text);
+        time = (EditText)rootView.findViewById(R.id.ac_time_text);
+       // category = (EditText)rootView.findViewById(R.id.ac)
+        mrefActivities = new Firebase("https://ethelon-33583.firebaseio.com/Activity");
+
         FrameLayout step2 = (FrameLayout) rootView.findViewById(R.id.step2);
         FragmentManager fm = getFragmentManager();
         fm.beginTransaction().add(new CreateActivityFragment(),"step1");
@@ -45,8 +64,21 @@ public class CreateActivityFragment extends Fragment {
         step2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                CreateActivity3Fragment act3 = new CreateActivity3Fragment();
+
+                CreateActivity2Fragment frag = new CreateActivity2Fragment();
                 FragmentManager fm = getFragmentManager();
-                fm.beginTransaction().replace(R.id.fram2,new CreateActivity2Fragment()).addToBackStack("step1").commit();
+
+                Bundle args = new Bundle();
+                args.putString("name",name.getText().toString());
+                args.putString("date",date.getText().toString());
+                args.putString("street",street.getText().toString());
+                args.putString("city",city.getText().toString());
+                args.putString("address",address.getText().toString());
+                args.putString("time",time.getText().toString());
+                frag.setArguments(args);
+                fm.beginTransaction().replace(R.id.fram2,frag).addToBackStack("step1").commit();
+
             }
         });
 

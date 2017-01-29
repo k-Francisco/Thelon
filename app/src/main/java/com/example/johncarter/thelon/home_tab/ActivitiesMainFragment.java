@@ -1,19 +1,28 @@
 package com.example.johncarter.thelon.home_tab;
 
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.johncarter.thelon.R;
 import com.example.johncarter.thelon.home_details.home_details;
+import com.example.johncarter.thelon.models.Activity;
+import com.firebase.client.ChildEventListener;
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.Query;
 import com.qslll.library.ExpandingPagerFactory;
 import com.qslll.library.fragments.ExpandingFragment;
 
@@ -27,18 +36,64 @@ import java.util.List;
 
 public class ActivitiesMainFragment extends Fragment implements ExpandingFragment.OnExpandingClickListener{
 
+    Firebase mrootAct;
     ViewPager viewPager;
+    Activity activity;
+    List<Travel> travels;
+    ActivitiesAdapter adapter;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.activity_home2,container,false);
 
+        mrootAct = new Firebase("https://ethelon-33583.firebaseio.com/Activity");
         viewPager = (ViewPager)rootView.findViewById(R.id.viewPager);
         final TextView label = (TextView) rootView.findViewById(R.id.label);
-        ActivitiesAdapter adapter = new ActivitiesAdapter(getFragmentManager());
-        adapter.addAll(generateTravelList());
+        travels = new ArrayList<>();
+        adapter  = new ActivitiesAdapter(getFragmentManager());
+        /*adapter.addAll(generateTravelList());
         viewPager.setAdapter(adapter);
+*/
+
+
+        mrootAct.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
+                if(dataSnapshot.exists()) {
+                    activity = dataSnapshot.getValue(Activity.class);
+                    //Toast.makeText(getActivity(), "asdasdasdasds! = "+activity.getName(), Toast.LENGTH_LONG).show();
+                    travels.add(new Travel(activity.getName(), R.drawable.feed1));
+                    Log.e("kobe",""+travels.size()+" "+activity.getName()+ "Travels size"+travels.size());
+
+                    adapter.addAll(travels);
+                    viewPager.setAdapter(adapter);
+
+
+                }
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
 
         ExpandingPagerFactory.setupViewPager(viewPager);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -64,19 +119,48 @@ public class ActivitiesMainFragment extends Fragment implements ExpandingFragmen
     }
 
     private List<Travel> generateTravelList(){
-        List<Travel> travels = new ArrayList<>();
-        for(int i=0;i<5;++i){
-            travels.add(new Travel("Feeding Program", R.drawable.feed1));
-            travels.add(new Travel("Dental Mission", R.drawable.dental_mission));
-            travels.add(new Travel("Tree Planting", R.drawable.tree_planting));
-            travels.add(new Travel("Community Outreach", R.drawable.community_outreach));
-            travels.add(new Travel("Disaster Relief", R.drawable.disaster_relief));
-            travels.add(new Travel("Fun Run for a Cause", R.drawable.fun_run));
-            travels.add(new Travel("Blood Donation", R.drawable.blood_donation));
-            travels.add(new Travel("Blood Letting", R.drawable.blood_letting));
-            travels.add(new Travel("Tuli Operation", R.drawable.libre_tuli));
-            travels.add(new Travel("Sports Program", R.drawable.sports_campaign));
-        }
+
+
+      //  travels.add(new Travel("Feeding Program", R.drawable.feed1));
+        //    travels.add(new Travel("Dental Mission", R.drawable.dental_mission));
+
+        mrootAct.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
+                if(dataSnapshot.exists()) {
+                    activity = dataSnapshot.getValue(Activity.class);
+                    //Toast.makeText(getActivity(), "asdasdasdasds! = "+activity.getName(), Toast.LENGTH_LONG).show();
+                    travels.add(new Travel("Pisteng  yawa"+activity.getName(), R.drawable.feed1));
+                //    Log.e("kobe",""+travels.size());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        //Log.e("kobe",""+travels.size());
         return travels;
     }
 

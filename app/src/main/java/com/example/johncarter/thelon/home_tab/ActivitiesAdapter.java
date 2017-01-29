@@ -21,9 +21,11 @@ public class ActivitiesAdapter extends ExpandingViewPagerAdapter {
         travels = new ArrayList<>();
     }
 
-    public void addAll(List<Travel> travels){
-        this.travels.addAll(travels);
-        notifyDataSetChanged();
+    public void addAll(List<Travel> travels) {
+        if (travels != null) {
+            this.travels = travels;
+            notifyDataSetChanged();
+        }
     }
 
     @Override
