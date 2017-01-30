@@ -19,11 +19,12 @@ public class PortfolioActivity {
     private String eventHost;
     private String volunteerCount;
     private String points;
+    private int event_status;
 
     private View.OnClickListener requestBtnClickListener;
 
 
-    public PortfolioActivity(int photo, String date, String time, String eventName, String eventHost, String volunteerCount, String points) {
+    public PortfolioActivity(int photo, String date, String time, String eventName, String eventHost, String volunteerCount, String points, int event_status) {
         this.photo = photo;
         this.date = date;
         this.time = time;
@@ -31,6 +32,7 @@ public class PortfolioActivity {
         this.eventHost = eventHost;
         this.volunteerCount = volunteerCount;
         this.points = points;
+        this.event_status = event_status;
     }
 
     public int getPhoto() {
@@ -89,6 +91,14 @@ public class PortfolioActivity {
         this.points = points;
     }
 
+    public int getEvent_status() {
+        return event_status;
+    }
+
+    public void setEvent_status(int event_status) {
+        this.event_status = event_status;
+    }
+
     public View.OnClickListener getRequestBtnClickListener() {
         return requestBtnClickListener;
     }
@@ -134,11 +144,11 @@ public class PortfolioActivity {
 
     public static ArrayList<PortfolioActivity> getTestingList(){
         ArrayList<PortfolioActivity> items = new ArrayList<>();
-        items.add(new PortfolioActivity(R.drawable.ic_bookmark_upcoming,"2/27/2017","2:00 am","Feeding Program","Rise Above Foundation","50","100"));
-        items.add(new PortfolioActivity(R.drawable.ic_bookmark_upcoming,"2/27/2017","2:00 am","Feeding Program","Rise Above Foundation","50","100"));
-        items.add(new PortfolioActivity(R.drawable.ic_bookmark_24dp,"3/14/2017","2:00 am","Feeding Program","Rise Above Foundation","50","100"));
-        items.add(new PortfolioActivity(R.drawable.ic_bookmark_24dp,"4/1/2017","2:00 am","Feeding Program","Rise Above Foundation","50","100"));
-        items.add(new PortfolioActivity(R.drawable.ic_bookmark_24dp,"4/5/2017","2:00 am","Feeding Program","Rise Above Foundation","50","100"));
+        items.add(new PortfolioActivity(R.drawable.ic_user,"2/27/2017","2:00 am","Feeding Program","Rise Above Foundation","50","100",R.drawable.ribbon2));
+        items.add(new PortfolioActivity(R.drawable.ic_user,"2/27/2017","2:00 am","Feeding Program","Rise Above Foundation","50","100",R.drawable.ribbon2));
+        items.add(new PortfolioActivity(R.drawable.ic_user,"3/14/2017","2:00 am","Feeding Program","Rise Above Foundation","50","100",R.drawable.ribbon_done2));
+        items.add(new PortfolioActivity(R.drawable.ic_user,"4/1/2017","2:00 am","Feeding Program","Rise Above Foundation","50","100",R.drawable.ribbon_done2));
+        items.add(new PortfolioActivity(R.drawable.ic_user,"4/5/2017","2:00 am","Feeding Program","Rise Above Foundation","50","100",R.drawable.ribbon_done2));
         return items;
     }
 }
