@@ -47,6 +47,7 @@ public class PorfolioNewAdapter extends ArrayAdapter<PortfolioActivity> {
             viewHolder.eventHost = (TextView) cell.findViewById(R.id.title_to_address);
             viewHolder.volunteersCount = (TextView) cell.findViewById(R.id.title_volunteers_count);
             viewHolder.points = (TextView) cell.findViewById(R.id.title_points);
+            viewHolder.status = (ImageView) cell.findViewById(R.id.status);
             viewHolder.contentRequestBtn = (TextView) cell.findViewById(R.id.content_request_btn);
             cell.setTag(viewHolder);
         } else {
@@ -65,6 +66,7 @@ public class PorfolioNewAdapter extends ArrayAdapter<PortfolioActivity> {
         viewHolder.eventHost.setText(portfolioActivity.getEventHost());
         viewHolder.volunteersCount.setText(portfolioActivity.getVolunteerCount());
         viewHolder.points.setText(portfolioActivity.getPoints());
+        viewHolder.status.setImageResource(portfolioActivity.getEvent_status());
 
         if (portfolioActivity.getRequestBtnClickListener() != null) {
             viewHolder.contentRequestBtn.setOnClickListener(portfolioActivity.getRequestBtnClickListener());
@@ -107,5 +109,6 @@ public class PorfolioNewAdapter extends ArrayAdapter<PortfolioActivity> {
         TextView volunteersCount;
         TextView points;
         TextView contentRequestBtn;
+        ImageView status;
     }
 }
