@@ -38,6 +38,7 @@ public class CreateActivityFragment extends Fragment {
     EditText city;
     EditText time;
     EditText address;
+    ArrayList<String> pics;
     EditText category;
     Firebase mrefActivities;
     View rootView;
@@ -54,6 +55,7 @@ public class CreateActivityFragment extends Fragment {
         city = (EditText)rootView.findViewById(R.id.ac_city_text);
         address = (EditText)rootView.findViewById(R.id.ac_location_text);
         time = (EditText)rootView.findViewById(R.id.ac_time_text);
+        pics = new ArrayList<>();
        // category = (EditText)rootView.findViewById(R.id.ac)
         mrefActivities = new Firebase("https://ethelon-33583.firebaseio.com/Activity");
 
@@ -76,6 +78,7 @@ public class CreateActivityFragment extends Fragment {
                 args.putString("city",city.getText().toString());
                 args.putString("address",address.getText().toString());
                 args.putString("time",time.getText().toString());
+                args.putStringArrayList("photoList",pics);
                 frag.setArguments(args);
                 fm.beginTransaction().replace(R.id.fram2,frag).addToBackStack("step1").commit();
 
@@ -85,11 +88,12 @@ public class CreateActivityFragment extends Fragment {
         photoPicker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
-
                 startActivityForResult(Intent.createChooser(intent, "Select Picture"),PICK_IMAGE_REQUEST);
+
             }
         });
         return rootView;
@@ -101,6 +105,9 @@ public class CreateActivityFragment extends Fragment {
 
         if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null){
             Uri uri = data.getData();
+
+            String indPic = uri.toString();
+            pics.add(indPic);
 
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), uri);

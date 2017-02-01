@@ -6,20 +6,28 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.johncarter.thelon.R;
 import com.example.johncarter.thelon.models.Activity;
 import com.firebase.client.Firebase;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,6 +41,10 @@ import static android.app.Activity.RESULT_OK;
 public class CreateActivity3Fragment extends Fragment {
 
     Firebase mrootAct;
+    StorageReference storageReference;
+    StorageReference mref;
+    Firebase activityPhotosRef;
+
 
     @Nullable
     @Override
@@ -40,7 +52,10 @@ public class CreateActivity3Fragment extends Fragment {
         final View rootView = inflater.inflate(R.layout.admin_create_activity3,container,false);
         TextView img = (TextView) rootView.findViewById(R.id.completeBtn) ;
 
+
+        mref = FirebaseStorage.getInstance().getReference();
         mrootAct = new Firebase("https://ethelon-33583.firebaseio.com/Activity");
+        activityPhotosRef = new Firebase("https://ethelon-33583.firebaseio.com/ActivityPhotos");
 
        final EditText poc = (EditText)rootView.findViewById(R.id.poc_txt);
         final EditText cot = (EditText)rootView.findViewById(R.id.contact_txt);
@@ -59,8 +74,35 @@ public class CreateActivity3Fragment extends Fragment {
                 String gender = getArguments().getString("gender");
                 String occupation = getArguments().getString("occupation");
                 String age = getArguments().getString("age");
+                ArrayList<String> photoList = getArguments().getStringArrayList("photoList");
 
-                Firebase root = mrootAct.push();
+
+
+
+                final Firebase root = mrootAct.push();
+                for(int i = 0; i <photoList.size();i++){
+                    final Uri uri = Uri.parse(photoList.get(i));
+                    Log.e("kobe",""+uri.getLastPathSegment());
+                    Log.e("charles",""+photoList.size());
+                    storageReference  = mref.child("ActivityPhotos").child(root.getKey()).child(uri.getLastPathSegment());
+              //      Log.e("kobe",""+photoList.size());
+
+                    storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                          // activityPhotosRef.child(root.getKey()).push().child("Url").setValue(taskSnapshot.getDownloadUrl().toString());
+                            activityPhotosRef.child(root.getKey()).push().child("Url").setValue(uri.getLastPathSegment());
+                            Log.d("kobe","good "+taskSnapshot.getDownloadUrl().toString());
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getActivity(), "Upload Failed", Toast.LENGTH_LONG).show();
+                            Log.e("kobe","fail");
+
+                        }
+                    });
+                }
                 Activity activity = new Activity(name,date,time,street,city,address,"Ethelon","Ethelon",poc.getText().toString(),cot.getText().toString(),em.getText().toString(),vlocation,gender,occupation,age,root.getKey());
                 root.setValue(activity);
                 startActivity(new Intent(rootView.getContext(),CreateSuccess.class));

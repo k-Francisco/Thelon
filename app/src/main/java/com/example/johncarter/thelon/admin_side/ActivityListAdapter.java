@@ -3,6 +3,7 @@ package com.example.johncarter.thelon.admin_side;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,12 +12,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.johncarter.thelon.R;
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
-
+import com.firebase.ui.storage.images.FirebaseImageLoader;
+import com.google.firebase.storage.StorageReference;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,12 +34,17 @@ public class ActivityListAdapter extends RecyclerView.Adapter<ActivityListAdapte
     Context context;
     ArrayList<String> acts = new ArrayList<>();
     ArrayList<String> dates = new ArrayList<>();
+    ArrayList<StorageReference>photoRef= new ArrayList<>();
+    StorageReference picsReference;
     int a;
 
-    public ActivityListAdapter(Context context,ArrayList<String> acts, ArrayList<String>dates){
+    public ActivityListAdapter(Context context,ArrayList<String> acts, ArrayList<String>dates,ArrayList<StorageReference>photoRef){
         this.context = context;
         this.acts = acts;
         this.dates = dates;
+        this.photoRef = photoRef;
+        Log.e("kf","acts ="+acts.size());
+        Log.e("kf","Photo Array="+photoRef.size());
     }
 
 
@@ -65,41 +74,14 @@ public class ActivityListAdapter extends RecyclerView.Adapter<ActivityListAdapte
 
     @Override
     public void onBindViewHolder(final ActivityListAdapter.ViewHolder holder, int position) {
-        holder.activityDp.setImageResource(images[0]);
+       // Glide.with(context).using(new FirebaseImageLoader()).load(photoRef.get(position)).into(holder.activityDp);
 
-        //holder.mroot = new Firebase("https://ethelon-33583.firebaseio.com/Activity");
-        /*holder.mroot.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.exists()) {
-                    com.example.johncarter.thelon.models.Activity activity = dataSnapshot.getValue(com.example.johncarter.thelon.models.Activity.class);
-                    acts.add(activity.getName());
-                    dates.add(activity.getDate());
-                }
-            }
+        /*int temp = position - 1;
 
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-
-            }
-        });*/
-       /* acts.add("kobe");
-        dates.add("charles");*/
+        Uri uri = Uri.parse(photoRef.get(position));
+        Log.e("key","Adapter Array Photo Size = "+uri);*/
+    //    Glide.with(context).load("5457").into(holder.activityDp);
+        Glide.with(context).using(new FirebaseImageLoader()).load(photoRef.get(position)).into(holder.activityDp);
         holder.actDate.setText(dates.get(position));
         holder.actName.setText(acts.get(position));
 

@@ -12,6 +12,8 @@ import android.widget.FrameLayout;
 
 import com.example.johncarter.thelon.R;
 
+import java.util.ArrayList;
+
 /**
  * Created by asus on 03/12/2016.
  */
@@ -45,7 +47,9 @@ public class CreateActivity2Fragment extends Fragment {
                 String city = getArguments().getString("city");
                 String address = getArguments().getString("address");
                 String time = getArguments().getString("time");
+                ArrayList<String >photoList = getArguments().getStringArrayList("photoList");
 
+                args.putStringArrayList("photoList",photoList);
                 args.putString("name",name);
                 args.putString("date",date);
                 args.putString("street",street);
