@@ -63,7 +63,7 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.ViewHo
             joinBtn = (ImageView) itemView.findViewById(R.id.hearty);
             referBtn = (ImageView) itemView.findViewById(R.id.share);
             moreBtn = (TextView) itemView.findViewById(R.id.moreBtn) ;
-            itemImage.setOnClickListener(new View.OnClickListener() {
+      /*      itemImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent();
@@ -76,7 +76,7 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.ViewHo
 
                 }
             });
-
+*/
             joinBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

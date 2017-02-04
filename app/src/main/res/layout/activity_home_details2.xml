@@ -18,7 +18,8 @@
             android:layout_height="match_parent"
             android:src="@drawable/feed1"
             android:scaleType="centerCrop"
-            android:transitionName="landing"/>
+            android:transitionName="landing"
+            android:id="@+id/im" />
         <ImageView
             android:layout_width="fill_parent"
             android:layout_height="40dp"
@@ -123,7 +124,7 @@
         android:layout_toEndOf="@+id/calendar"
         android:layout_alignBottom="@+id/calendar"
         android:layout_marginLeft="10dp"
-        />
+        android:id="@+id/dateAndtTime" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -141,7 +142,7 @@
         android:layout_toEndOf="@+id/placeholder"
         android:layout_alignBottom="@+id/placeholder"
         android:layout_marginLeft="10dp"
-        />
+        android:id="@+id/location" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -159,7 +160,7 @@
         android:layout_toEndOf="@+id/requirements"
         android:layout_alignBottom="@+id/requirements"
         android:layout_marginLeft="10dp"
-        />
+        android:id="@+id/occupation" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -177,7 +178,7 @@
         android:layout_toEndOf="@+id/contact"
         android:layout_alignBottom="@+id/contact"
         android:layout_marginLeft="10dp"
-        />
+        android:id="@+id/contacts" />
 
     <View
         android:layout_width="match_parent"

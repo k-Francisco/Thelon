@@ -1,10 +1,13 @@
 package com.example.johncarter.thelon.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Created by asus on 31/01/2017.
  */
 
 public class Url {
+    @JsonProperty
     String Url;
 
     public Url(String url) {

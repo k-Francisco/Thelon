@@ -66,7 +66,7 @@ public class CreateActivityFragment extends Fragment {
         step2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CreateActivity3Fragment act3 = new CreateActivity3Fragment();
+                //CreateActivity3Fragment act3 = new CreateActivity3Fragment();
 
                 CreateActivity2Fragment frag = new CreateActivity2Fragment();
                 FragmentManager fm = getFragmentManager();

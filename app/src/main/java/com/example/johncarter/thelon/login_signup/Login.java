@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.johncarter.thelon.admin_side.Foundation_Main;
 import com.example.johncarter.thelon.models.Users;
 import com.example.johncarter.thelon.models.Volunteer;
 import com.facebook.AccessToken;
@@ -79,8 +80,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         sample = new Firebase("https://ethelon-33583.firebaseio.com/");
 
         if(mrefUsers == null){
-            Toast.makeText(this, "NULL", Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(this, "not null", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "NULL", Toast.LENGTH_SHORT).show();
+        }else //Toast.makeText(this, "not null", Toast.LENGTH_SHORT).show();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -206,8 +207,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                 break;
             case R.id.button:
 
-                    intent = new Intent(Login.this, admin_welcome.class);
-                    startActivity(intent);
+                startActivity(new Intent(Login.this,LandingPage.class));
+                  //  startActivity(intent);
 
                 finish();
                 break;

@@ -1,6 +1,7 @@
 package com.example.johncarter.thelon.home_details;
 
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.Image;
 import android.os.Handler;
@@ -11,6 +12,7 @@ import android.os.Bundle;
 import android.transition.Explode;
 import android.transition.Fade;
 import android.transition.Slide;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -19,11 +21,16 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.johncarter.thelon.R;
 import com.example.johncarter.thelon.admin_side.ReferVolunteerFragment;
 import com.example.johncarter.thelon.admin_side.StaggeredAscPicsFragment;
 import com.example.johncarter.thelon.admin_side.VolunteersInDetailsFragment;
 import com.example.johncarter.thelon.fragments.Home_Details_Text;
+import com.firebase.client.Firebase;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import butterknife.ButterKnife;
 import ru.shmakinv.android.material.widget.GpCollapsingToolbar;
@@ -32,6 +39,22 @@ public class home_details extends AppCompatActivity {
 
     ImageView joinBtn;
     ImageView refer;
+    TextView occupation;
+    TextView contact;
+    TextView location;
+    TextView dateAndTime;
+    TextView name;
+    TextView foundation;
+    ImageView image;
+    String locationText;
+    String occupationText;
+    String contactText;
+    String dateText;
+    String nameF;
+    String found;
+    String url;
+    StorageReference storageReference;
+    String key;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,11 +62,40 @@ public class home_details extends AppCompatActivity {
         setContentView(R.layout.activity_home_details2);
 
         Window window = this.getWindow();
+        storageReference = FirebaseStorage.getInstance().getReference();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.setStatusBarColor(Color.parseColor("#EE2A1B"));
-
+        name = (TextView)findViewById(R.id.label1);
+        foundation = (TextView)findViewById(R.id.label2);
+        occupation = (TextView)findViewById(R.id.occupation);
+        contact = (TextView)findViewById(R.id.contacts);
+        location = (TextView)findViewById(R.id.location);
+        dateAndTime = (TextView)findViewById(R.id.dateAndtTime);
+        image = (ImageView)findViewById(R.id.im);
         joinBtn = (ImageView) findViewById(R.id.joinBtn);
+
+        Intent in = getIntent();
+            locationText = in.getStringExtra("location");
+            occupationText = in.getStringExtra("occupation");
+            contactText = in.getStringExtra("contactNumberAndPerson");
+             dateText = in.getStringExtra("dateAndtime");
+            nameF = in.getStringExtra("name");
+            found = in.getStringExtra("foundation");
+            url = in.getStringExtra("photo");
+            key = in.getStringExtra("key");
+
+
+        occupation.setText(occupationText);
+        contact.setText(contactText);
+        location.setText(locationText);
+        dateAndTime.setText(dateText);
+        name.setText(nameF);
+        foundation.setText(found);
+        Log.e("home","name = "+in.getStringExtra("name")+" found "+in.getStringExtra("foundation"));
+        StorageReference st = storageReference.child("ActivityPhotos").child(key).child(url);
+       Glide.with(this).using(new FirebaseImageLoader()).load(st).into(image);
+
 
         refer = (ImageView)findViewById(R.id.referBtn);
 

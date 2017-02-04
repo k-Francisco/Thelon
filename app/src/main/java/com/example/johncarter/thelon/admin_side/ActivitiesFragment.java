@@ -63,11 +63,12 @@ public class ActivitiesFragment extends Fragment{
                 if(dataSnapshot.exists()) {
 //                    Toast.makeText(getActivity(), "NAAY SUD ANG mROOT", Toast.LENGTH_SHORT).show();
                     Activity activity = dataSnapshot.getValue(Activity.class);
-                    acts.add(activity.getName());
-                    dates.add(activity.getDate());
+                    acts.add(activity.getActname());
+                    dates.add(activity.getActDate());
                     //mref = ActivityPhotos' Table reference
                     mref = ActivityPhotos.child(dataSnapshot.getKey()).orderByChild("Url");
                     Log.e("key",""+dataSnapshot.getKey());
+                    Log.e("kelsey",""+activity.getvLocation());
                     Log.e("key",""+mref.toString());
                     final String is = dataSnapshot.getKey();
 
@@ -81,16 +82,14 @@ public class ActivitiesFragment extends Fragment{
 
                                     //i++;
                                 } else {
-                                    StorageReference mrefs  = storageReference.child(is).child(dataSnapshot.getKey()).child(url.getUrl());
+                                    StorageReference mrefs  = storageReference.child("ActivityPhotos").child(is).child(url.getUrl());
                                     photo.add(mrefs);
                                     Log.e("anton", "inigAddNahPhoto size =" + photo.size() + " FirebaseCount = " + dataSnapshot.getChildrenCount() + "" + url.getUrl()+ " key = "+is+"  "+dates.size());
                                     if(photo.size() == dates.size()){
                                         start(rootView);
                                     }
+
                                     }
-
-
-
 
                         }
 

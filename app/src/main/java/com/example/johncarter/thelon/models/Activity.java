@@ -1,54 +1,134 @@
 package com.example.johncarter.thelon.models;
 
+import android.util.Log;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Created by Acer on 29/01/2017.
  */
-
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class Activity {
-    String name;
-    String date;
-    String time;
-    String street;
-    String city;
-    String address;
-    String idCreator;
-    String foundationCreator;
-    String personInCharge;
-    String contactNumber;
-    String emailAddress;
-    String location;
-    String gender;
-    String occupation;
-    String age;
+    @JsonProperty
+    String actname;
+    @JsonProperty
+    String actDate;
+    @JsonProperty
+    String actTime;
+    @JsonProperty
+    String actStreet;
+    @JsonProperty
+    String actCity;
+    @JsonProperty
+    String actAddress;
+    @JsonProperty
+    String actIdCreator;
+    @JsonProperty
+    String actFoundationCreator;
+    @JsonProperty
+    String ppersonInCharge;
+    @JsonProperty
+    String pcontactNumber;
+    @JsonProperty
+    String pemailAddress;
+    @JsonProperty
+    String vLocation;
+    @JsonProperty
+    String vGender;
+    @JsonProperty
+    String vOccupation;
+    @JsonProperty
+    String vAge;
+    @JsonProperty
     String key;
 
-    public Activity(){
-
+    public String getActname() {
+        return actname;
     }
 
-    public Activity(String name, String date, String time, String street, String city, String address, String idCreator,
-                    String foundationCreator, String personInCharge, String contactNumber, String emailAddress, String location, String gender, String occupation, String age, String key) {
-        this.name = name;
-        this.date = date;
-        this.time = time;
-        this.street = street;
-        this.city = city;
-        this.address = address;
-        this.idCreator = idCreator;
-        this.foundationCreator = foundationCreator;
-        this.personInCharge = personInCharge;
-        this.contactNumber = contactNumber;
-        this.emailAddress = emailAddress;
-        this.location = location;
-        this.gender = gender;
-        this.occupation = occupation;
-        this.age = age;
-        this.key = key;
+    public void setActname(String actname) {
+        this.actname = actname;
     }
 
-    public String getName() {
+    public String getActDate() {
+        return actDate;
+    }
 
-        return name;
+    public void setActDate(String actDate) {
+        this.actDate = actDate;
+    }
+
+    public String getActTime() {
+        return actTime;
+    }
+
+    public void setActTime(String actTime) {
+        this.actTime = actTime;
+    }
+
+    public String getActStreet() {
+        return actStreet;
+    }
+
+    public void setActStreet(String actStreet) {
+        this.actStreet = actStreet;
+    }
+
+    public String getActCity() {
+        return actCity;
+    }
+
+    public void setActCity(String actCity) {
+        this.actCity = actCity;
+    }
+
+    public String getActAddress() {
+        return actAddress;
+    }
+
+    public void setActAddress(String actAddress) {
+        this.actAddress = actAddress;
+    }
+
+    public String getActIdCreator() {
+        return actIdCreator;
+    }
+
+    public void setActIdCreator(String actIdCreator) {
+        this.actIdCreator = actIdCreator;
+    }
+
+    public String getActFoundationCreator() {
+        return actFoundationCreator;
+    }
+
+    public void setActFoundationCreator(String actFoundationCreator) {
+        this.actFoundationCreator = actFoundationCreator;
+    }
+
+    public String getPpersonInCharge() {
+        return ppersonInCharge;
+    }
+
+    public void setPpersonInCharge(String ppersonInCharge) {
+        this.ppersonInCharge = ppersonInCharge;
+    }
+
+    public String getPcontactNumber() {
+        return pcontactNumber;
+    }
+
+    public void setPcontactNumber(String pcontactNumber) {
+        this.pcontactNumber = pcontactNumber;
+    }
+
+    public String getPemailAddress() {
+        return pemailAddress;
+    }
+
+    public void setPemailAddress(String pemailAddress) {
+        this.pemailAddress = pemailAddress;
     }
 
     public String getKey() {
@@ -59,119 +139,67 @@ public class Activity {
         this.key = key;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Activity(String actname, String actDate, String actTime, String actStreet, String actCity,
+                    String actAddress, String actIdCreator, String actFoundationCreator, String ppersonInCharge,
+                    String pcontactNumber, String pemailAddress, String vLocation, String vGender, String vOccupation,
+                    String vAge, String key) {
+
+        this.actname = actname;
+        this.actDate = actDate;
+        this.actTime = actTime;
+        this.actStreet = actStreet;
+        this.actCity = actCity;
+        this.actAddress = actAddress;
+        this.actIdCreator = actIdCreator;
+        this.actFoundationCreator = actFoundationCreator;
+        this.ppersonInCharge = ppersonInCharge;
+        this.pcontactNumber = pcontactNumber;
+        this.pemailAddress = pemailAddress;
+        this.vLocation = vLocation;
+        this.vGender = vGender;
+        this.vOccupation = vOccupation;
+        this.vAge = vAge;
+        this.key = key;
     }
 
-    public String getDate() {
-        return date;
+
+    public Activity(){
+
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public String getvLocation() {
+        return vLocation;
     }
 
-    public String getTime() {
-        return time;
+    public void setvLocation(String vLocation) {
+        this.vLocation = vLocation;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public String getvGender() {
+        return vGender;
     }
 
-    public String getStreet() {
-        return street;
+    public void setvGender(String vGender) {
+        this.vGender = vGender;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
+    public String getvOccupation() {
+        return vOccupation;
     }
 
-    public String getCity() {
-        return city;
+    public void setvOccupation(String vOccupation) {
+        this.vOccupation = vOccupation;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public String getvAge() {
+        return vAge;
     }
 
-    public String getAddress() {
-        return address;
+    public void setvAge(String vAge) {
+        this.vAge = vAge;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
-    public String getIdCreator() {
-        return idCreator;
-    }
 
-    public void setIdCreator(String idCreator) {
-        this.idCreator = idCreator;
-    }
 
-    public String getFoundationCreator() {
-        return foundationCreator;
-    }
-
-    public void setFoundationCreator(String foundationCreator) {
-        this.foundationCreator = foundationCreator;
-    }
-
-    public String getPersonInCharge() {
-        return personInCharge;
-    }
-
-    public void setPersonInCharge(String personInCharge) {
-        this.personInCharge = personInCharge;
-    }
-
-    public String getContactNumber() {
-        return contactNumber;
-    }
-
-    public void setContactNumber(String contactNumber) {
-        this.contactNumber = contactNumber;
-    }
-
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        location = location;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        gender = gender;
-    }
-
-    public String getOccupation() {
-        return occupation;
-    }
-
-    public void setOccupation(String occupation) {
-        occupation = occupation;
-    }
-
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        age = age;
-    }
 }

@@ -8,13 +8,16 @@ import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.util.Pair;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.johncarter.thelon.R;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -62,8 +65,9 @@ public class FragmentTop extends Fragment {
         ButterKnife.bind(this, view);
 
         if (travel != null) {
-            image.setImageResource(travel.getImage());
+            Glide.with(getActivity()).using(new FirebaseImageLoader()).load(travel.getImage()).into(image);
             title.setText(travel.getName());
+          //  Log.e("Anton","Fragment Top "+travel.getName());
         }
 
     }

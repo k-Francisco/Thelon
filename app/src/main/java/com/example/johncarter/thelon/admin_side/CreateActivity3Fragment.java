@@ -70,14 +70,15 @@ public class CreateActivity3Fragment extends Fragment {
                 String city = getArguments().getString("city");
                 String address = getArguments().getString("address");
                 String time = getArguments().getString("time");
-                String vlocation = getArguments().getString("vlocation");
+                String location = getArguments().getString("location");
                 String gender = getArguments().getString("gender");
                 String occupation = getArguments().getString("occupation");
                 String age = getArguments().getString("age");
                 ArrayList<String> photoList = getArguments().getStringArrayList("photoList");
 
 
-
+                Log.e("kyla","vlocation = "+location+"\ngender = "+gender+"\noccupation = "+occupation
+                +"\nage = "+age);
 
                 final Firebase root = mrootAct.push();
                 for(int i = 0; i <photoList.size();i++){
@@ -85,7 +86,7 @@ public class CreateActivity3Fragment extends Fragment {
                     Log.e("kobe",""+uri.getLastPathSegment());
                     Log.e("charles",""+photoList.size());
                     storageReference  = mref.child("ActivityPhotos").child(root.getKey()).child(uri.getLastPathSegment());
-              //      Log.e("kobe",""+photoList.size());
+
 
                     storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
@@ -103,8 +104,13 @@ public class CreateActivity3Fragment extends Fragment {
                         }
                     });
                 }
-                Activity activity = new Activity(name,date,time,street,city,address,"Ethelon","Ethelon",poc.getText().toString(),cot.getText().toString(),em.getText().toString(),vlocation,gender,occupation,age,root.getKey());
+
+                Activity activity = new Activity(name,date,time,street,city,address,"Ethelon","Ethelon",poc.getText().toString(),
+                        cot.getText().toString(),em.getText().toString(),location,gender,occupation,age,root.getKey());
                 root.setValue(activity);
+
+                Log.e("charles"," location ="+activity.getvLocation() + " age = "+activity.getvAge()+" Gender = "+
+                        activity.getvGender()+" Occuption = "+activity.getvOccupation());
                 startActivity(new Intent(rootView.getContext(),CreateSuccess.class));
             }
         });

@@ -95,6 +95,7 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
     Drawable face;
     Bitmap bitz;
     String test = "charlieeeee";
+    ActivitiesMainFragment act = new ActivitiesMainFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,7 +117,7 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
         //sets the first screen on the home fragment and sets the status bar color the same as the bottom bar color
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.menu_frame, new ActivitiesMainFragment());
+        fragmentTransaction.replace(R.id.menu_frame, act);
         fragmentTransaction.commit();
         fragmentIdentifier = 1;
         //window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_home));
@@ -312,21 +313,21 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
     private void initNavDrawerProfile() {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        try {
-            bitz = MediaStore.Images.Media.getBitmap(this.getContentResolver(),user.getPhotoUrl());
+       /* try {
+          //  bitz = MediaStore.Images.Media.getBitmap(this.getContentResolver(),user.getPhotoUrl());
         } catch (IOException e) {
             e.printStackTrace();
             Log.d("charles", "ni error");
-        }
-        Log.d("charles",user.getPhotoUrl().toString());
+        }*/
+//        Log.d("charles",user.getPhotoUrl().toString());
 
         accountHeader = new AccountHeaderBuilder()
                 .withActivity(this)
                 .withHeaderBackground(R.drawable.home_backpic)
                 .addProfiles(
-                        new ProfileDrawerItem().withName(user.getDisplayName())
+                      /*  new ProfileDrawerItem().withName(user.getDisplayName())
                                 .withEmail(user.getEmail())
-                                .withIcon(bitz)
+                                .withIcon(bitz)*/
                 )
                 .withOnAccountHeaderProfileImageListener(new AccountHeader.OnAccountHeaderProfileImageListener() {
                     @Override
@@ -447,10 +448,14 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
     public void onExpandingClick(View view) {
 
         Activity activity = this;
-        ActivityCompat.startActivity(activity, new Intent(view.getContext(),home_details.class),
+        Log.e("charles",""+act.getPageSelected());
+        Intent intent = new Intent(view.getContext(),home_details.class);
+        intent = act.returnIntent(intent,act.getPageSelected());
+        ActivityCompat.startActivity(activity, intent,
                 ActivityOptionsCompat.makeSceneTransitionAnimation(this, new Pair<>(view, "landingpage")).toBundle());
+        //startActivity(intent);
+       // startActivity(new Intent(view.getContext(),home_details.class));
 
-        //startActivity(new Intent(view.getContext(),home_details.class));
     }
 
     public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {

@@ -3,22 +3,24 @@ package com.example.johncarter.thelon.home_tab;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.firebase.storage.StorageReference;
+
 /**
  * Created by Acer on 05/12/2016.
  */
 
 public class Travel implements Parcelable {
     String name;
-    int image;
+    StorageReference image;
 
-    public Travel(String name, int image) {
+    public Travel(String name, StorageReference image) {
         this.name = name;
         this.image = image;
     }
 
     protected Travel(Parcel in) {
         name = in.readString();
-        image = in.readInt();
+
     }
 
     public static final Creator<Travel> CREATOR = new Creator<Travel>() {
@@ -37,7 +39,7 @@ public class Travel implements Parcelable {
         return name;
     }
 
-    public int getImage() {
+    public StorageReference getImage() {
         return image;
     }
 
@@ -49,6 +51,6 @@ public class Travel implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(name);
-        dest.writeInt(image);
+        //est.write
     }
 }
