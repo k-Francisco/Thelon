@@ -207,7 +207,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                 break;
             case R.id.button:
 
-                startActivity(new Intent(Login.this,LandingPage.class));
+                startActivity(new Intent(Login.this,admin_welcome.class));
                   //  startActivity(intent);
 
                 finish();

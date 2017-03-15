@@ -130,7 +130,6 @@
         android:fitsSystemWindows="false"
         tools:context="com.cruz.ethelon.NotificationActivity"
         android:layout_below="@+id/frame1"
-        android:layout_above="@+id/bottomBar"
         android:id="@+id/coordinatorLayout">
 
 

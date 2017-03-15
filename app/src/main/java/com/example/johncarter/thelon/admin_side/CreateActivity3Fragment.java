@@ -28,7 +28,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.google.zxing.qrcode.encoder.QRCode;
 
+import net.glxn.qrgen.core.image.ImageType;
+
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -44,6 +48,7 @@ public class CreateActivity3Fragment extends Fragment {
     StorageReference storageReference;
     StorageReference mref;
     Firebase activityPhotosRef;
+    Firebase activityQrCodes;
 
 
     @Nullable
@@ -56,6 +61,7 @@ public class CreateActivity3Fragment extends Fragment {
         mref = FirebaseStorage.getInstance().getReference();
         mrootAct = new Firebase("https://ethelon-33583.firebaseio.com/Activity");
         activityPhotosRef = new Firebase("https://ethelon-33583.firebaseio.com/ActivityPhotos");
+        activityQrCodes = new Firebase("https://ethelon-33583.firebaseio.com/ActivityQR");
 
        final EditText poc = (EditText)rootView.findViewById(R.id.poc_txt);
         final EditText cot = (EditText)rootView.findViewById(R.id.contact_txt);
@@ -111,11 +117,28 @@ public class CreateActivity3Fragment extends Fragment {
 
                 Log.e("charles"," location ="+activity.getvLocation() + " age = "+activity.getvAge()+" Gender = "+
                         activity.getvGender()+" Occuption = "+activity.getvOccupation());
+                generateQrCode(name,date,time,root);
                 startActivity(new Intent(rootView.getContext(),CreateSuccess.class));
             }
         });
-
-
         return rootView;
+    }
+
+    public void generateQrCode(String name, String date, String time, final Firebase root){
+        File file = net.glxn.qrgen.android.QRCode.from(name+date+time).to(ImageType.JPG).withSize(250,250).file();
+        final Uri uri = Uri.fromFile(file);
+        storageReference  = mref.child("ActivityQR").child(root.getKey()).child(uri.getLastPathSegment());
+        storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                activityQrCodes.child(root.getKey()).push().child("Url").setValue(uri.getLastPathSegment());
+                Toast.makeText(getActivity(), "Upload Success", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getActivity(),"Upload Failed",Toast.LENGTH_SHORT);
+            }
+        });
     }
 }

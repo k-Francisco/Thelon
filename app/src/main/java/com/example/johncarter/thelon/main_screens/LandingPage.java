@@ -325,9 +325,9 @@ public class LandingPage extends AppCompatActivity implements BottomNavigation.O
                 .withActivity(this)
                 .withHeaderBackground(R.drawable.home_backpic)
                 .addProfiles(
-                      /*  new ProfileDrawerItem().withName(user.getDisplayName())
+                        new ProfileDrawerItem().withName(user.getDisplayName())
                                 .withEmail(user.getEmail())
-                                .withIcon(bitz)*/
+                                .withIcon(R.drawable.ic_user)
                 )
                 .withOnAccountHeaderProfileImageListener(new AccountHeader.OnAccountHeaderProfileImageListener() {
                     @Override

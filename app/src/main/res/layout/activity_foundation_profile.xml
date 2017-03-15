@@ -34,7 +34,7 @@
         android:src="@drawable/a"
         android:id="@+id/vPic"
         android:layout_width="0dp"
-        android:layout_below="@+id/profDesc"
+
         android:elevation="10dp"
         android:layout_marginStart="20dp"
         app:layout_constraintLeft_toLeftOf="parent"

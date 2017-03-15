@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.net.Uri;
+import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,6 +23,8 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.firebase.storage.StorageReference;
+
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,16 +40,18 @@ public class ActivityListAdapter extends RecyclerView.Adapter<ActivityListAdapte
     ArrayList<String> acts = new ArrayList<>();
     ArrayList<String> dates = new ArrayList<>();
     ArrayList<StorageReference>photoRef= new ArrayList<>();
-    StorageReference picsReference;
+    ArrayList<StorageReference> qrCode = new ArrayList<>();
     int a;
 
-    public ActivityListAdapter(Context context,ArrayList<String> acts, ArrayList<String>dates,ArrayList<StorageReference>photoRef){
+    public ActivityListAdapter(Context context,ArrayList<String> acts, ArrayList<String>dates,ArrayList<StorageReference>photoRef, ArrayList<StorageReference> qrCode){
         this.context = context;
         this.acts = acts;
         this.dates = dates;
         this.photoRef = photoRef;
+        this.qrCode = qrCode;
         Log.e("kf","acts ="+acts.size());
         Log.e("kf","Photo Array="+photoRef.size());
+        Log.e("kf","QR CODE size: " + qrCode.size());
     }
 
 
@@ -82,6 +89,7 @@ public class ActivityListAdapter extends RecyclerView.Adapter<ActivityListAdapte
         Log.e("key","Adapter Array Photo Size = "+uri);*/
     //    Glide.with(context).load("5457").into(holder.activityDp);
         Glide.with(context).using(new FirebaseImageLoader()).load(photoRef.get(position)).into(holder.activityDp);
+        Log.d("charles","In View Holder: " + photoRef.get(position).toString());
         holder.actDate.setText(dates.get(position));
         holder.actName.setText(acts.get(position));
 
@@ -161,7 +169,14 @@ public class ActivityListAdapter extends RecyclerView.Adapter<ActivityListAdapte
                 @Override
                 public void onClick(View v) {
                     FragmentManager fm = ((Activity)context).getFragmentManager();
-                    fm.beginTransaction().replace(R.id.fram2, new AdminActivityDetails()).addToBackStack("act_frag").commit();
+                    AdminActivityDetails adminActivityDetails = new AdminActivityDetails();
+                    Log.d("charles",qrCode.size() + "");
+                    Bundle bundle = new Bundle();
+                    bundle.putString("qr", qrCode.get(getAdapterPosition()).getDownloadUrl().toString());
+
+                    adminActivityDetails.setArguments(bundle);
+                    //adminActivityDetails.setQrCodeImg(qrCode.get(getAdapterPosition()),context);
+                    fm.beginTransaction().replace(R.id.fram2, adminActivityDetails).addToBackStack("act_frag").commit();
                 }
             });
         }
