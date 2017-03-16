@@ -117,15 +117,16 @@ public class CreateActivity3Fragment extends Fragment {
 
                 Log.e("charles"," location ="+activity.getvLocation() + " age = "+activity.getvAge()+" Gender = "+
                         activity.getvGender()+" Occuption = "+activity.getvOccupation());
-                generateQrCode(name,date,time,root);
+                Log.e("charles",root.getKey());
+                generateQrCode(root);
                 startActivity(new Intent(rootView.getContext(),CreateSuccess.class));
             }
         });
         return rootView;
     }
 
-    public void generateQrCode(String name, String date, String time, final Firebase root){
-        File file = net.glxn.qrgen.android.QRCode.from(name+date+time).to(ImageType.JPG).withSize(250,250).file();
+    public void generateQrCode(final Firebase root){
+        File file = net.glxn.qrgen.android.QRCode.from(root.getKey()).to(ImageType.JPG).withSize(250,250).file();
         final Uri uri = Uri.fromFile(file);
         storageReference  = mref.child("ActivityQR").child(root.getKey()).child(uri.getLastPathSegment());
         storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {

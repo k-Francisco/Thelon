@@ -1,6 +1,7 @@
 package com.example.johncarter.thelon.portfolio;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.johncarter.thelon.R;
+import com.example.johncarter.thelon.home_details.AttendaceCheckinig;
+import com.example.johncarter.thelon.models.Activity;
 import com.example.johncarter.thelon.models.PortfolioActivity;
 import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.ramotion.foldingcell.FoldingCell;
@@ -26,15 +29,19 @@ import java.util.List;
 public class PorfolioNewAdapter extends ArrayAdapter<PortfolioActivity> {
     private HashSet<Integer> unfoldedIndexes = new HashSet<>();
     private View.OnClickListener defaultRequestBtnClickListener;
+    //private List<PortfolioActivity> objects;
+    Context context;
 
     public PorfolioNewAdapter(Context context, List<PortfolioActivity> objects) {
         super(context, 0, objects);
+        //this.objects = objects;
+        this.context = context;
     }
 
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        PortfolioActivity portfolioActivity = getItem(position);
+        final PortfolioActivity portfolioActivity = getItem(position);
 
         FoldingCell cell = (FoldingCell) convertView;
         ViewHolder viewHolder;
@@ -94,12 +101,19 @@ public class PorfolioNewAdapter extends ArrayAdapter<PortfolioActivity> {
         viewHolder.clickedActvitiyContactNumber.setText(portfolioActivity.getContactNumber());
         viewHolder.clickedActivityDate.setText(portfolioActivity.getDate());
 
-        if (portfolioActivity.getRequestBtnClickListener() != null) {
-            viewHolder.contentRequestBtn.setOnClickListener(portfolioActivity.getRequestBtnClickListener());
-        } else {
-            // (optionally) add "default" handler if no handler found in item
-            viewHolder.contentRequestBtn.setOnClickListener(defaultRequestBtnClickListener);
-        }
+//        if (portfolioActivity.getRequestBtnClickListener() != null) {
+//            viewHolder.contentRequestBtn.setOnClickListener(portfolioActivity.getRequestBtnClickListener());
+//        } else {
+//            // (optionally) add "default" handler if no handler found in item
+//            viewHolder.contentRequestBtn.setOnClickListener(defaultRequestBtnClickListener);
+//        }
+
+        viewHolder.contentRequestBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(new Intent(context,AttendaceCheckinig.class).putExtra("key",portfolioActivity.getKey()));
+            }
+        });
         return cell;
     }
 
@@ -124,6 +138,7 @@ public class PorfolioNewAdapter extends ArrayAdapter<PortfolioActivity> {
 
     public void setDefaultRequestBtnClickListener(View.OnClickListener defaultRequestBtnClickListener) {
         this.defaultRequestBtnClickListener = defaultRequestBtnClickListener;
+
     }
 
     private static class ViewHolder {

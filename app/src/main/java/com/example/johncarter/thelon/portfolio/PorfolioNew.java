@@ -154,7 +154,7 @@ public class PorfolioNew extends AppCompatActivity {
                         portfolioActivity = new PortfolioActivity(R.drawable.anton, activityModel.getActDate()
                                 , activityModel.getActTime(), activityModel.getActname(), activityModel.getActFoundationCreator(), "1", "2", "0",
                                 activityModel.getPcontactNumber(), activityModel.getPpersonInCharge(), activityModel.getActCity()
-                                , activityModel.getActStreet(), getphoto,2);
+                                , activityModel.getActStreet(), getphoto,2,activityModel.getKey());
                         items.add(portfolioActivity);
                         count2++;
                         /*Log.e("joe","count sa pag add"+count2);
@@ -227,13 +227,13 @@ public class PorfolioNew extends AppCompatActivity {
 
     public void start(ArrayList<PortfolioActivity> items){
         adapter = new PorfolioNewAdapter(this,items);
-        adapter.setDefaultRequestBtnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Toast.makeText(getApplicationContext(), "DEFAULT HANDLER FOR ALL BUTTONS", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(PorfolioNew.this,AttendaceCheckinig.class));
-            }
-        });
+//        adapter.setDefaultRequestBtnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //Toast.makeText(getApplicationContext(), "DEFAULT HANDLER FOR ALL BUTTONS", Toast.LENGTH_SHORT).show();
+//                startActivity(new Intent(PorfolioNew.this,AttendaceCheckinig.class));
+//            }
+//        });
 
         theListView.setAdapter(adapter);
 

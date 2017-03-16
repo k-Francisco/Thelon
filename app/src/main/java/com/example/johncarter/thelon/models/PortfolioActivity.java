@@ -26,6 +26,7 @@ public class PortfolioActivity {
     private String city;
     private String street;
     private StorageReference image;
+    private String key;
 
 
     private int event_status;
@@ -33,7 +34,7 @@ public class PortfolioActivity {
     private View.OnClickListener requestBtnClickListener;
 
     public PortfolioActivity(int photo, String date, String time, String eventName, String eventHost, String volunteerCount, String points, String type, String contactNumber,
-                             String contactPerson, String city, String street, StorageReference image, int event_status) {
+                             String contactPerson, String city, String street, StorageReference image, int event_status,String key) {
         this.photo = photo;
         this.date = date;
         this.time = time;
@@ -48,6 +49,15 @@ public class PortfolioActivity {
         this.street = street;
         this.image = image;
         this.event_status = event_status;
+        this.key = key;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public StorageReference getImage() {
