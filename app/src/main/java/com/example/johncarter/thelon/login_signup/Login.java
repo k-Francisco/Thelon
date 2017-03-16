@@ -178,21 +178,20 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                             Toast.makeText(Login.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         }else{
-                          Firebase zx = mrefUsers.push();
-
                             String name = task.getResult().getUser().getDisplayName();
                             String email = task.getResult().getUser().getEmail();
-                            Users users = new Users(name,"Volunteer",email,zx.getKey());
+                            String AuthID = task.getResult().getUser().getUid();
+                            Users users = new Users(name,"Volunteer",email,AuthID);
                            // Volunteer volunteer = new Volunteer(name,email,"");
-                            zx.setValue(users);
+                            mrefUsers.child(AuthID).setValue(users);
                         //    mrefVol.child(key).setValue(volunteer);
                             Log.e("kobe","NISUD SA ELSE");
-                            Log.e("kobe",""+zx.getKey());
                             Log.e("kobe",""+name);
                         }
                         // ...
                     }
                 });
+
     }
 
     @Override

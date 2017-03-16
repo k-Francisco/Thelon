@@ -13,12 +13,11 @@ public class Url {
     public Url(String url) {
         Url = url;
     }
-    public Url(){
 
+    public Url(){
     }
 
     public String getUrl() {
-
         return Url;
     }
 

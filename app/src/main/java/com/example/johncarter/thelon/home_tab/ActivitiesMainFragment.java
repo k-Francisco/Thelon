@@ -62,7 +62,7 @@ public class ActivitiesMainFragment extends Fragment implements ExpandingFragmen
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.activity_home2,container,false);
-
+        Firebase.setAndroidContext(getContext());
         activityList = new ArrayList<>();
         ActivityPhotos = new Firebase("https://ethelon-33583.firebaseio.com/ActivityPhotos");
 

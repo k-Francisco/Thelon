@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.example.johncarter.thelon.R;
 
@@ -55,6 +56,7 @@ public class CreateActivity2Fragment extends Fragment {
                 String time = getArguments().getString("time");
                 ArrayList<String >photoList = getArguments().getStringArrayList("photoList");
 
+
                 args.putStringArrayList("photoList",photoList);
                 args.putString("name",name);
                 args.putString("date",date);
@@ -70,9 +72,14 @@ public class CreateActivity2Fragment extends Fragment {
                 args.putString("age",aged.getText().toString());
                 args.putString("occupation",occupationd.getText().toString());
 
-                act3.setArguments(args);
-                FragmentManager fm = getFragmentManager();
-                fm.beginTransaction().replace(R.id.fram2,act3).addToBackStack("step2").commit();
+                if(locd.getText().toString().equals("") || genderd.getText().toString().equals("") ||
+                        aged.getText().toString().equals("") || occupationd.getText().toString().equals("")){
+                    Toast.makeText(getActivity(), "Please Supply the fields properly", Toast.LENGTH_SHORT).show();
+                }else{
+                    act3.setArguments(args);
+                    FragmentManager fm = getFragmentManager();
+                    fm.beginTransaction().replace(R.id.fram2,act3).addToBackStack("step2").commit();
+                }
             }
         });
 

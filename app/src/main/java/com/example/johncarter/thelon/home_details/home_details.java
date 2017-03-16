@@ -29,6 +29,7 @@ import com.example.johncarter.thelon.admin_side.VolunteersInDetailsFragment;
 import com.example.johncarter.thelon.fragments.Home_Details_Text;
 import com.firebase.client.Firebase;
 import com.firebase.ui.storage.images.FirebaseImageLoader;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -55,12 +56,19 @@ public class home_details extends AppCompatActivity {
     String url;
     StorageReference storageReference;
     String key;
+
+    Firebase activityAttendeesBefore;
+    FirebaseAuth auth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_home_details2);
+        Firebase.setAndroidContext(this);
 
+        activityAttendeesBefore = new Firebase("https://ethelon-33583.firebaseio.com/ActivityAttendeesBefore");
+        auth = FirebaseAuth.getInstance();
         Window window = this.getWindow();
         storageReference = FirebaseStorage.getInstance().getReference();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -94,7 +102,7 @@ public class home_details extends AppCompatActivity {
         foundation.setText(found);
         Log.e("home","name = "+in.getStringExtra("name")+" found "+in.getStringExtra("foundation"));
         StorageReference st = storageReference.child("ActivityPhotos").child(key).child(url);
-       Glide.with(this).using(new FirebaseImageLoader()).load(st).into(image);
+        Glide.with(this).using(new FirebaseImageLoader()).load(st).into(image);
 
 
         refer = (ImageView)findViewById(R.id.referBtn);
@@ -108,6 +116,11 @@ public class home_details extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 joinBtn.setImageResource(R.drawable.ic_heart_red);
+                String userID =  auth.getCurrentUser().getUid();
+                String userName = auth.getCurrentUser().getDisplayName();
+
+                activityAttendeesBefore.child(key).child(userID).setValue(userName);
+
                 Snackbar.make(v, "Successfully joined event!",
                             Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();

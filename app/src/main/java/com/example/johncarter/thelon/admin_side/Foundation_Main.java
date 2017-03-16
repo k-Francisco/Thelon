@@ -1,11 +1,14 @@
 package com.example.johncarter.thelon.admin_side;
 
+import android.app.DatePickerDialog;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
@@ -43,7 +46,7 @@ import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import br.com.mauker.materialsearchview.MaterialSearchView;
 
 
-public class Foundation_Main extends AppCompatActivity {
+public class Foundation_Main extends AppCompatActivity implements com.android.datetimepicker.date.DatePickerDialog.OnDateSetListener{
     MaterialSearchView searchView;
     PrimaryDrawerItem home,foundation_profile,settings,logout;
     AccountHeader accountHeader;
@@ -54,6 +57,7 @@ public class Foundation_Main extends AppCompatActivity {
 
     FragmentManager fm;
     FloatingActionButton fab;
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,12 +65,15 @@ public class Foundation_Main extends AppCompatActivity {
         searchView = (MaterialSearchView)findViewById(R.id.search_view);
         fab = (FloatingActionButton) findViewById(R.id.add_act);
 
+
         Window window = getWindow();
        // window.setStatusBarColor(Color.parseColor("#EE2A1B"));
 
         tab = (TabLayout) findViewById(R.id.tab_menu);
         tab.addTab(tab.newTab().setText("Activities"));
         tab.addTab(tab.newTab().setText("Volunteers"));
+        /*DatePickerDialog datePicker = new DatePickerDialog(this);
+        datePicker.show();*/
 
         fm = getFragmentManager();
         fm.beginTransaction().add(new ActivitiesFragment(),"act_main").commit();
@@ -98,7 +105,9 @@ public class Foundation_Main extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fm.beginTransaction().replace(R.id.fram2,new CreateActivityFragment()).addToBackStack("act_main").commit();
+                CreateActivityFragment caf = new CreateActivityFragment();
+                caf.setContext(getApplicationContext());
+                fm.beginTransaction().replace(R.id.fram2,caf).addToBackStack("act_main").commit();
                 fab.hide();
             }
         });
@@ -303,5 +312,10 @@ public class Foundation_Main extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.search_menu, menu);
         return true;
+    }
+
+    @Override
+    public void onDateSet(com.android.datetimepicker.date.DatePickerDialog dialog, int year, int monthOfYear, int dayOfMonth) {
+
     }
 }
