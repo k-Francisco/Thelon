@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.johncarter.thelon.admin_side.Foundation_Main;
+import com.example.johncarter.thelon.interest_skills;
 import com.example.johncarter.thelon.models.Users;
 import com.example.johncarter.thelon.models.Volunteer;
 import com.facebook.AccessToken;
@@ -89,7 +90,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                 if (user != null) {
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                    startActivity(new Intent(Login.this,LandingPage.class));
+                    startActivity(new Intent(Login.this,interest_skills.class));
                     finish();
 
                 } else {

@@ -3,9 +3,7 @@
     package="com.example.johncarter.thelon">
 
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.INTERNET"/>
-
-
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -13,8 +11,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <meta-data android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"/>
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
         <activity android:name=".main_screens.LandingPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -52,8 +52,9 @@
         <activity
             android:name=".admin_side.admin_welcome"
             android:theme="@style/LoginSignup" />
-        <activity android:name=".admin_side.foundation_profile"
-            android:theme="@style/LoginSignup"/>
+        <activity
+            android:name=".admin_side.foundation_profile"
+            android:theme="@style/LoginSignup" />
         <activity
             android:name=".admin_side.Foundation_Main"
             android:label="@string/title_activity_foundation__main"
@@ -62,7 +63,7 @@
         <activity android:name=".home_details.AttendaceCheckinig" />
         <activity android:name=".home_details.AttendanceSuccess" />
         <activity android:name=".home_details.EvaluationActivity" />
-        <activity android:name=".portfolio.PorfolioNew"/>
+        <activity android:name=".portfolio.PorfolioNew" />
 
         <provider
             android:name="br.com.mauker.materialsearchview.db.HistoryProvider"
@@ -72,8 +73,9 @@
             android:syncable="true" />
 
         <activity android:name=".BadgeBadge" />
-        <activity android:name=".Performance.Performance2"></activity>
+        <activity android:name=".Performance.Performance2" />
         <activity android:name=".admin_side.CreateSuccess" />
+        <activity android:name=".interest_skills"></activity>
     </application>
 
 </manifest>

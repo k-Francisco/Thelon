@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#c0392b"
+    android:scrollbars="none"
+    tools:context="com.example.johncarter.thelon.interest_skills">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvHeaderText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What activities do you want to do?"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Light.Widget.PopupMenu.Large"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"/>
+
+
+    <LinearLayout
+        android:id="@+id/llAct1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvHeaderText"
+        android:layout_marginTop="20dp"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/ivBefriend"
+            android:layout_width="100dp"
+            android:layout_height="185dp"
+            android:src="@drawable/befriending"
+            android:scaleType="centerCrop"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Befriending/Monitoring"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_marginTop="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+                android:textColor="#ffffff"
+                android:text="Befriending/mentoring can offer volunteers the opportunity to provide support and friendship to a person who may be going through a difficult period, is feeling lonely, or is adjusting to a major change in their life. Potential activities can include meeting with a client to go shopping or visiting a client who might be isolated in their community to have a chat over a cup of coffee."/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llAct2"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llAct1"
+        android:layout_marginTop="20dp"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/ivOffice"
+            android:layout_width="100dp"
+            android:layout_height="185dp"
+            android:src="@drawable/officework"
+            android:scaleType="centerCrop"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Administrative/Office Work"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_marginTop="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+                android:textColor="#ffffff"
+                android:text="Many organisations require volunteers for office administration assistance such as reception duties, typing and research. Organisations often seek volunteers to help out at busy times with publicity campaigns or fundraising drives. Potential activities can include reception and administrative work, computing, managing a committee, and much more."/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llAct3"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llAct2"
+        android:layout_marginTop="20dp"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/ivArts"
+            android:layout_width="100dp"
+            android:layout_height="185dp"
+            android:src="@drawable/arts"
+            android:scaleType="centerCrop"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Arts (Music/Drama/Crafts)"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_marginTop="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+                android:textColor="#ffffff"
+                android:text="There are lots of amazing ways to volunteer in the arts. you can volunteer by teaching, coaching, set design and assisting with a variety of arts and crafts from fine art to card making. If you’re musical, you can volunteer as a musician at a local nursing home or community centre. Of course, you don’t neccasrily have to be artistic to volunteer in the arts"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llAct4"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llAct3"
+        android:layout_marginTop="20dp"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/ivTeaching"
+            android:layout_width="100dp"
+            android:layout_height="185dp"
+            android:src="@drawable/teaching"
+            android:scaleType="centerCrop"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Teaching/Supporting Learning"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_marginTop="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+                android:textColor="#ffffff"
+                android:text="Volunteering opportunities in teaching are available across all age groups and an assortment of organisations and causes.   Potential volunteering activities include literacy tutoring, leaving certiciate student support, and many others."/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llAct5"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llAct4"
+        android:layout_marginTop="20dp"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/ivYouth"
+            android:layout_width="100dp"
+            android:layout_height="185dp"
+            android:src="@drawable/youthwork"
+            android:scaleType="centerCrop"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Youth Work"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_marginTop="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+                android:textColor="#ffffff"
+                android:text="Volunteering opportunities in youth work include a wide range of activities concerned with supporting children and young people. A few examples of volunteering activities in this area include: supervising young people, becoming a leader in a youth club, facilitating art workshops, being a positive role model for a young person, and many more!"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llAct6"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llAct5"
+        android:layout_marginTop="20dp"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/ivUndecided"
+            android:layout_width="100dp"
+            android:layout_height="185dp"
+            android:src="@drawable/undecided"
+            android:scaleType="centerCrop"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="The Undecided"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_marginTop="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+                android:textColor="#ffffff"
+                android:text="Get to know yourself more and decide later when your ready. You can always change your preference at your profile"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+</ScrollView>
