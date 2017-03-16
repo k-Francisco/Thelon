@@ -168,15 +168,22 @@ public class ActivityListAdapter extends RecyclerView.Adapter<ActivityListAdapte
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    QrCode qr = new QrCode(qrCode.get(getAdapterPosition()));
                     FragmentManager fm = ((Activity)context).getFragmentManager();
                     AdminActivityDetails adminActivityDetails = new AdminActivityDetails();
-                    Log.d("charles",qrCode.size() + "");
                     Bundle bundle = new Bundle();
-                    bundle.putString("qr", qrCode.get(getAdapterPosition()).getDownloadUrl().toString());
-
+                    bundle.putParcelable("qrcode",qr);
                     adminActivityDetails.setArguments(bundle);
-                    //adminActivityDetails.setQrCodeImg(qrCode.get(getAdapterPosition()),context);
                     fm.beginTransaction().replace(R.id.fram2, adminActivityDetails).addToBackStack("act_frag").commit();
+                    //adminActivityDetails.setQrCode(qrCode.get(getAdapterPosition()),context);
+                    //Glide.with(context).using(new FirebaseImageLoader()).load(qrCode.get(getAdapterPosition())).into(adminActivityDetails.getQrCodeImg());
+                    //adminActivityDetails.getQrCodeImg();
+                    //Log.d("charles",qrCode.size() + "");
+//                    Bundle bundle = new Bundle();
+//                    bundle.putString("qr", qrCode.get(getAdapterPosition()).getDownloadUrl().toString());
+//
+//                    adminActivityDetails.setArguments(bundle);
+                    //adminActivityDetails.setQrCodeImg(qrCode.get(getAdapterPosition()),context);
                 }
             });
         }
