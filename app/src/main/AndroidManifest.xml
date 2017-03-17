@@ -75,7 +75,8 @@
         <activity android:name=".BadgeBadge" />
         <activity android:name=".Performance.Performance2" />
         <activity android:name=".admin_side.CreateSuccess" />
-        <activity android:name=".interest_skills"></activity>
+        <activity android:name=".interest_skills" />
+        <activity android:name=".home_details.activity_volunteer_success"></activity>
     </application>
 
 </manifest>
