@@ -46,10 +46,10 @@ public class CreateActivityFragment extends Fragment  {
 
     ArrayList<Bitmap> images = new ArrayList<>();
     EditText name;
-    EditText date;
+    TextView date;
     EditText street;
     EditText city;
-    EditText time;
+    TextView time;
     Foundation_Main fm;
     EditText address;
     ArrayList<String> pics;
@@ -67,11 +67,11 @@ public class CreateActivityFragment extends Fragment  {
         final Calendar calendar = Calendar.getInstance();
 
         name = (EditText)rootView.findViewById(R.id.ac_name_txt);
-        date = (EditText)rootView.findViewById(R.id.ac_date_text);
+        date = (TextView)rootView.findViewById(R.id.ac_date_text);
         street = (EditText)rootView.findViewById(R.id.ac_street_text);
         city = (EditText)rootView.findViewById(R.id.ac_city_text);
         address = (EditText)rootView.findViewById(R.id.ac_location_text);
-        time = (EditText)rootView.findViewById(R.id.ac_time_text);
+        time = (TextView)rootView.findViewById(R.id.ac_time_text);
         pics = new ArrayList<>();
        // category = (EditText)rootView.findViewById(R.id.ac)
         mrefActivities = new Firebase("https://ethelon-33583.firebaseio.com/Activity");
@@ -79,6 +79,14 @@ public class CreateActivityFragment extends Fragment  {
         FrameLayout step2 = (FrameLayout) rootView.findViewById(R.id.step2);
         final FragmentManager fm = getFragmentManager();
         fm.beginTransaction().add(new CreateActivityFragment(),"step1");
+
+        time.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment timeFragment = new TimePickerFragment();
+                timeFragment.show(getFragmentManager(), "wtf");
+            }
+        });
 
         date.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)
@@ -88,19 +96,8 @@ public class CreateActivityFragment extends Fragment  {
                /* DialogFragment newFr = new com.example.johncarter.thelon.admin_side.DialogFragment();
                 newFr.show(getFragmentManager(),"date");*/
 
-                new SingleDateAndTimePickerDialog.Builder(getActivity())
-                        .bottomSheet()
-                        .curved()
-                        .minutesStep(15)
-                        .title("Simple")
-                        .listener(new SingleDateAndTimePickerDialog.Listener() {
-                            @Override
-                            public void onDateSelected(Date dates) {
-                                Log.e("kobe"," Fuck "+dates.toString());
-                                date.setText(dates.toString());
-                                Log.e("kobe"," shit "+dates.getYear());
-                            }
-                        }).display();
+                DialogFragment dateFragment = new DatePickerFragment();
+                dateFragment.show(getFragmentManager(), "wtf");
             }
         });
 

@@ -106,6 +106,7 @@ public class Foundation_Main extends AppCompatActivity implements com.android.da
             @Override
             public void onClick(View v) {
                 CreateActivityFragment caf = new CreateActivityFragment();
+                caf.setAct(Foundation_Main.this);
                 caf.setContext(getApplicationContext());
                 fm.beginTransaction().replace(R.id.fram2,caf).addToBackStack("act_main").commit();
                 fab.hide();
