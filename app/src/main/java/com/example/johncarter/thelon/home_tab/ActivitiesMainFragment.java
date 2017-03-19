@@ -98,7 +98,7 @@ public class ActivitiesMainFragment extends Fragment implements ExpandingFragmen
                             travels.add(new Travel(activityList.get(num).getActname(), st));
                            Log.e("dd",""+activity.getActname());
                             adapter.addAll(travels);
-                            viewPager.setAdapter(adapter);
+                                viewPager.setAdapter(adapter);
                           //  Log.e("Anton",activityList.get(pos).getDate()+" at "+activityList.get(pos).getTime()+ "activityList size"
                             //+activityList.size());
                             num++;

@@ -46,7 +46,7 @@
         android:layout_below="@+id/charles"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:text="Anton Wycoco"
+        android:text=""
         android:id="@+id/label3"
         android:textStyle="bold"/>
 

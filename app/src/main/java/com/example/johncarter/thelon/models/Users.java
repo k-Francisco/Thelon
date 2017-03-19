@@ -1,5 +1,7 @@
 package com.example.johncarter.thelon.models;
 
+import android.net.Uri;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
@@ -11,6 +13,11 @@ public class Users {
     String userType;
     String Email;
     String key;
+    String uri;
+
+    public Users(){
+
+    }
 
     public String getDisplayName() {
         return displayName;
@@ -44,12 +51,19 @@ public class Users {
         this.key = key;
     }
 
+    public String getUri() {
+        return uri;
+    }
 
+    public void setUri(String uri) {
+        this.uri = uri;
+    }
 
-    public Users(String displayName, String userType, String email,String key) {
+    public Users(String displayName, String userType, String email, String key, String uri) {
         this.displayName = displayName;
         this.userType = userType;
         this.Email = email;
         this.key = key;
+        this.uri = uri;
     }
 }

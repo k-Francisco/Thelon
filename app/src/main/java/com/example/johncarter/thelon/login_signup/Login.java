@@ -2,6 +2,7 @@ package com.example.johncarter.thelon.login_signup;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -54,6 +55,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
     Firebase mrefVol;
     EditText email;
     Firebase sample;
+    Firebase scoreTable;
     DatabaseReference db;
 
 
@@ -74,6 +76,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         }
 
 
+        scoreTable = new Firebase("https://ethelon-33583.firebaseio.com/VolunteerScore");
         db = FirebaseDatabase.getInstance().getReference();
         email = (EditText)findViewById(R.id.emailTxt);
         mrefUsers = new Firebase("https://ethelon-33583.firebaseio.com/Users");
@@ -182,13 +185,16 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                             String name = task.getResult().getUser().getDisplayName();
                             String email = task.getResult().getUser().getEmail();
                             String AuthID = task.getResult().getUser().getUid();
-                            Users users = new Users(name,"Volunteer",email,AuthID);
+                            Uri uri = task.getResult().getUser().getPhotoUrl();
+                            Users users = new Users(name,"Volunteer",email,AuthID,uri.toString());
                            // Volunteer volunteer = new Volunteer(name,email,"");
                             mrefUsers.child(AuthID).setValue(users);
+                            scoreTable.child(AuthID).child("score").setValue("0");
                         //    mrefVol.child(key).setValue(volunteer);
                             Log.e("kobe","NISUD SA ELSE");
                             Log.e("kobe",""+name);
                         }
+
                         // ...
                     }
                 });

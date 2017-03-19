@@ -49,6 +49,7 @@ public class CreateActivity3Fragment extends Fragment {
     StorageReference mref;
     Firebase activityPhotosRef;
     Firebase activityQrCodes;
+    int ilhananKungEditBahorCreateRah = 0;
 
 
     @Nullable
@@ -67,9 +68,26 @@ public class CreateActivity3Fragment extends Fragment {
         final EditText cot = (EditText)rootView.findViewById(R.id.contact_txt);
         final EditText em = (EditText)rootView.findViewById(R.id.email_txt);
 
+        if(getArguments().getString("ilhanan").equals("edit")){
+            String editPersonInCharge = getArguments().getString("editPersonInCharge");
+            String editPersonContactNumber  = getArguments().getString("editPersonContactNumber");
+            String editEmail = getArguments().getString("editEmail");
+
+            poc.setText(editPersonInCharge);
+            cot.setText(editPersonContactNumber);
+            em.setText(editEmail);
+        }
+
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(poc.getText().toString().equals("")||cot.getText().toString().equals("")||em.getText().toString().equals("")){
+                    Toast.makeText(getActivity(), "Please Supply the fields properly", Toast.LENGTH_SHORT).show();
+                }else{
+
+                }
+
                 String name = getArguments().getString("name");
                 String date = getArguments().getString("date");
                 String street = getArguments().getString("street");
@@ -82,44 +100,79 @@ public class CreateActivity3Fragment extends Fragment {
                 String age = getArguments().getString("age");
                 ArrayList<String> photoList = getArguments().getStringArrayList("photoList");
 
-
                 Log.e("kyla","vlocation = "+location+"\ngender = "+gender+"\noccupation = "+occupation
                 +"\nage = "+age);
 
-                final Firebase root = mrootAct.push();
-                for(int i = 0; i <photoList.size();i++){
-                    final Uri uri = Uri.parse(photoList.get(i));
-                    Log.e("kobe",""+uri.getLastPathSegment());
-                    Log.e("charles",""+photoList.size());
-                    storageReference  = mref.child("ActivityPhotos").child(root.getKey()).child(uri.getLastPathSegment());
+                if(getArguments().getString("ilhanan").equals("create")) {
+                    Toast.makeText(getActivity(), "NI SUD SA ILHANAN CREATE", Toast.LENGTH_LONG).show();
+                    final Firebase root = mrootAct.push();
+                    for (int i = 0; i < photoList.size(); i++) {
+                        final Uri uri = Uri.parse(photoList.get(i));
+                        Log.e("kobe", "" + uri.getLastPathSegment());
+                        Log.e("charles", "" + photoList.size());
+                        storageReference = mref.child("ActivityPhotos").child(root.getKey()).child(uri.getLastPathSegment());
 
 
-                    storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                          // activityPhotosRef.child(root.getKey()).push().child("Url").setValue(taskSnapshot.getDownloadUrl().toString());
-                            activityPhotosRef.child(root.getKey()).push().child("Url").setValue(uri.getLastPathSegment());
-                            Log.d("kobe","good "+taskSnapshot.getDownloadUrl().toString());
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(getActivity(), "Upload Failed", Toast.LENGTH_LONG).show();
-                            Log.e("kobe","fail");
+                        storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                // activityPhotosRef.child(root.getKey()).push().child("Url").setValue(taskSnapshot.getDownloadUrl().toString());
+                                activityPhotosRef.child(root.getKey()).child("Url").setValue(uri.getLastPathSegment());
+                                Log.d("kobe", "good " + taskSnapshot.getDownloadUrl().toString());
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(getActivity(), "Upload Failed", Toast.LENGTH_LONG).show();
+                                Log.e("kobe", "fail");
 
-                        }
-                    });
+                            }
+                        });
+                    }
+
+                    Activity activity = new Activity(name, date, time, street, city, address, "Ethelon", "Ethelon", poc.getText().toString(),
+                            cot.getText().toString(), em.getText().toString(), location, gender, occupation, age, root.getKey());
+                    root.setValue(activity);
+                    Log.e("charles", " location =" + activity.getvLocation() + " age = " + activity.getvAge() + " Gender = " +
+                            activity.getvGender() + " Occuption = " + activity.getvOccupation());
+                    Log.e("charles", root.getKey());
+                    generateQrCode(root);
+                    startActivity(new Intent(rootView.getContext(),CreateSuccess.class));
+                }else{
+                    Toast.makeText(getActivity(), "NI SUD SA ILHANAN EDIT", Toast.LENGTH_LONG).show();
+                    //final Firebase root = mrootAct.push();
+                    final String key = getArguments().getString("ActivityKeyIfEdit");
+                    for (int i = 0; i < photoList.size(); i++) {
+                        final Uri uri = Uri.parse(photoList.get(i));
+                        Log.e("kobe", "" + uri.getLastPathSegment());
+                        Log.e("charles", "" + photoList.size());
+                        storageReference = mref.child("ActivityPhotos").child(key).child(uri.getLastPathSegment());
+                        storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                // activityPhotosRef.child(root.getKey()).push().child("Url").setValue(taskSnapshot.getDownloadUrl().toString());
+                                activityPhotosRef.child(key).child("Url").setValue(uri.getLastPathSegment());
+                                Log.d("kobe", "good " + taskSnapshot.getDownloadUrl().toString());
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(getActivity(), "Upload Failed", Toast.LENGTH_LONG).show();
+                                Log.e("kobe", "fail");
+
+                            }
+                        });
+                    }
+
+                    Activity activity = new Activity(name, date, time, street, city, address, "Ethelon", "Ethelon", poc.getText().toString(),
+                            cot.getText().toString(), em.getText().toString(), location, gender, occupation, age, key);
+                    mrootAct.child(key).setValue(activity);
+                    Log.e("charles", " location =" + activity.getvLocation() + " age = " + activity.getvAge() + " Gender = " +
+                            activity.getvGender() + " Occuption = " + activity.getvOccupation());
+                    //generateQrCode(key);
+                    startActivity(new Intent(rootView.getContext(),CreateSuccess.class));
                 }
 
-                Activity activity = new Activity(name,date,time,street,city,address,"Ethelon","Ethelon",poc.getText().toString(),
-                        cot.getText().toString(),em.getText().toString(),location,gender,occupation,age,root.getKey());
-                root.setValue(activity);
-
-                Log.e("charles"," location ="+activity.getvLocation() + " age = "+activity.getvAge()+" Gender = "+
-                        activity.getvGender()+" Occuption = "+activity.getvOccupation());
-                Log.e("charles",root.getKey());
-                generateQrCode(root);
-                startActivity(new Intent(rootView.getContext(),CreateSuccess.class));
             }
         });
         return rootView;

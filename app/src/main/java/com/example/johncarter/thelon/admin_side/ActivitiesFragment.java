@@ -37,6 +37,7 @@ public class ActivitiesFragment extends Fragment{
     RecyclerView.Adapter adapter;
     Firebase mroot;
     ArrayList<String> dates;
+    ArrayList<Activity> activityModelList;
     ArrayList<String>acts;
     ArrayList<StorageReference>photo;
     ArrayList<StorageReference>qrCodes;
@@ -53,6 +54,7 @@ public class ActivitiesFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.notification_list,container,false);
         Firebase.setAndroidContext(getActivity());
+        activityModelList = new ArrayList<>();
         photo = new ArrayList<>();
         qrCodes = new ArrayList<>();
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -70,14 +72,14 @@ public class ActivitiesFragment extends Fragment{
                 if(dataSnapshot.exists()) {
 //                    Toast.makeText(getActivity(), "NAAY SUD ANG mROOT", Toast.LENGTH_SHORT).show();
                     Activity activity = dataSnapshot.getValue(Activity.class);
+                    activityModelList.add(activity);
                     acts.add(activity.getActname());
                     dates.add(activity.getActDate());
                     //mref = ActivityPhotos' Table reference
                     mref = ActivityPhotos.child(dataSnapshot.getKey()).orderByChild("Url");
                     mref2 = QrCodes.child(dataSnapshot.getKey()).orderByChild("Url");
-                    Log.e("key",""+dataSnapshot.getKey());
-                    Log.e("kelsey",""+activity.getvLocation());
-                    Log.e("key",""+mref.toString());
+
+                    Log.e("anton"," PHOTO ATAY = "+mref.toString());
                     final String is = dataSnapshot.getKey();
 
                     mref2.addChildEventListener(new ChildEventListener() {
@@ -88,9 +90,11 @@ public class ActivitiesFragment extends Fragment{
                             if (photo.size() == dates.size()) {
                                 Log.e("anton", "Photo size =" + photo.size() + " FirebaseCount = " + dataSnapshot.getChildrenCount() + "" + url.getUrl() );
                             } else {
+                                Log.e("anton","Photo size =" + photo.size() + " FirebaseCount = " + dataSnapshot.getChildrenCount() + "" + url.getUrl());
                                 StorageReference mrefs2 = storageReference.child("ActivityQR").child(is).child(url.getUrl());
                                 qrCodes.add(mrefs2);
                                 if(photo.size() == dates.size() && dates.size() == qrCodes.size()){
+                                    Log.e("anton","Photo size =" + photo.size() + " FirebaseCount = " + dataSnapshot.getChildrenCount() + "" + url.getUrl());
                                     start(rootView);
                                 }
                             }
@@ -123,10 +127,11 @@ public class ActivitiesFragment extends Fragment{
                             Url url = dataSnapshot.getValue(Url.class);
 
                                 if (photo.size() == dates.size()) {
-                                    Log.e("anton", "Photo size =" + photo.size() + " FirebaseCount = " + dataSnapshot.getChildrenCount() + "" + url.getUrl() );
+                                    Log.e("anton", "Photo size =" + photo.size() + "date size = "+dates.size()+" FirebaseCount = " + dataSnapshot.getChildrenCount() + "" + url.getUrl() );
                                 } else {
                                     StorageReference mrefs = storageReference.child("ActivityPhotos").child(is).child(url.getUrl());
                                     photo.add(mrefs);
+                                    Log.e("kobe",mrefs.toString()+"");
                                     if(photo.size() == dates.size() && dates.size() == qrCodes.size()){
                                         start(rootView);
                                     }
@@ -135,6 +140,7 @@ public class ActivitiesFragment extends Fragment{
 
                         @Override
                         public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
 
                         }
 
@@ -190,7 +196,7 @@ public class ActivitiesFragment extends Fragment{
         layoutManager = new LinearLayoutManager(rootView.getContext());
         listView.setLayoutManager(layoutManager);
 
-        adapter = new ActivityListAdapter(rootView.getContext(), acts, dates, photo,qrCodes);
+        adapter = new ActivityListAdapter(rootView.getContext(), acts, dates, photo,qrCodes,activityModelList);
         listView.setAdapter(adapter);
         i++;
     }

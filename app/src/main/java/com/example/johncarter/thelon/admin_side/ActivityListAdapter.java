@@ -37,18 +37,22 @@ import static com.example.johncarter.thelon.R.drawable.a;
 
 public class ActivityListAdapter extends RecyclerView.Adapter<ActivityListAdapter.ViewHolder> {
     Context context;
+    int positionClicked;
     ArrayList<String> acts = new ArrayList<>();
     ArrayList<String> dates = new ArrayList<>();
+    ArrayList<com.example.johncarter.thelon.models.Activity> activityList = new ArrayList<>();
     ArrayList<StorageReference>photoRef= new ArrayList<>();
     ArrayList<StorageReference> qrCode = new ArrayList<>();
     int a;
 
-    public ActivityListAdapter(Context context,ArrayList<String> acts, ArrayList<String>dates,ArrayList<StorageReference>photoRef, ArrayList<StorageReference> qrCode){
+    public ActivityListAdapter(Context context, ArrayList<String> acts, ArrayList<String>dates, ArrayList<StorageReference>photoRef, ArrayList<StorageReference> qrCode,
+                               ArrayList<com.example.johncarter.thelon.models.Activity> activity_list){
         this.context = context;
         this.acts = acts;
         this.dates = dates;
         this.photoRef = photoRef;
         this.qrCode = qrCode;
+        this.activityList = activity_list;
         Log.e("kf","acts ="+acts.size());
         Log.e("kf","Photo Array="+photoRef.size());
         Log.e("kf","QR CODE size: " + qrCode.size());
@@ -79,6 +83,7 @@ public class ActivityListAdapter extends RecyclerView.Adapter<ActivityListAdapte
         return viewHolder;
     }
 
+
     @Override
     public void onBindViewHolder(final ActivityListAdapter.ViewHolder holder, int position) {
        // Glide.with(context).using(new FirebaseImageLoader()).load(photoRef.get(position)).into(holder.activityDp);
@@ -92,6 +97,7 @@ public class ActivityListAdapter extends RecyclerView.Adapter<ActivityListAdapte
         Log.d("charles","In View Holder: " + photoRef.get(position).toString());
         holder.actDate.setText(dates.get(position));
         holder.actName.setText(acts.get(position));
+        positionClicked = position;
 
 
     }
@@ -152,17 +158,59 @@ public class ActivityListAdapter extends RecyclerView.Adapter<ActivityListAdapte
             deleteBtn = (TextView)itemView.findViewById(R.id.deleteBtn);
 
             editBtn.setOnClickListener(new View.OnClickListener() {
-                FragmentManager fm = ((Activity)context).getFragmentManager();
+
                 @Override
                 public void onClick(View v) {
-                    fm.beginTransaction().replace(R.id.fram2,new CreateActivityFragment()).addToBackStack("act_frag").commit();
+                    CreateActivityFragment frag = new CreateActivityFragment();
+                    FragmentManager fm = ((Activity)context).getFragmentManager();
+                    Bundle args = new Bundle();
+                    args.putString("editName",activityList.get(getAdapterPosition()).getActname());
+                    args.putString("editDate",activityList.get(getAdapterPosition()).getActDate());
+                    args.putString("editStreet",activityList.get(getAdapterPosition()).getActStreet());
+                    args.putString("editCity",activityList.get(getAdapterPosition()).getActCity());
+                    args.putString("editAddress",activityList.get(getAdapterPosition()).getActAddress());
+                    args.putString("editTime",activityList.get(getAdapterPosition()).getActTime());
+                    args.putString("ActivityKeyIfEdit",activityList.get(getAdapterPosition()).getKey());
+
+                    args.putString("ilhanan","edit");
+
+                    //step2
+                    args.putString("editLocation",activityList.get(getAdapterPosition()).getvLocation());
+                    args.putString("editGender",activityList.get(getAdapterPosition()).getvGender());
+                    args.putString("editAge",activityList.get(getAdapterPosition()).getvAge());
+                    args.putString("editOccupation",activityList.get(getAdapterPosition()).getvOccupation());
+
+
+                  //  args.putString("pic",photoRef.get(getAdapterPosition()).getDownloadUrl().toString());
+
+
+                    //step3
+                    args.putString("editPersonInCharge",activityList.get(getAdapterPosition()).getPpersonInCharge());
+                    args.putString("editPersonContactNumber",activityList.get(getAdapterPosition()).getPcontactNumber());
+                    args.putString("editEmail",activityList.get(getAdapterPosition()).getPemailAddress());
+
+                    frag.setArguments(args);
+                    fm.beginTransaction().replace(R.id.fram2,frag).addToBackStack("act_frag").commit();
+
                 }
             });
 
             deleteBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     ((ViewGroup)v.getParent()).removeAllViews();
+                    String activityIDtoDelete = activityList.get(getAdapterPosition()).getKey();
+                    Firebase activityFirebase = new Firebase("https://ethelon-33583.firebaseio.com/Activity");
+                    Firebase activityPhotosFirebase = new Firebase("https://ethelon-33583.firebaseio.com/ActivityPhotos");
+                    Firebase activityQRFirebase = new Firebase("https://ethelon-33583.firebaseio.com/ActivityQR");
+                    Firebase activityAttendeesBefore = new Firebase("https://ethelon-33583.firebaseio.com/ActivityAttendeesBefore");
+
+                    activityFirebase.child(activityIDtoDelete).removeValue();
+                    activityPhotosFirebase.child(activityIDtoDelete).removeValue();
+                    activityQRFirebase.child(activityIDtoDelete).removeValue();
+                    activityAttendeesBefore.child(activityIDtoDelete).removeValue();
+
                 }
             });
             itemView.setOnClickListener(new View.OnClickListener() {

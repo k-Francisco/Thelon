@@ -108,6 +108,9 @@ public class Foundation_Main extends AppCompatActivity implements com.android.da
                 CreateActivityFragment caf = new CreateActivityFragment();
                 caf.setAct(Foundation_Main.this);
                 caf.setContext(getApplicationContext());
+                Bundle args = new Bundle();
+                args.putString("ilhanan","create");
+                caf.setArguments(args);
                 fm.beginTransaction().replace(R.id.fram2,caf).addToBackStack("act_main").commit();
                 fab.hide();
             }

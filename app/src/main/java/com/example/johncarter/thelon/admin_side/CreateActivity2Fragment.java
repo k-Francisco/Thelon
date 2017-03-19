@@ -38,6 +38,18 @@ public class CreateActivity2Fragment extends Fragment {
         final String occupation = occupationd.getText().toString();
         final String age = aged.getText().toString();
 
+        if(getArguments().getString("ilhanan").equals("edit")){
+            String editLocation = getArguments().getString("editLocation");
+            String editGender = getArguments().getString("editGender");
+            String editAge = getArguments().getString("editAge");
+            String editOccupation = getArguments().getString("editOccupation");
+
+            locd.setText(editLocation);
+            genderd.setText(editGender);
+            aged.setText(editAge);
+            occupationd.setText(editOccupation);
+
+        }
 
         VolunteersFragment vm = new VolunteersFragment();
         vm.setViewzz(rootView);
@@ -47,38 +59,55 @@ public class CreateActivity2Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 CreateActivity3Fragment act3 = new CreateActivity3Fragment();
-                Bundle args = new Bundle();
-                String name = getArguments().getString("name");
-                String date = getArguments().getString("date");
-                String street = getArguments().getString("street");
-                String city = getArguments().getString("city");
-                String address = getArguments().getString("address");
-                String time = getArguments().getString("time");
-                ArrayList<String >photoList = getArguments().getStringArrayList("photoList");
-
-
-                args.putStringArrayList("photoList",photoList);
-                args.putString("name",name);
-                args.putString("date",date);
-                args.putString("street",street);
-                args.putString("city",city);
-                args.putString("address",address);
-                args.putString("time",time);
-
-                Log.e("step2"," "+locd.getText().toString()+genderd.getText().toString()+occupationd.getText().toString()+aged.getText().toString());
-
-                args.putString("location",locd.getText().toString());
-                args.putString("gender",genderd.getText().toString());
-                args.putString("age",aged.getText().toString());
-                args.putString("occupation",occupationd.getText().toString());
+                FragmentManager fm = getFragmentManager();
 
                 if(locd.getText().toString().equals("") || genderd.getText().toString().equals("") ||
                         aged.getText().toString().equals("") || occupationd.getText().toString().equals("")){
                     Toast.makeText(getActivity(), "Please Supply the fields properly", Toast.LENGTH_SHORT).show();
-                }else{
-                    act3.setArguments(args);
-                    FragmentManager fm = getFragmentManager();
-                    fm.beginTransaction().replace(R.id.fram2,act3).addToBackStack("step2").commit();
+                }else {
+                    Bundle args = new Bundle();
+                    //gikan first
+                    String name = getArguments().getString("name");
+                    String date = getArguments().getString("date");
+                    String street = getArguments().getString("street");
+                    String city = getArguments().getString("city");
+                    String address = getArguments().getString("address");
+                    String time = getArguments().getString("time");
+                    //pasa ang first og second
+                    args.putString("location", locd.getText().toString());
+                    args.putString("gender", genderd.getText().toString());
+                    args.putString("age", aged.getText().toString());
+                    args.putString("occupation", occupationd.getText().toString());
+                    ArrayList<String> photoList = getArguments().getStringArrayList("photoList");
+                    args.putStringArrayList("photoList", photoList);
+                    args.putString("name",name);
+                    args.putString("date",date);
+                    args.putString("street",street);
+                    args.putString("city",city);
+                    args.putString("address",address);
+                    args.putString("time",time);
+
+                    if(getArguments().getString("ilhanan").equals("create")) {
+                        args.putString("ilhanan","create");
+                        act3.setArguments(args);
+                        fm.beginTransaction().replace(R.id.fram2,act3).commit();
+                    }else {
+                        //i getArguments ang mga Edit
+                        String editPersonInCharge = getArguments().getString("editPersonInCharge");
+                        String editPersonContactNumber = getArguments().getString("editPersonContactNumber");
+                        String editEmail = getArguments().getString("editEmail");
+
+                        args.putString("editPersonInCharge", editPersonInCharge);
+                        args.putString("editPersonContactNumber", editPersonContactNumber);
+                        args.putString("editEmail", editEmail);
+
+                        String key = getArguments().getString("ActivityKeyIfEdit");
+                        args.putString("ActivityKeyIfEdit", key);
+                        args.putString("ilhanan","edit");
+                        act3.setArguments(args);
+                        fm.beginTransaction().replace(R.id.fram2, act3).commit();
+                    }
+
                 }
             }
         });

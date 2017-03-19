@@ -101,16 +101,30 @@ public class CreateActivityFragment extends Fragment  {
             }
         });
 
+        if(getArguments() != null){
+         String editName = getArguments().getString("editName");
+         String editDate = getArguments().getString("editDate");
+         String editStreet = getArguments().getString("editStreet");
+         String editCity = getArguments().getString("editCity");
+         String editAddress = getArguments().getString("editAddress");
+         String editTime = getArguments().getString("editTime");
+      //   String pic = getArguments().getString("pic");
+
+            name.setText(editName);
+            date.setText(editDate);
+            city.setText(editCity);
+            street.setText(editStreet);
+            address.setText(editAddress);
+            time.setText(editTime);
+        //    pics.add(pic);
+
+        }
+
         step2.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View v) {
                 //CreateActivity3Fragment act3 = new CreateActivity3Fragment();
-
-
-
-
-
                 CreateActivity2Fragment frag = new CreateActivity2Fragment();
                 FragmentManager fm = getFragmentManager();
 
@@ -128,8 +142,39 @@ public class CreateActivityFragment extends Fragment  {
                     args.putString("address", address.getText().toString());
                     args.putString("time", time.getText().toString());
                     args.putStringArrayList("photoList", pics);
-                    frag.setArguments(args);
-                    fm.beginTransaction().replace(R.id.fram2, frag).addToBackStack("step1").commit();
+
+                    if(getArguments().getString("ilhanan").equals("create")){
+                        Log.e("kelsey","ni sud sa getArguments == null");
+                        args.putString("ilhanan","create");
+                        frag.setArguments(args);
+                        fm.beginTransaction().replace(R.id.fram2, frag).addToBackStack("step1").commit();
+                    }else {
+                        String editLocation = getArguments().getString("editLocation");
+                        String editGender = getArguments().getString("editGender");
+                        String editAge = getArguments().getString("editAge");
+                        String editOccupation = getArguments().getString("editOccupation");
+                        String editPersonInCharge = getArguments().getString("editPersonInCharge");
+                        String editPersonContactNumber = getArguments().getString("editPersonContactNumber");
+                        String editEmail = getArguments().getString("editEmail");
+                        String key = getArguments().getString("ActivityKeyIfEdit");
+                        Log.e("kelsey","key = "+key);
+
+                        args.putString("editLocation",editLocation);
+                        args.putString("editGender",editGender);
+                        args.putString("editAge",editAge);
+                        args.putString("editOccupation",editOccupation);
+
+
+                        args.putString("editPersonInCharge",editPersonInCharge);
+                        args.putString("editPersonContactNumber",editPersonContactNumber);
+                        args.putString("editEmail",editEmail);
+
+                        args.putString("ActivityKeyIfEdit",key);
+                        args.putString("ilhanan","edit");
+
+                        frag.setArguments(args);
+                        fm.beginTransaction().replace(R.id.fram2, frag).addToBackStack("step1").commit();
+                    }
                 }
 
             }
